@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With US</title>
+    <link rel="stylesheet" href="forms_stylesheet.css">
+</head>
+<body>
+
+    <h1 id = main-header>HELLO!</h1>
+<form method="POST" action="https://request-inspector.glitch.me/">
+    <p>
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" placeholder="Enter username here.">
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Enter password here">
+    </p>
+    <p>
+<!--        <button type="submit">Click here</button>-->
+    </p>
+</form>
+    <h2>Compose an Email</h2>
+    <p>
+        <label for="subject">Subject</label>
+        <br>
+        <input id="subject" name="subject" placeholder="Subject here">
+    </p>
+    <br>
+       <label for="body">Body</label>
+    <br>
+        <textarea id="body" name="body" rows="5" cols="40" placeholder="Content Here"></textarea>
+    <br>
+        <input type="hidden" id="user_id" name="user_id" value="1234">
+    <br>
+
+    <h2>Checkboxes</h2>
+        <input type="checkbox" id="mailing_list" name="mailing_list" value="yes" checked>
+        <label for="mailing_list">Sign me up for the mailing list!</label>
+    <br>
+    <p>What operating systems have you used?</p>
+        <label><input type="checkbox" id="os1" name="os[]" value="linux"> Linux</label>
+        <label><input type="checkbox" id="os2" name="os[]" value="osx"> OS X</label>
+        <label><input type="checkbox" id="os3" name="os[]" value="windows"> Windows</label>
+        <br>
+    <p>How did you hear about us?</p>
+        <label><input type="radio" name="q1" value="billboard">
+            Billboard</label>
+        <label><input type="radio" name="q1" value="radio advertisement">
+            Radio Advertisement</label>
+        <label><input type="radio" name="q1" value="internet advertisement">
+            Internet Advertisement</label>
+        <label><input type="radio" name="q1" value="other">
+            Other</label>
+        <br><br>
+        <label for="browser">What web browser are you using?</label>
+        <select id="browser" name="browser">
+            <option value="chrome">Chrome</option>
+            <option value="safari">Safari</option>
+            <option value="firefox">Firefox</option>
+            <option value="other">Other</option>
+        </select>
+        <br>
+    <h2>Select Testing</h2>
+        <label for="SA">Are you from San Antonio</label>
+        <select id="SA" name="SA">
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+    <br>
+
+    <button type="submit">Submit</button>
+</p>
+</body>
+</html>
