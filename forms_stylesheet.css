@@ -13,10 +13,15 @@ button{
     left:50%;
     border-color: crimson;
 }
+
+textarea {
+    border-color: aqua;
+}
 /* ID selector */
 #main-header {
     color: cornflowerblue;
 }
+
 
 /* class selector */
 .fancy-header {
@@ -26,6 +31,7 @@ button{
 .extra-large {
     font-size: 40px
 }
+
 
 /* Descendent selector */
 #container h1 {

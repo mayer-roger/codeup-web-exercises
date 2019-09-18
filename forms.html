@@ -6,20 +6,34 @@
     <link rel="stylesheet" href="forms_stylesheet.css">
 </head>
 <body>
+    <a href="https://google.com">Google</a>
+    <br>
+    <h1>Register With Us!</h1>
+<!-- HTML forms can be defined by using the <form> element. Let's start out by looking at an example of a simple login form.   -->
 
-    <h1 id = main-header>HELLO!</h1>
-<form method="POST" action="https://request-inspector.glitch.me/">
+<form method="POST" action="https://request-inspector.glitch.me">
     <p>
         <label for="username">Username</label>
-        <input id="username" name="username" type="text" placeholder="Enter username here.">
+        <input id="username" name="username" type="text"
+               placeholder="Enter username here.">
     </p>
     <p>
         <label for="password">Password</label>
-        <input id="password" name="password" type="password" placeholder="Enter password here">
+        <input id="password" name="password" type="password"
+               placeholder="Enter password here">
+<!-- Type="password" creates hidden input       -->
     </p>
-    <p>
-<!--        <button type="submit">Click here</button>-->
-    </p>
+
+<!--    Large textarea. define cols/rows -->
+<!--    <label for="body">How's it Going?</label>-->
+<!--    <br>-->
+<!--    <textarea name="body" id="body" cols="30" rows="10" placeholder="Talk about it"></textarea>-->
+<!--    <br>-->
+<!--    <input type="checkbox" id="newsletter" name="newsletter" value="yes" checked>Sign Up For The Email Newsletter </input>-->
+
+    <br><br>
+    <button  type="submit">Submit Here</button>
+
 </form>
     <h2 id="main-header">Compose an Email</h2>
     <p>
@@ -70,8 +84,7 @@
         </select>
     <br>
 
-    <button type="submit">Submit</button>
+    <button type="submit">Submit Here</button>
 
-</p>
 </body>
 </html>

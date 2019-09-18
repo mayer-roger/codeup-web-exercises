@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms example</title>
+</head>
+
+<body>
+<a href="https://google.com">Google</a>
+<br>
+<h1>HELLO!</h1>
+<br>
+<!-- HTML forms can be defined by using the <form> element. Let's start out by looking at an example of a simple login form.   -->
+
+<form method="POST" action="https://request-inspector.glitch.me">
+    <p>
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text"
+               placeholder="Enter username here.">
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password"
+               placeholder="Enter password here">
+        <!-- Type="password" creates hidden input       -->
+    </p>
+
+    <!--    Large textarea. define cols/rows -->
+    <label for="body">How's it Going?</label>
+    <br>
+    <textarea name="body" id="body" cols="30" rows="10" placeholder="Talk about it"></textarea>
+    <br>
+    <input type="checkbox" id="newsletter" name="newsletter" value="yes" checked>Sign Up For The Email Newsletter </input>
+
+    <br><br>
+
+    <label for="coffee">Coffee Preference</label>
+    <br>
+    <select id=coffee name="coffee_preference">
+        <option value="light">Light Roast</option>
+        <option value="dark">Dark Roast</option>
+        <option value="espresso" selected>Espresso Blend</option>
+        <!--auto selects first unless specified with "selected.         -->
+    </select>
+    <br>
+    <!--    Hidden input-->
+    <input type="hidden" name="user_id" value="432">
+    <br>
+    <button  type="submit">Submit Here</button>
+
+</form>
+</body>
+</html>
