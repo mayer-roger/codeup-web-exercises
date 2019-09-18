@@ -19,7 +19,7 @@ textarea {
     background-color: lightsteelblue;
 }
 ::placeholder{
-    color: gold;
+    color: plum;
 }
 
 /* ID selector */
