@@ -1,0 +1,50 @@
+
+/* element selector. (head, body, etc) */
+h2 {
+    color:#268686;text-decoration:underline;
+}
+
+/* ID selector */
+#main-header {
+    color: red;
+}
+
+/* class selector */
+.fancy-header {
+    color: purple;
+
+}
+.extra-large {
+    font-size: 100px
+}
+
+/* Descendent selector */
+#container h1 {
+    color: purple;
+}
+
+/* Direct child */
+#container2>h1 {
+    color: blue;
+}
+
+/* PSEUDO SELECTORS */
+
+/* unvisited link (:link) */
+a:link {
+    color:red;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:blue;
+}
+/* active or selected link (:active) */
+a:active {
+    color:green;
+}
