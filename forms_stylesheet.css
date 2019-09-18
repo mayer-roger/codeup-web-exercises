@@ -16,6 +16,7 @@ button{
 
 textarea {
     border-color: aqua;
+    background-color: lightsteelblue;
 }
 ::placeholder{
     color: gold;

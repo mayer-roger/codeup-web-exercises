@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Forms Bonus</title>
+    <link rel="stylesheet" href="register_stylesheet.css">
+</head>
+<body>
+    <form method="POST" action="https://request-inspector.glitch.me/"/>
+        <p>
+            <label class="text">Username</label>
+            <input class="text" name="username" type="text" id ="username"
+                   placeholder="Enter Username" autofocus="autofocus" required/>
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="text" placeholder="Enter Email" required/>
+        </p>
+    <p>
+        <label for="password">Password</label>
+        <input class="text" id="password" name="password"
+               type="password" placeholder="Enter Password" required/>
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input class="text" id="password" name="password"
+               type="password " placeholder="Confirm Password" required/>
+    </p>
+        <input type="checkbox" id="mailing_list" name="mailing_list" value="yes" checked>
+        <label for="mailing_list">Sign me up for the mailing list!</label>
+        <br>
+        <button type="submit">Submit Here</button>
+    </form>
+</body>
+</html>
