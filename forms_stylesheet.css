@@ -17,6 +17,10 @@ button{
 textarea {
     border-color: aqua;
 }
+::placeholder{
+    color: gold;
+}
+
 /* ID selector */
 #main-header {
     color: cornflowerblue;
@@ -36,6 +40,10 @@ textarea {
 /* Descendent selector */
 #container h1 {
     color: purple;
+}
+
+#background    {
+    background-color: cadetblue;
 }
 
 /* Direct child */
@@ -90,7 +98,7 @@ textarea {
 
 /* unvisited link (:link) */
 a:link {
-    color:red;
+    color:Blue;
 }
 
 /* visited link (:visited) */

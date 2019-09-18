@@ -11,7 +11,7 @@
     <h1>Register With Us!</h1>
 <!-- HTML forms can be defined by using the <form> element. Let's start out by looking at an example of a simple login form.   -->
 
-<form method="POST" action="https://request-inspector.glitch.me">
+<form method="POST" action="https://request-inspector.glitch.me/">
     <p>
         <label for="username">Username</label>
         <input id="username" name="username" type="text"
@@ -24,17 +24,12 @@
 <!-- Type="password" creates hidden input       -->
     </p>
 
-<!--    Large textarea. define cols/rows -->
-<!--    <label for="body">How's it Going?</label>-->
-<!--    <br>-->
-<!--    <textarea name="body" id="body" cols="30" rows="10" placeholder="Talk about it"></textarea>-->
-<!--    <br>-->
-<!--    <input type="checkbox" id="newsletter" name="newsletter" value="yes" checked>Sign Up For The Email Newsletter </input>-->
+<!--    Large textarea. define cols/rows-->
+    <label class="fancy-header" for="body">Tell Us About Yourself</label>
+    <br>
+    <textarea name="body" id="body" cols="30" rows="10" placeholder="Talk about it"></textarea>
+    <br>
 
-    <br><br>
-    <button  type="submit">Submit Here</button>
-
-</form>
     <h2 id="main-header">Compose an Email</h2>
     <p>
         <label for="subject">Subject</label>
@@ -49,11 +44,7 @@
         <input type="hidden" id="user_id" name="user_id" value="1234">
     <br>
 
-    <h2 class = fancy-header>Checkboxes</h2>
-        <input type="checkbox" id="mailing_list" name="mailing_list" value="yes" checked>
-        <label for="mailing_list">Sign me up for the mailing list!</label>
-    <br>
-    <p>What operating systems have you used?</p>
+    <p id = "background" style="color:yellow">What operating systems have you used?</p>
         <label><input type="checkbox" id="os1" name="os[]" value="linux"> Linux</label>
         <label><input type="checkbox" id="os2" name="os[]" value="osx"> OS X</label>
         <label><input type="checkbox" id="os3" name="os[]" value="windows"> Windows</label>
@@ -76,15 +67,38 @@
             <option value="other">Other</option>
         </select>
         <br>
-    <h2>Select Testing</h2>
+    <h2>Select An Option</h2>
+
         <label for="SA">Are you from San Antonio</label>
         <select id="SA" name="SA">
             <option>Yes</option>
             <option>No</option>
         </select>
+    <br><br>
+
+    <h2 class = fancy-header>Mailinglist</h2>
+        <input type="checkbox" id="mailing_list" name="mailing_list" value="yes" checked>
+        <label for="mailing_list">Sign me up for the mailing list!</label>
     <br>
+        <button type="submit">Submit Here</button>
+</form>
+    <br><br><br>
+    <hr>
+    <footer>
+        <div style="float: left">
+            <a href="https://github">2018 Github, Inc.</a>
+            <a href="https://google.com">Google</a>
+            <a href="https://myspace.com">mySpace</a>
+            <a href="https://aol.com">AOL</a>
+        </div>
+        <Div style = "float: right">
 
-    <button type="submit">Submit Here</button>
-
+            <a href="#">API</a>
+            <a href="#">Training</a>
+            <a href="#">Shop</a>
+            <a href="#">Blog</a>
+            <a href="#">About</a>
+        </Div>
+    </footer>
 </body>
 </html>
