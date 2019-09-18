@@ -6,22 +6,24 @@
     <link rel="stylesheet" href="form_stylesheet.css">
 </head>
 <body>
+    <a href = "https://codeup.com" target = "_blank">
+        <img src="img/codeup_logo.png" width = 60px height= 60px alt="codeup">
+    </a>
 
     <form method="Post" action="https://request-inspector.glitch.me">
     </form>
-    <h2>Compose an email</h2>
-    <br><br>
+    <h2 id="main-header" class="extra-large">Compose an email</h2>
         <p>
             <label for="Subject">Subject</label>
+            <br>
             <input id="Subject" name="subject" placeholder="Subject Here">
         </p>
-        <br>
         <p>
             <label for="body">Body</label>
+            <br>
             <textarea id="body" name="body" rows="5" cols="40" placeholder="Content Here">
             </textarea>
         </p>
-    <br>
         <p>
             <form input="Bio">BIO</form>
             <textarea name="Bio" id="Bio" cols="30" rows="10" placeholder="Bio Here"></textarea>
@@ -46,6 +48,8 @@
                 <option value="other">Other</option>
             </select>
     <br><br>
+        <input class="extra-large" type="submit">
+    <br><br><br>
     <footer>
         <a href="http://codeup.com" target="_blank">Codeup</a>
         <a href="http://google.com" target="_blank">Google</a>
