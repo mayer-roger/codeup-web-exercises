@@ -7,14 +7,26 @@
 <body>
     <h1>Deimos</h1>
     <p>These are my morning warmups:</p>
-
-    <!-- JS sum of two numbers 09.18.19      -->
     <script>
+    // JS sum of two numbers 09.18.19
     function sum(num1, num2) {
         return  num1 + num2;
     }
         console.log(sum(2, 2));
         console.log(sum(3, 4));
+
+    //JS area of triangle
+    //this function takes in 3 parameter
+    function triangleArea(a,b,c) {
+        //this variable stores half of perimeter
+        var half = (a+b+c)/2;
+        //this area is squareroot
+        var area = Math.sqrt(half * (half-a) * (half-b) * (half-c));
+        //return area
+        return area
+    }
+    //console log to see result
+    console.log(triangleArea(5, 6, 7));
 
     </script>
 
