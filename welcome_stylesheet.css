@@ -1,0 +1,14 @@
+h1 {
+    color: crimson;
+}
+
+.fancy-header{
+    color: cadetblue;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
