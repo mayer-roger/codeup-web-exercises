@@ -1,0 +1,32 @@
+/* Turns element red*/
+h1  {
+    color: blue;
+
+}
+/* Class Header*/
+.fancy-header{
+    font-family: "Abadi MT Condensed Extra Bold";
+    color: blue;
+}
+.items{
+
+}
+a:hover{
+    color: green;
+}
+
+/*ID selector*/
+#main-header{
+
+}
+
+#ipsums{
+    font-family: Chalkboard;
+    background-color: lightsteelblue;
+}
+#ipsums h1{
+    color:inherit
+/*    inherits causes the element for which it is
+specified to take the computed
+value of the property from its parent element. */
+}

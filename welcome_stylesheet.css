@@ -1,10 +1,70 @@
-h1 { color: crimson; }
-h2 { color: coral}
+body {
+    background-image: url("img/papyrus.png");
+    font-family: "American Typewriter";
+    height: 100%;
+    text-align: center;
+    align-items: end;
+    justify-items: center;
+}
 
+h1 {
+    color: crimson;
+    text-decoration: underline overline;
+    text-decoration-color: yellow;
+    background-color: #f9ea8f;
+    background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);
+}
+
+h2 {
+    color: coral;
+    font-family: "Arial Black";
+}
+
+ul {
+    list-style: none;
+    font-size: large;
+}
+
+ol {
+    font-size: large;
+    font-family: "helvetica";
+    list-style-position: inside;
+}
+ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: red; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
+/*  CLASS SELECTORS!!!!!!!!!!*/
+.list {
+    color: darkblue;
+}
+
+.main-header{
+    height: 3em;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    background-size: cover;
+    text-align: center;
+}
 
 .fancy-header{
     color: cadetblue;
     text-decoration: underline;
+    font-size: x-large;
+    border:10px solid #2eb9ce;
+
+}
+
+.styler{
+    font-weight: bolder;
 }
 
 .center {
@@ -13,3 +73,196 @@ h2 { color: coral}
     margin-right: auto;
     width: 40%;
 }
+
+table.steelBlueCols {
+    font-family: "Arial Black", Gadget, sans-serif;
+    border: 10px solid #551B12;
+    background-color: #7DC5D3;
+    width: 400px;
+    text-align: center;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table.steelBlueCols td, table.steelBlueCols th {
+    border: 4px solid #B2B420;
+    padding: 5px 10px;
+}
+
+table.steelBlueCols tbody td {
+    font-size: 19px;
+    font-weight: bold;
+    color: #FF461C;
+}
+
+table.steelBlueCols tr:nth-child(even) {
+    background: #398AA4;
+}
+
+table.steelBlueCols td:nth-child(even) {
+    background: #398AA4;
+}
+
+table.steelBlueCols thead {
+    background: #000000;
+    border-bottom: 0px solid #398AA4;
+}
+
+table.steelBlueCols thead th {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 1px solid #398AA4;
+}
+
+table.steelBlueCols thead th:first-child {
+    border-left: none;
+}
+
+table.steelBlueCols tfoot td {
+    font-size: 13px;
+}
+
+table.steelBlueCols tfoot .links {
+    text-align: right;
+}
+
+table.steelBlueCols tfoot .links a{
+    display: inline-block;
+    background: #FFFFFF;
+    color: #398AA4;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+/*SIDEBAR*/
+/* The LEFT side navigation menu */
+.sidebar1 {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-image: url("img/just-waves.png") ;
+    float: left;
+    height: 191vh;
+}
+
+/* Sidebar links */
+.sidebar1 a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    font-size: x-large;
+}
+
+/* Active/current link */
+.sidebar1 a.active {
+    background-color: lightsteelblue;
+    color: white;
+}
+
+/* Links on mouse-over */
+.sidebar1 a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+
+.sidebar2 {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-image: url("img/just-waves.png") ;
+    float: right;
+    height: 191vh;
+}
+
+/* Sidebar links */
+.sidebar2 a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    font-size: x-large;
+}
+
+/* Active/current link */
+.sidebar2 a.active {
+    background-color: lightsteelblue;
+    color: white;
+}
+
+/* Links on mouse-over */
+.sidebar2 a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+/*BUTTON DECORATION*/
+.button1 {
+    background-color: #398AA4; /* blue */
+    border: gold;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration-color: gold;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.Button1:hover {
+    background-color: black;
+    color: white;
+}
+
+/* SCROLL TO TOP*/
+.scroll-to-top {
+    text-decoration: none;
+    width: 80px;
+    height: 80px;
+    border: 3px solid #fdc800;
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: relative;
+    display: grid;
+
+    /*justify-items: center;*/
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.scroll-to-top::before {
+    position: relative;
+    content: '';
+    width: 25px;
+    height: 25px;
+    border-right: 3px solid #fdc800;
+    border-top: 3px solid #fdc800;
+    transform: rotate(-45deg);
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+.scroll-to-top:hover::before {
+    animation: scrolltotop 1s infinite;
+    margin-top: -25px;
+}
+@keyframes scrolltotop {
+    0% {
+        transform: rotate(-45deg) translate(-25px, 25px);
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        transform: rotate(-45deg) translate(0px, 0px);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
