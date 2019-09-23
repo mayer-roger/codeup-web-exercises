@@ -30,3 +30,18 @@ a:hover{
 specified to take the computed
 value of the property from its parent element. */
 }
+
+/* box model */
+.box {
+    /*default box-sizing is content-box*/
+    /* border box will delete padding from total*/
+    width: 150px;
+    height: 150px;
+    padding: 25px;
+    border: 1px solid black;
+    background-color: lightcyan;
+    margin: 5px;
+}
+#box2 {
+    box-sizing: border-box;
+}

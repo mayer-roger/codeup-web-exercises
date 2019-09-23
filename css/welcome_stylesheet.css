@@ -1,5 +1,5 @@
 body {
-    background-image: url("img/papyrus.png");
+    background-image: url("../img/papyrus.png");
     font-family: "American Typewriter";
     height: 100%;
     text-align: center;
@@ -148,7 +148,7 @@ table.steelBlueCols tfoot .links a{
     margin: 0;
     padding: 0;
     width: 200px;
-    background-image: url("img/just-waves.png") ;
+    background-image: url("../img/just-waves.png") ;
     float: left;
     height: 245vh;
 }
@@ -179,7 +179,7 @@ table.steelBlueCols tfoot .links a{
     margin: 0;
     padding: 0;
     width: 200px;
-    background-image: url("img/just-waves.png") ;
+    background-image: url("../img/just-waves.png") ;
     float: right;
     height: 245vh;
 }
