@@ -3,15 +3,12 @@ body {
     font-family: "American Typewriter";
     height: 100%;
     text-align: center;
-    align-items: end;
-    justify-items: center;
 }
 
 h1 {
     color: crimson;
     text-decoration: underline overline;
     text-decoration-color: yellow;
-    background-color: #f9ea8f;
     background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);
 }
 
@@ -20,9 +17,17 @@ h2 {
     font-family: "Arial Black";
 }
 
+/*  LISTS    */
+
+
 ul {
     list-style: none;
     font-size: large;
+}
+
+ul li::before {
+    content: "\2022";  /* 2022 is the CSS Code/unicode for a bullet */
+    color: red;
 }
 
 ol {
@@ -30,20 +35,14 @@ ol {
     font-family: "helvetica";
     list-style-position: inside;
 }
-ul li::before {
-    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    color: red; /* Change the color */
-    font-weight: bold; /* If you want it to be bold */
-    display: inline-block; /* Needed to add space between the bullet and the text */
-    width: 1em; /* Also needed for space (tweak if needed) */
-    margin-left: -1em; /* Also needed for space (tweak if needed) */
-}
 
-/*  CLASS SELECTORS!!!!!!!!!!*/
-.list {
+/*  ID SELECTOR */
+
+#list {
     color: darkblue;
 }
 
+/*  CLASS SELECTORS*/
 .main-header{
     height: 3em;
     display: flex;
@@ -60,7 +59,6 @@ ul li::before {
     text-decoration: underline;
     font-size: x-large;
     border:10px solid #2eb9ce;
-
 }
 
 .styler{
@@ -138,6 +136,7 @@ table.steelBlueCols tfoot .links a{
 }
 
 /*SIDEBAR*/
+
 /* The LEFT side navigation menu */
 .sidebar1 {
     margin: 0;
@@ -145,7 +144,7 @@ table.steelBlueCols tfoot .links a{
     width: 200px;
     background-image: url("img/just-waves.png") ;
     float: left;
-    height: 191vh;
+    height: 245vh;
 }
 
 /* Sidebar links */
@@ -176,7 +175,7 @@ table.steelBlueCols tfoot .links a{
     width: 200px;
     background-image: url("img/just-waves.png") ;
     float: right;
-    height: 191vh;
+    height: 245vh;
 }
 
 /* Sidebar links */
@@ -199,6 +198,7 @@ table.steelBlueCols tfoot .links a{
     background-color: #555;
     color: white;
 }
+
 /*BUTTON DECORATION*/
 .button1 {
     background-color: #398AA4; /* blue */
