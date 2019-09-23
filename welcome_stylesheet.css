@@ -4,14 +4,12 @@ body {
     height: 100%;
     text-align: center;
 }
-
 h1 {
     color: crimson;
     text-decoration: underline overline;
     text-decoration-color: yellow;
     background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);
 }
-
 h2 {
     color: coral;
     font-family: "Arial Black";
@@ -19,17 +17,14 @@ h2 {
 
 /*  LISTS    */
 
-
 ul {
     list-style: none;
     font-size: large;
 }
-
 ul li::before {
     content: "\2022";  /* 2022 is the CSS Code/unicode for a bullet */
     color: red;
 }
-
 ol {
     font-size: large;
     font-family: "helvetica";
@@ -42,6 +37,27 @@ ol {
     color: darkblue;
 }
 
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: red; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}
+
+
 /*  CLASS SELECTORS*/
 .main-header{
     height: 3em;
@@ -53,25 +69,15 @@ ol {
     background-size: cover;
     text-align: center;
 }
-
 .fancy-header{
     color: cadetblue;
     text-decoration: underline;
     font-size: x-large;
     border:10px solid #2eb9ce;
 }
-
 .styler{
     font-weight: bolder;
 }
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-}
-
 table.steelBlueCols {
     font-family: "Arial Black", Gadget, sans-serif;
     border: 10px solid #551B12;
@@ -194,12 +200,14 @@ table.steelBlueCols tfoot .links a{
 }
 
 /* Links on mouse-over */
+
 .sidebar2 a:hover:not(.active) {
     background-color: #555;
     color: white;
 }
 
 /*BUTTON DECORATION*/
+
 .button1 {
     background-color: #398AA4; /* blue */
     border: gold;
@@ -214,55 +222,5 @@ table.steelBlueCols tfoot .links a{
 .Button1:hover {
     background-color: black;
     color: white;
-}
-
-/* SCROLL TO TOP*/
-.scroll-to-top {
-    text-decoration: none;
-    width: 80px;
-    height: 80px;
-    border: 3px solid #fdc800;
-    border-radius: 50%;
-    box-sizing: border-box;
-    position: relative;
-    display: grid;
-
-    /*justify-items: center;*/
-    margin-left: auto;
-    margin-right: auto;
-
-}
-.scroll-to-top::before {
-    position: relative;
-    content: '';
-    width: 25px;
-    height: 25px;
-    border-right: 3px solid #fdc800;
-    border-top: 3px solid #fdc800;
-    transform: rotate(-45deg);
-    margin-top: 25px;
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
-}
-.scroll-to-top:hover::before {
-    animation: scrolltotop 1s infinite;
-    margin-top: -25px;
-}
-@keyframes scrolltotop {
-    0% {
-        transform: rotate(-45deg) translate(-25px, 25px);
-        opacity: 0;
-    }
-    40% {
-        opacity: 1;
-    }
-    80% {
-        transform: rotate(-45deg) translate(0px, 0px);
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
 }
 
