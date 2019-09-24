@@ -23,7 +23,6 @@ h2, h3 {
   background: green;
   height: 1em;
   width: 2em;
-  -
 }
 
 .border {border: 2px solid black;}
@@ -38,6 +37,13 @@ h2, h3 {
 }
 
 section {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1em 0;
+  margin-bottom: 1em;
+  flex-direction: row;
+
+
   /* enter needed declarations here */
 }
 
@@ -59,11 +65,14 @@ section:nth-of-type(1) div:last-child {
 }
 
 .purple-box:nth-of-type(1) {
-/*  stopping here!!!!!*/
+  flex-grow: 2;
+
 }
 
 .purple-box:nth-of-type(2) {
-  /* enter needed declarations here */
+  flex: 1;
+
+
 }
 
 .blue-box {
@@ -73,10 +82,17 @@ section:nth-of-type(1) div:last-child {
 }
 
 section:nth-of-type(3) {
-  /* enter needed declarations here */
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: end;
+  /*align-content: space-between;*/
+
 }
 
 section:nth-of-type(3) h3 {
+  align-self: center;
+  justify-content: flex-start;
+  margin-right: auto;
   /* enter needed declarations here */
 
 }
@@ -93,15 +109,19 @@ section:nth-of-type(3) h3 {
   height: 5em;
   width: 5em;
   background: brown;
-  /* enter needed declarations here */
+  flex-grow: 1;
+/*  enter here*/
 }
 
 .large-brown-box:nth-of-type(2) {
   margin: 0 1em;
+
+
 }
 
 section:nth-of-type(5) {
-  /* enter needed declarations here */
+  justify-content: space-evenly;
+
 }
 
 .yellow-box {
@@ -113,6 +133,9 @@ section:nth-of-type(5) {
 section:nth-of-type(6) {
   background: coral;
   height: 14em;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
   /* enter needed declarations here */
 }
 
