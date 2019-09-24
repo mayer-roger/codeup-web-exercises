@@ -52,15 +52,18 @@ body {
 /*flex solution*/
 .cover {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    flex-wrap: wrap;
+    justify-content: center;
     /* flex container */
 }
 .flex-form {
-    align-content: center;
-    min-height: auto;
+    display: flex;
+    margin: auto;
     /* flex items */
 }
 .destination {
-    /* bigger item */
+
+    display: flex;
+    flex-basis: 30%;
 }
