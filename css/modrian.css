@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+body{
+  text-align: center;
+}
+main {
+  background: lightgreen;
+  display: inline-grid;   /* add grid . inline grid to make area of element */
+  grid-template-rows: 2fr 1fr 2fr 2fr 1fr; /* define rows */
+  grid-template-columns: 1fr 1fr 2fr; /* define columns */
+  width: 600px;
+  height: 625px;
+  grid-gap: .5em;
+  background-color: black;
+  border: .5em solid black;
+
+}
+
+.one{
+  grid-area: 1 / 1 / 2 / 2;
+  background-color: #2F447B;
+}
+.two{
+  grid-area: 1 / 2 / 3 / 4;
+  background-color: #DD412B;
+}
+.three {
+  grid-area: 2 / 1 / 4 / 2;
+  background-color: #FBCB33;
+}
+.four {
+  grid-area: 3 / 2 / 5 / 2;
+  background-color: white;
+}
+.five {
+  grid-area: 3 / 3;
+  background-color: white;
+}
+.six {
+  grid-area: 4;
+  background-color: white;
+}
+.seven {
+  grid-area: 4 / 3;
+  background-color: #FBCB33;
+}
+.eight {
+  grid-area: 5 / 1;
+  background-color: #DD412B ;
+}
+.nine {
+  grid-area: 5 / 2 / 5 / 4;
+  background-color: #2F447B ;
+}
