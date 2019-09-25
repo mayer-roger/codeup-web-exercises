@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  background: #333333;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+
+}
+nav {
+  background: #333333;
+}
+nav a {
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: white;
+  display: inline-block; /* inline-block to increase clickable area beyond the text */
+  padding: 2em; /* increases clickable area of anchor tags on all sides by 1em */
+}
+nav a:hover {
+  background: deepskyblue;
+}
+}
+nav a:nth-of-type(4) {
+  margin-right: auto;
+}
+nav a:nth-of-type(5){
+  padding: .2em;
+  font-size: 3em;
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
+
+}
+nav a:nth-of-type(6) {
+  margin-left: auto;
+
+}
