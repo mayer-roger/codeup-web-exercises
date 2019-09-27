@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+body {
+  display: grid;
+  grid-template-rows: 80px 1fr 80px;
+  grid-template-columns: 20% 1fr 15%;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  height:100vh;
+  margin: 5px;
+}
+.box{
+  background-color: #FCD733;
+  padding: 1em;
+}
+.box1{
+  grid-area: 1 / 1 / 1 / 4;
+}
+.box2{
+  grid-area: 2 / 1 / 4 / 1;
+}
+.box3{}
+.box4{}
+.box5{
+  grid-area: 3 / 2 / 3 / 4;
+}
+</style>
+<body>
+  <header class="box box1">header</header>
+  <nav class="box box2">nav</nav>
+  <article class="box box3">article</article>
+  <ads class="box box4">ads</ads>
+  <footer class="box box5">footer</footer>
+</body>
+</html>

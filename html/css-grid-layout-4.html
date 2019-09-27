@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Layout 9</title>
+</head>
+<style>
+body{
+  display: grid;
+  grid-template-rows: 15% 1fr 1fr 1fr 1fr 10%;
+  grid-template-columns: 25% 1fr;
+  margin: 1em;
+  grid-gap: 1em;
+  height: 100vh;
+
+}
+.box {
+  background-color: #9BCE1B;
+  padding: 1em;
+  border: #551B12 solid;
+}
+.header{
+  grid-area: 1 / 1 / 1 / 3;
+}
+.nav{
+  grid-area: 2 / 1 / 4 / 2 ;
+}
+.article{
+  grid-area: 2 / 2 / 5 / 3;
+}
+.ads {
+  grid-area: 4 / 1 / 6 / 1;
+}
+.footer{
+  grid-area: 5 / 2 / 6 / 3 ;
+}
+</style>
+<body>
+<header class="box header">Header</header>
+<nav class="box nav">Nav</nav>
+<article class="box article">Article</article>
+<ads class="box ads">Ads</ads>
+<footer class="box footer">Footer</footer>
+
+</body>
+</html>

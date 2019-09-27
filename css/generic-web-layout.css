@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+body{
+  display: grid;
+  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  height:100vh;
+  margin: 5px;
+}
+header {
+  grid-area: 1 / 1 / 1 / 4;
+  background-color: #242A2E;
+  border: 1px solid black;
+}
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+}
+.navbar a {
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: white;
+  display: inline-block; /* inline-block to increase clickable area beyond the text */
+  padding: 2em; /* increases clickable area of anchor tags on all sides by 1em */
+}
+.navbar a:nth-of-type(6) {
+  margin-right: auto;
+}
+
+

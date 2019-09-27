@@ -24,6 +24,7 @@ body {
   /* no row properties are needed */
   /* TODO: the height of the wrapper should be 100 viewport height units */
   height: 100vh;
+  /*margin-left: auto;*/
 }
 
 ul {
@@ -41,7 +42,7 @@ header {
 
 nav {
   /* TODO: define the grid area of nav such that it takes up the second column of the second row  */
-  grid-area: 2 / 2 / 2 / 2;
+  grid-area: 2 / 2 / 3 / 3;
 }
 main {
 
@@ -50,7 +51,7 @@ main {
   /* TODO: make main a grid container as well */
   display: grid;
   /* TODO: define main to contain three columns that together take up equally the full width of main and have a 1em gap between grid items */
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 1em;
   overflow: auto;
 }
@@ -80,7 +81,7 @@ header a:hover {
 .header-background {
   background: purple;
   /* TODO: define the grid area of this element to take up the entire first row of the .container grid  */
-  grid-area: 1 / 2 / 2 / 7;
+  grid-area: 1 / 1 / 2 / 6;
 }
 
 a {
@@ -122,7 +123,7 @@ nav a:hover {
   border-radius: 10px;
   position: relative;
   /* TODO: add a property that causes a transition of the border from lightgrey to near black in .2 seconds */
-
+  transition: .2s;
 }
 
 .card:hover {
