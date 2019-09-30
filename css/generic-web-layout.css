@@ -1,303 +1,141 @@
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+
 }
 body{
   display: grid;
-  grid-template-rows: 1fr 7fr 3em;
-  grid-template-columns: 1fr 5fr 1fr;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
-  height:100vh;
-  margin: 5px;
+  grid-template-columns: 20% 2fr 1fr;
+  grid-template-rows: 1fr repeat(3, 6fr) 1fr 3fr 1fr;
+  grid-gap:0;
+  height: 100vh;
+  width: 100vw;
+  grid-template-areas:
+          "nav  nav   nav"
+          "side cont1 ad1"
+          "side cont2 ad2"
+          "side cont3 ad3"
+          "side page page"
+          "side tfoot tfoot"
+          "side bfoot bfoot";
 }
-header {
-  grid-area: 1 / 1 / 1 / 4;
-  background-color: #242A2E;
-  border: 1px solid black;
+h3{
+  color: #4A9A90;
+  margin: 1em;
 }
-body > div:nth-child(2) {
-  /*left side bar*/
-  grid-area: 2 / 1 / 3 / 1;
-
+p {
+  line-height: 1.5em;
+  margin: 1em;
 }
-body > div:nth-child(3) {
-  grid-area: 2 / 2 / 3 / 2;
-
-}
-body > div:nth-child(4) {
-  grid-area: 2 / 3 / 3 / 3;
- /*right side bar*/
-}
-body > div:nth-child(5) {
-  grid-area: 3 / 1 / 3 / 4;
-  /*background-color: mediumslateblue;*/
-}
-
-button {
-  font-size: small;
-  padding: 2px;
-
-  text-align: center;
-  /*align-items: center;*/
-  alignment-baseline: center;
-}
-
-.navbar{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  justify-items: center;
-}
-.navbar a {
+li{
   list-style: none;
-  box-sizing: border-box;
-  text-decoration: none;
+}
+img{
+  height: 100%;
+  width: 100%;
+}
+/* NAV controls */
+#navbar{
+  grid-area: nav;
+  background-color: black;
+  margin: 0;
+}
+#navlist{
+  display: flex;
+  flex-direction: row;
+}
+#navlist li{
+  padding: 15px;
   color: white;
-  display: inline-block; /* inline-block to increase clickable area beyond the text */
-  padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
 }
-.navbar a:nth-of-type(6) {
-  margin-right: auto;
-}
-.foot {
-  /* here we ensure the social media link container is horizontally centered by setting its parent to be a flex container */
-  display: flex;
-  box-sizing: border-box;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em;
-  border-top: 1px solid gray;
-}
-.foot a{
-  padding: 3px;
-}
-.foot a:nth-of-type(6) {
-  margin-right: auto;
-}
-.foot a:nth-of-type(8) {
-  margin-left: auto;
-}
-#container{
-  display: inline-grid;
-  grid-template-rows: repeat(14, 50px);
-  grid-template-columns: 1em 1fr 1em;
-  grid-column-gap: 1px;
-
-}
-#container a {
-  text-decoration: none;
-  color: #333333;
-}
-#first{
-  display:flex;
-  align-items: center;
-  justify-content: space-between;
-  grid-area: 1 / 2 / 1 / 3;
-  background-color: #FAFBFC ;
-}
-#first a:nth-of-type(1){
-  margin-right: auto;
-}
-#first p{
-  color: blue;
-}
-#tabs {
-  display: flex;
-  grid-area: 2 / 2 / 3 / 3;
-  background-color: #FAFBFC;
-  justify-content: left;
-}
-
-#tabs a{
-  padding: 1px;
-
-  padding-left: 1em;
-  padding-right: 1em;
-  /*border-bottom: 1px solid gray;*/
-}
-#tabs a:nth-of-type(1){
+#navlist li:hover{
+  color: black;
   background-color: white;
-  border-top: 2px solid red;
-  border-left: 1px solid #333333;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid white;
 }
+#sidebar{
+  grid-area: side;
+  background-color: #F0F0F0;
 
-#buttonbar {
+}
+#sidelist{
   display: flex;
-  grid-area: 3 / 2 / 3 / 3;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
 }
-#buttonbar a:nth-of-type(3) {
-  margin-left: auto;
+#sidelist li{
+  padding: 20px 40px;
 }
-#buttonbar a:nth-of-type(2){
-  padding-left: 1em;
+
+#sidelist li:hover{
+  color: white;
+  background-color: black;
 }
-#container2{
-  display: grid;
-  grid-area: 4 / 2 / 8 / 3;
-  grid-template-rows: repeat(7, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  border: 2px solid gray;
-  align-items: center;
+#menutag{
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 2em;
 }
-#commit1 {
-  grid-area: 1 / 1 / 1 / 3;
-  /*justify-content: flex-end;*/
-  background-color: #F1F8FE;
-  justify-content: space-between;
-  align-items: center;
-  padding: 17px;
+#contarea1{
+  grid-area: cont1;
 }
-.commit2{
-  grid-area: 2 / 1 / 2 / 4;
+#contarea2{
+  grid-area: cont2;
 }
-#latest{
-  /*grid-area: 1 / 4 / 1 / 3;*/
-  background-color: #F1F8FE;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5px;
+#contarea3{
+  grid-area: cont3;
 }
-/*.col1{*/
-/*  grid-area: 3 / 1 / 7 / 1;*/
-/*}*/
-/*.ui{*/
-/*  grid-area: 3 / 3 / 4 / 3;*/
-/*}*/
-.year{
+/*AD AREA*/
+.ad1{
+  border: 1px solid gray;
+  height: 100px;
+  width: 350px;
+  margin: auto;
+  margin-top: 10px;
+
+}
+.ad2{
+  border: 1px solid gray;
+  height: 200px;
+  width: 350px;
+  margin: auto;
+  margin-top: 30px;
+}
+#adarea1{
+  grid-area: ad1;
+}
+
+#adarea2{
+  grid-area: ad2;
+}
+#adarea3{
+  grid-area: ad3;
+}
+#pages{
+  grid-area: page;
+}
+#pageslist{
   display: flex;
-  /*grid-area: 3 / 2 / 3 / 2;*/
-  justify-content: flex-end;
-  padding-right: 2px;
+  flex-direction: row;
+  justify-content: center;
+
+}
+#pageslist li{
+  padding: 1em;
 }
 
-/*#content{*/
-/*  grid-area: 3 / 1 / 3 / 5;*/
-/*}*/
-/*#content2{*/
+#topfoot{
+  grid-area: tfoot;
+  line-height: 30px;
+  padding: 10px;
+  background-color: #666666;
+  color: white;
+}
 
-/*}*/
-
-
-/*#commit1 a:nth-of-type(2){*/
-/*  margin-right: auto;*/
-/*  padding-left: 5px;*/
-/*}*/
-/*#commit2{*/
-/*  display: flex;*/
-/*  grid-area: 2 / 1 / 2 / 1;*/
-/*  justify-content: space-between;*/
-/*  align-items: center;*/
-/*  margin-right: auto;*/
-/*  padding-left: 1em;*/
-/*}*/
-/*#commit3{*/
-/*  display: flex;*/
-/*  width: 100%;*/
-/*  grid-area: 3 / 1 / 3 / 1;*/
-/*  align-items: center;*/
-/*  justify-content: space-between;*/
-/*  margin-right: auto;*/
-/*  padding-right: 5px;*/
-/*  padding-left: 5px;*/
-/*  border: 1px solid #333333;*/
-/*}*/
-/*#commit3 a:nth-of-type(2) {*/
-/*  margin-right: auto;*/
-/*  padding-left: 5px;*/
-/*}*/
-/*#commit3 a:nth-of-type(4) {*/
-/*  margin-left: auto;*/
-/*}*/
-/*#commit4{*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  justify-content: space-between;*/
-/*  padding-right: 5px;*/
-/*  padding-left: 5px;*/
-/*}*/
-/*#commit4 a:nth-of-type(2) {*/
-/*  margin-right: auto;*/
-/*  padding-left: 5px;*/
-/*}*/
-/*#commit4 a:nth-of-type(4) {*/
-/*  margin-left: auto;*/
-/*}*/
-
-
-/*#commit5{*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  justify-content: space-between;*/
-/*  padding-right: 5px;*/
-/*  padding-left: 5px;*/
-/*}*/
-/*#commit5 a:nth-of-type(2) {*/
-/*  margin-right: auto;*/
-/*  padding-left: 5px;*/
-/*}*/
-/*#commit5 a:nth-of-type(4) {*/
-/*  margin-left: auto;*/
-/*}*/
-/*#commit6{*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  justify-content: space-between;*/
-/*  padding-right: 5px;*/
-/*  padding-left: 5px;*/
-/*}*/
-/*#commit6 a:nth-of-type(2) {*/
-/*  margin-right: auto;*/
-/*  padding-left: 5px;*/
-/*}*/
-/*#commit6 a:nth-of-type(4) {*/
-/*  margin-left: auto;*/
-/*}*/
-/*#commit7{*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  justify-content: space-between;*/
-/*  padding-right: 5px;*/
-/*  padding-left: 5px;*/
-/*}*/
-/*#commit7 a:nth-of-type(2) {*/
-/*  margin-right: auto;*/
-/*  padding-left: 5px;*/
-/*}*/
-/*#commit7 a:nth-of-type(4) {*/
-/*  margin-left: auto;*/
-/*}*/
-/*.commit{*/
-/*  display: grid;*/
-/*  grid-template-columns: repeat(3, 1fr);*/
-/*  grid-row: repeat(7, 1fr) ;*/
-/*  align-items: center;*/
-/*  padding-top: 5px;*/
-/*  padding-bottom: 5px;*/
-/*}*/
-/*#info{*/
-/*  display: flex;*/
-/*  grid-area: 3 / 2 / 3 / 3;*/
-/*  justify-content: space-between;*/
-/*  align-items: center;*/
-/*  !*text-decoration: none;*!*/
-/*}*/
-/*#manage{*/
-/*  display: flex;*/
-/*  grid-area: 4 / 2 / 4 / 3;*/
-/*  justify-content: flex-start;*/
-/*  align-items: center;*/
-/*  !*text-decoration: none;*!*/
-/*}*/
-/*#commitbar{*/
-/*  display: flex;*/
-/*  grid-area: 3 / 2 / 3 / 3*/
-/*  justify-content: space-between;*/
-/*  align-items: center;*/
-/*  border: 1px solid black;*/
-/*  border-bottom: .5em solid red;*/
-/*  !*text-decoration: none;*!*/
-/*}*/
+#botfoot{
+  grid-area: bfoot;
+  background-color: #333333;
+  line-height: 20px;
+  padding: 10px;
+}
