@@ -8,7 +8,8 @@
 body {
     height: 100%;
     display: grid;
-    margin: 5px;
+    max-width: 95%;
+    margin: 0 auto;
     grid-template-areas:
             "alert"
             "h1   "
@@ -74,7 +75,7 @@ footer {
     grid-area: foot;
     flex-direction: row;
     display: flex;
-    margin-top: 5px;
+    margin-top: 10px;
     align-items: center;
     justify-content: space-between;
 }
@@ -85,6 +86,7 @@ footer {
     display: grid;
     grid-template-columns: 60% 40% ;
     grid-gap: 0;
+    max-width: 100%;
     margin: 1px;
     padding: 2px;
     grid-template-areas:
