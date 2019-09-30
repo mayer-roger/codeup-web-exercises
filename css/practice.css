@@ -1,37 +1,38 @@
-/* Turns element red*/
-h1  {
-    color: blue;
+/*!* Turns element red*!*/
+/*h1  {*/
+/*    color: blue;*/
 
-}
-/* Class Header*/
-.fancy-header{
-    font-family: "Abadi MT Condensed Extra Bold";
-    color: blue;
-}
-.items{
+/*}*/
+/*!* Class Header*!*/
+/*.fancy-header{*/
+/*    font-family: "Abadi MT Condensed Extra Bold";*/
+/*    color: blue;*/
+/*}*/
+/*.items{*/
 
-}
-a:hover{
-    color: green;
-}
+/*}*/
+/*a:hover{*/
+/*    color: green;*/
+/*}*/
 
-/*ID selector*/
-#main-header{
+/*!*ID selector*!*/
+/*#main-header{*/
 
-}
+/*}*/
 
-#ipsums{
-    font-family: Chalkboard;
-    background-color: lightsteelblue;
+/*#ipsums{*/
+/*    font-family: Chalkboard;*/
+/*    background-color: lightsteelblue;*/
+/*}*/
+/*#ipsums h1{*/
+/*    color:inherit*/
+/*!*    inherits causes the element for which it is*/
+/*specified to take the computed*/
+/*value of the property from its parent element. *!*/
+/*}*/
+body{
+    margin:0;
 }
-#ipsums h1{
-    color:inherit
-/*    inherits causes the element for which it is
-specified to take the computed
-value of the property from its parent element. */
-}
-
-/* box model */
 .box {
     /*default box-sizing is content-box*/
     /* border box will delete padding from total*/
@@ -44,4 +45,31 @@ value of the property from its parent element. */
 }
 #box2 {
     box-sizing: border-box;
+}
+/*iPhone X turned on side */
+@media screen and (min-width: 768px){
+    body {
+        background-color: grey;
+    }
+}
+@media screen and (min-width: 992px) {
+
+}
+
+@media screen and (max-width: 1200px){
+
+}
+/*smaller desktops and ipad pro*/
+@media screen and (max-width: 1024px){
+    .box {
+        background-color: yellow;
+    }
+}
+@media screen and (max-width: 768px){
+    body {
+        background-color: black;
+    }
+    .box{
+        background-color: blue;
+    }
 }

@@ -2,19 +2,12 @@
   box-sizing: border-box;
   font-family: sans-serif;
   margin: 0;
-  padding: 0px;
+  padding: 0;
 }
-/*html {*/
-/*  height: 100vh;*/
-/*  width: 100vw;*/
-/*}*/
-
 /* screen sizes 500px and down */
 body {
     height: 100%;
     display: grid;
-    grid-template-rows: 7fr;
-    grid-template-columns: 1fr;
     margin: 5px;
     grid-template-areas:
             "alert"
@@ -25,41 +18,36 @@ body {
             "sub  "
             "foot "
   }
-  .alert-info {
+.alert-info {
     display: flex;
     grid-area: alert;
     margin: 5px;
-    padding: 20px;
+    padding: 10px;
     text-decoration: none;
     align-items: center;
     justify-content: center;
-    background-color: lightskyblue;
+    background-color: #CBFCFD;
     border: 1px solid grey;
   }
-  h1 {
+h1 {
     display: flex;
     grid-area: h1;
     margin: 5px;
     justify-content: center;
   }
-
-  .nav-links {
-    /* !!!!!!!!!!!!!!!!! */
+.nav-links {
     grid-area: nav;
     display: flex;
     flex-direction: column;
     list-style-type: none;
     align-items: center;
     justify-content: center;
-
-
   }
-  .nav-links ul {
+.nav-links ul {
     display: flex;
     align-items: stretch;
   }
-
-  .nav-links li {
+.nav-links li {
     display: flex;
     border: 1px solid grey;
     background-color: lightgrey;
@@ -68,42 +56,33 @@ body {
     justify-content: center;
     padding: 10px;
   }
-
-  .header-img {
+.header-img {
     grid-area: head;
     padding-top: 10px;
-    /*justify-content: center;*/
-    /*max-height: 100%;*/
-    /*max-width: 100%;*/
   }
-  img{
+img{
     max-width: 100%;
   }
-
-  #main {
+#main {
     grid-area: main;
-
   }
-
-  .sub-section {
+.sub-section {
     grid-area: sub;
     margin: 0;
   }
-
-  footer {
+footer {
     grid-area: foot;
     flex-direction: row;
     display: flex;
     margin-top: 5px;
     align-items: center;
     justify-content: space-between;
-  }
+}
 
 /* screen sizes above 500px */
 @media screen and (min-width:500px){
   body {
     display: grid;
-    grid-template-rows: 4fr;
     grid-template-columns: 60% 40% ;
     grid-gap: 0;
     margin: 1px;
@@ -124,8 +103,6 @@ body {
     list-style-type: none;
     align-items: center;
     justify-content: flex-end;
-    /*background-color: lightgrey;*/
-    /*border: 1px solid grey;*/
     padding: 10px;
     margin: 5px -10px 0px 15px;
   }
@@ -155,7 +132,6 @@ body {
   .sub-section {
     grid-area: sub;
     margin: 15px;
-
   }
   .sub-section p{
     margin-top: 10px;
@@ -170,20 +146,4 @@ body {
   }
 }
 
-
-
-/* Small devices (tablets, 768px and up) */
-/*@media screen and (min-width:768px) {*/
-
-  /* ... */
-
-/* Medium devices (desktops, 992px and up) */
-/*@media screen and (min-width:992px) {*/
-/*  property: value;*/
-/*  !* ... *! }*/
-
-/*!* Large devices (large desktops, 1200px and up) *!*/
-/*@media screen and (min-width:1200px) {*/
-/*  property: value;*/
-/*  !* ... *! }*/
 
