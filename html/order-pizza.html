@@ -14,11 +14,9 @@
 <!-- Main page content -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
    <a class="navbar-brand" href="#">Pizza World</a>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-   </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span></button>
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
          <li class="nav-item active">
@@ -109,98 +107,97 @@
       <div class="card" style="width: 100vw;">
          <div class="card-header bg-primary text-white"><h5>Choose Cheese and Sauce</h5></div>
 
-         <div class="card-body">
+            <div class="card-body">
 
-            <div class="card" style="width: 100%;">
-               <div class="card-header"> Cheese </div>
-               <div class="card-body">
-                  <ul class="list-group list-group-flush">
-                     <li class="list-group-item">How Much?
-                        <!--            dropdown-->
-                        <select class="form-control">
-                           <option value="1">Normal</option>
-                           <option value=“2">Light</option>
-                           <option value=“3”>Extra</option>
-                           <option value=“4">Double</option>
-                        </select>
-                     </li>
-                  </ul>
-               </div> <!-- closing card 1 card body -->
-            </div> <!-- closing card 1 card  -->
+               <div class="card" style="width: 100%;">
+                  <div class="card-header"> Cheese </div>
+                  <div class="card-body">
+                     <ul class="list-group list-group-flush">
+                        <li class="list-group-item">How Much?
+                           <!--            dropdown-->
+                           <select class="form-control">
+                              <option value="1">Normal</option>
+                              <option value=“2">Light</option>
+                              <option value=“3”>Extra</option>
+                              <option value=“4">Double</option>
+                           </select>
+                        </li>
+                     </ul>
+                  </div> <!-- closing card 1 card body -->
+               </div> <!-- closing card 1 card  -->
 
-            <div class="card" style="width: 100%;">
-               <div class="card-header"> Sauce </div>
+               <div class="card" style="width: 100%;">
+                  <div class="card-header"> Sauce </div>
 
-               <div class="card-body">
-
-                  <ul class="list-group list-group-flush">
-                     <li class="list-group-item">What type?
-                        <!--            dropdown-->
-                        <select class="form-control">
-                           <option value="1">Tomato Sauce</option>
-                           <option value=“2">Marinara</option>
-                           <option value=“3”>BBQ</option>
-                           <option value=“4">Alfredo</option>
-                        </select>
-                     </li>
-                  </ul>
-               </div> <!-- closing card 2 card body -->
-            </div> <!-- closing card 2 card  -->
-         </div> <!-- main card body closing -->
-         <div class="card-footer text-muted text-right">
-            <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-primary">Previous</button>
-            <button type="button" class="btn btn-primary border-left">Next</button>
+                     <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                           <li class="list-group-item">What type?
+                           <!--            dropdown-->
+                              <select class="form-control">
+                                 <option value="1">Tomato Sauce</option>
+                                 <option value=“2">Marinara</option>
+                                 <option value=“3”>BBQ</option>
+                                 <option value=“4">Alfredo</option>
+                              </select>
+                           </li>
+                        </ul>
+                  </div> <!-- closing card 2 card body -->
+               </div> <!-- closing card 2 card  -->
+            </div> <!-- main card body closing -->
+            <div class="card-footer text-muted text-right">
+               <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-primary">Previous</button>
+                  <button type="button" class="btn btn-primary border-left">Next</button>
+               </div>
             </div>
-         </div>
       </div> <!-- closing main card -->
    </div> <!-- closing tab pane -->
-
 <!--   TOPPINGS TAB -->
    <div class="tab-pane fade" id="topping" role="tabpanel" aria-labelledby="topping-tab">
       <div class="card" style="width: 100vw;">
          <div class="card-header bg-primary text-white">
             <h5>Choose toppings</h5>
          </div>
-         <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-               <div class="card" style="width: 100%;">
-                  <div class="card-header"> Choose Meats</div>
-                  <ul class="list-group list-group-flush">
-                     <li class="list-group-item"><input type="checkbox" id="top" name="size" value="beef">
-                        <label for="top">Beef</label></li>
-                     <li class="list-group-item"><input type="checkbox" id="top" name="size" value="ham">
-                        <label for="top">Ham</label></li>
-                     <li class="list-group-item"><input type="checkbox" id="top" name="size" value="philly">
-                        <label for="top">Philly</label></li>
-                     <li class="list-group-item"><input type="checkbox" id="top" name="size" value="bacon">
-                        <label for="top">Bacon</label></li>
-                  </ul>
-               </div>
-            </li>
-         </ul>
-         <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-               <div class="card" style="width: 100%;">
-                  <div class="card-header"> Choose Non-Meats</div>
-                  <ul class="list-group list-group-flush">
-                     <li class="list-group-item"><input type="checkbox" id="top" name="size" value="beef">
-                        <label for="top">Green Peppers</label></li>
-                     <li class="list-group-item"><input type="checkbox" id="top" name="size" value="ham">
-                        <label for="top">Mushrooms</label></li>
-                     <li class="list-group-item"><input type="checkbox" id="top" name="size" value="philly">
-                        <label for="top">Onions</label></li>
-                     <li class="list-group-item"><input type="checkbox" id="top" name="size" value="bacon">
-                        <label for="top">Jalapeno Pepper</label></li>
-                  </ul>
-               </div>
+            <ul class="list-group list-group-flush">
+               <li class="list-group-item">
+                  <div class="card" style="width: 100%;">
+                     <div class="card-header"> Choose Meats
+                     </div>
+                        <ul class="list-group list-group-flush">
+                           <li class="list-group-item"><input type="checkbox" id="meat1" name="meat" value="meat">
+                              <label for="meat1">Beef</label></li>
+                           <li class="list-group-item"><input type="checkbox" id="meat2" name="meat" value="meat">
+                              <label for="meat2">Ham</label></li>
+                           <li class="list-group-item"><input type="checkbox" id="meat3" name="meat" value="meat">
+                              <label for="meat3">Philly</label></li>
+                           <li class="list-group-item"><input type="checkbox" id="meat4" name="meat" value="meat">
+                              <label for="meat4">Bacon</label></li>
+                        </ul>
+                  </div>
+               </li>
+            </ul>
+            <ul class="list-group list-group-flush">
+               <li class="list-group-item">
+                  <div class="card" style="width: 100%;">
+                     <div class="card-header"> Choose Non-Meats
+                     </div>
+                        <ul class="list-group list-group-flush">
+                           <li class="list-group-item"><input type="checkbox" id="nmeat1" name="nmeat" value="beef">
+                              <label for="nmeat1">Green Peppers</label></li>
+                           <li class="list-group-item"><input type="checkbox" id="nmeat2" name="nmeat" value="ham">
+                              <label for="nmeat2">Mushrooms</label></li>
+                           <li class="list-group-item"><input type="checkbox" id="nmeat3" name="nmeat" value="philly">
+                              <label for="nmeat3">Onions</label></li>
+                           <li class="list-group-item"><input type="checkbox" id="nmeat4" name="nmeat" value="bacon">
+                              <label for="nmeat4">Jalapeno Pepper</label></li>
+                        </ul>
+                  </div>
                <div class="card-footer text-muted text-right">
                <button type="submit" class="btn btn-primary">Submit</button>
                </div>
-         </ul>
+            </ul>
       </div>
    </div>
-
 </div> <!-- closing ALL TAB CONTENT -->
 
 
