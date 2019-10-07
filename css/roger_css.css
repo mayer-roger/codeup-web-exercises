@@ -1,0 +1,28 @@
+*{
+  box-sizing: border-box;
+}
+div{
+  display: block;
+}
+header{
+  margin-top: 10px;
+  border: 2px solid orangered;
+  padding: 10px;
+
+}
+.header-name{
+  font-family: Helvetica, Georgia;
+  font-size: 1.25rem;
+}
+body{
+
+}
+footer{
+
+}
+#navbar{
+
+}
+li{
+  list-style: none;
+}
