@@ -78,3 +78,31 @@ a {
 .card {
     /* This is a flex item */
 }
+
+main{ /*large screen*/
+    display: grid;
+    grid-template-columns: 5% repeat(3, 1fr) 5%;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-areas:
+            ". box1 box 1-1 box1-2 ."
+            ". box2 box2 box2 ."
+            ". box3 box3 box3 ."
+            ". boxhr boxhr boxhr ."
+            ". box4 box4 box7-1 ."
+            ". box5 box5-1 box7-2 ."
+            ". box5-2 box5-2 box8 .";
+}
+
+main{ /* XL screen*/
+    display: grid;
+    grid-template-columns: 15% repeat(3, 1fr) 15%;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-areas:
+            ". box1 box 1-1 box1-2 ."
+            ". box2 box2 box2 ."
+            ". box3 box3 box3 ."
+            ". boxhr boxhr boxhr ."
+            ". box4 box4 box7-1 ."
+            ". box5 box5-1 box7-2 ."
+            ". box5-2 box5-2 box8 .";
+}

@@ -73,8 +73,33 @@
          return Math.PI * Math.pow(r,2);
      }
      console.log(circle(2));
+    //function that returns perimter of quadralteral
+     function quad(a,b,c,d){
+         return (a + b + c + d);
+
+     }
+     console.log(quad(1,2,3,4));
+
+     //function that returns argument
+
+    function checkType(x){
+        return typeof(x);
+    }
+    console.log(checkType(1));
+
+    //function that returns true only with positive even number
+
+    function positiveEven(x){
+        return x % 2 === 0 && x > 0;
+
+    }
+
+    console.log(positiveEven(2));
+    console.log(positiveEven(-1));
+
 
     </script>
+
 
 </body>
 </html>
