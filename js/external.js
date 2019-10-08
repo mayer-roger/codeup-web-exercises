@@ -35,7 +35,7 @@ var hoursTotal= google + amazon + facebook;
 
 var wage = payTotal * hoursTotal;
 
-alert("congrats, you've made " + wage)
+alert("congrats, you've made " + wage);
 
 
 //3.4 class
