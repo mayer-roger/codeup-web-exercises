@@ -73,10 +73,11 @@ console.log(isTwo(3));
  * > calculateTip(0.25, 25.50) // returns 6.37
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
-var tipPercent = parseInt(prompt("what percentage would you like to tip?"));
+var tipPercent = prompt("what percentage would you like to tip?");
+tipPercent = parseFloat(tipPercent);
 var total = parseInt(prompt("what was the bill total?"))
 function calculateTip(tipPercent, total) {
-    return (total / tipPercent);
+    return total * tipPercent;
 }
 console.log(calculateTip(tipPercent, total));
 

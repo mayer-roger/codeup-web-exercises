@@ -4,12 +4,18 @@
 div{
   display: block;
 }
+main{
+  border: 1px solid blue;
+
+
+}
 header{
   margin-top: 10px;
   border: 2px solid orangered;
   padding: 10px;
-
+  /*background-color: lightsteelblue;*/
 }
+
 .header-name{
   font-family: Helvetica, Georgia;
   font-size: 1.25rem;
