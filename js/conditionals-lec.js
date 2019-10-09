@@ -171,15 +171,15 @@ console.log("hello from conditionals lec.js!");
 //TODO: Write a confirm asking the user if they are 13 years of age or older. If they are, alert "You may proceed", if they are not, alert "Sorry, you are not able to proceed"
 
 
-var input = confirm("Are you 13?");
-function ageVerify(age) {
-    if (age) {
-        alert("You may proceed");
-    } else {
-        return alert("Sorry, you are not able to proceed");
-    }
-}
-ageVerify(input);
+// var input = confirm("Are you 13?");
+// function ageVerify(age) {
+//     if (age) {
+//         alert("You may proceed");
+//     } else {
+//         return alert("Sorry, you are not able to proceed");
+//     }
+// }
+// ageVerify(input);
 
 // ================ IF / ELSE IF / ELSE STATEMENT SYNTAX ===============
 // if(condition1){
@@ -229,21 +229,21 @@ ageVerify(input);
 
 //TODO: Write a function that accepts a string that is a traffic light color as an input. When this function is called, it should return a message informing the user what to do when approaching that color light at an intersection.
 
-var color = prompt('what color is the light');
-console.log(color);
-function lightColor(x) {
-    if (x === "green"){
-        return "GO!";
-    } else if (x === "yellow"){
-        return "sloow down";
-    } else if (x === "red"){
-        return "STOP!";
-    } else {
-        return "Turn around";
-    }
-}
-console.log(lightColor(color));
-alert(lightColor(color));
+// var color = prompt('what color is the light');
+// console.log(color);
+// function lightColor(x) {
+//     if (x === "green"){
+//         return "GO!";
+//     } else if (x === "yellow"){
+//         return "sloow down";
+//     } else if (x === "red"){
+//         return "STOP!";
+//     } else {
+//         return "Turn around";
+//     }
+// }
+// console.log(lightColor(color));
+// alert(lightColor(color));
 
 
 
@@ -251,24 +251,24 @@ alert(lightColor(color));
 //Together: If user is under 15, they are not eligible for a learners permit, else they are. If they are eligible, check age. If they are 15 they are eligible for a learners permit, if they are 16 or older and have a permit, they are eligible for license, if they are 16 or older and do not have a permit, they are not eligble for a license. 
 
 
-var userAge= parseInt(prompt("How old are you?"));
-var hasPermit = false;
-function eligible(x){
-    if (x < 15){
-        alert("you are not eligible for learners permit");
-    } else {
-        if (userAge === 15) {
-            alert("you are eligible for learners permit");
-        } else if (userAge >= 16 && hasPermit) {
-            alert("you are eligible for license");
-        } else if (userage >= 16 && !hasPermit) {
-            alert("you need permit first");
-        }
-    }
-}
-function eligible(userAge) {
+// var userAge= parseInt(prompt("How old are you?"));
+// var hasPermit = confirm("do you have a permit?")
+// function eligible(x, y){
+//     if (x < 15){
+//         alert("you are not eligible for learners permit");
+//     } else {
+//         if (userAge === 15) {
+//             alert("you are eligible for learners permit");
+//         } else if (userAge >= 16 && hasPermit) {
+//             alert("you are eligible for license");
+//         } else if (userAge >= 16 && !hasPermit) {
+//             alert("you need permit first");
+//         }
+//     }
+// }
+// alert(eligible(userAge, hasPermit));
 
-}
+
 
 
 // ================ TERNARY STATEMENT ================
@@ -284,6 +284,7 @@ function eligible(userAge) {
 //     message = "Oops, something went wrong.";
 // }
 // console.log(message);
+
 
 
 // var success = true;
@@ -303,8 +304,9 @@ function eligible(userAge) {
 // }
 
 //WRITE YOUR TERNARY STATEMENT HERE!
-
-
+// var weather = "sunny";
+// var weatherMessage = (weather === "rainy") ? "It's raining" : "Have a nice day";
+// console.log(weatherMessage);
 
 // =============== SWITCH STATEMENT ================
 //Together:
@@ -324,22 +326,86 @@ function eligible(userAge) {
 // }
 
 
-//TODO: Write a switch statement that evaluates weather as the condition. Check for "rainy", "sunny", "snow", and a default case.
-
-
-//TODO: Rewrite the intersection function from earlier as a switch statement.
-
-
+// //TODO: Write a switch statement that evaluates weather as the condition. Check for "rainy", "sunny", "snow", and a default case.
+//  var weather2 = prompt("what the weather like??");
+//
+//  switch(weather2) {
+//      case "snowing":
+//          alert("It's snowing");
+//          break;
+//      case "raining":
+//          alert("It's raining");
+//          break;
+//      case "hot":
+//          alert("it's hot");
+//          break;
+//      default:
+//          alert(weather2 + " means the apocalypse");
+//          break;
+//  }
+//
+//
+//
+//
+// //TODO: Rewrite the intersection function from earlier as a switch statement.
+// var color2 = prompt("What color is the traffic light");
+// function checkTraffic(color2) {
+//     switch (color2) {
+//         case "red":
+//             alert("NO!");
+//             break;
+//         case "yellow":
+//             alert("SLOOOOW!");
+//             break;
+//         case "green":
+//             alert("GO!");
+//             break;
+//         default:
+//             alert(color2 + " means the turn around");
+//             break;
+//     }
+// }
+//
+// console.log(checkTraffic(color2));
+//
 
 // ================ REVERSE ENGINEERING =================
 // Visit each of these links, outline the steps required to achieve each of these demonstrations. You can write code or just write the logic steps that would achieve each output
 
 
 // 1) https://mdn.github.io/learning-area/javascript/building-blocks/allowance-updater.html
-
-
+// var childEarn = 5;
+// var shoppingDone = confirm("Has the shopping been done?");
+// function money(shoppingDone, childEarn) {
+//     if (shoppingDone == true){
+//         childEarn = childEarn + 5;
+//         return childEarn;
+//     } else
+//         return childEarn;
+// }
+// console.log(money(shoppingDone, childEarn));
+//
 // 2) https://mdn.github.io/learning-area/javascript/building-blocks/simple-else-if.html
 
+ var weather3 = prompt("what the weather like??");
+function checkWeather(weather3) {
+
+    switch (weather3) {
+        case "sunny":
+            alert("It's nice and sunny");
+            break;
+        case "raining":
+            alert("It's raining");
+            break;
+        case "snowy":
+            alert("brrr. its snowing outside");
+            break;
+        default:
+            alert(weather3 + " means the apocalypse");
+            break;
+    }
+}
+console.log(checkWeather(weather3))
 
 // 3) https://mdn.github.io/learning-area/javascript/building-blocks/simple-ternary.html
 
