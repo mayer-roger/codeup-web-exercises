@@ -33,9 +33,9 @@ header a{
   color: #B2B420;
 }
 .header-name{
-  font-family: Helvetica, Georgia;
+  font-family: Georgia;
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: bolder;
 
 }
 #main{
@@ -44,6 +44,8 @@ header a{
 
 body{
   justify-content: space-evenly;
+  font-family: Helvetica, Georgia;
+  font-weight: bold;
 
 }
 
