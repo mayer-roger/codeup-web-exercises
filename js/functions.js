@@ -1,3 +1,4 @@
+
 "use strict";
 
 /**
@@ -11,7 +12,9 @@
 function sayHello(name){
     return "Hello, " + name;
 }
-console.log(sayHello("Roger"));
+console.log(sayHello("Codeup"));
+
+
 
 /**
  * TODO:
@@ -29,6 +32,8 @@ console.log(helloMessage);
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
+var myName = "Roger"
+console.log(sayHello(myName))
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -52,15 +57,15 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 function isTwo(num){
-    if (num == 2){
+    if (num === 2){
         return true;
     }
 else return false;
 }
 
-console.log(isTwo(1));
-console.log(isTwo(2));
-console.log(isTwo(3));
+console.log(isTwo(random));
+
+
 
 /**
  * TODO:
@@ -73,15 +78,11 @@ console.log(isTwo(3));
  * > calculateTip(0.25, 25.50) // returns 6.37
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
-var tipPercent = prompt("what percentage would you like to tip?");
-tipPercent = parseFloat(tipPercent);
-var total = parseInt(prompt("what was the bill total?"))
-function calculateTip(tipPercent, total) {
-    return total * tipPercent;
+
+function calculateTip(tipPercent, bill) {
+    return bill * tipPercent;
 }
-console.log(calculateTip(tipPercent, total));
-var tipTotal= calculateTip(tipPercent, total);
-alert("tip total =$" + tipTotal);
+
 
 /**
  * TODO:
@@ -89,7 +90,16 @@ alert("tip total =$" + tipTotal);
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
- // see above
+var tipPercent = prompt("what percentage would you like to tip?");
+tipPercent = parseFloat(tipPercent);
+var bill = parseInt(prompt("what was the bill total?"));
+console.log(calculateTip(tipPercent, bill));
+var tipTotal= calculateTip(tipPercent, bill);
+alert("tip total =$" + tipTotal);
+alert("$" + bill + " bill + " + " $ " + tipTotal + " tip = total of $" + (bill + tipTotal));
+
+
+
 
 /**
  * TODO:
