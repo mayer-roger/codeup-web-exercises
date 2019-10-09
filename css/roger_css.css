@@ -39,7 +39,7 @@ header a{
 
 }
 #main{
-  border: 2px solid orangered;
+  border: 1px solid orangered;
 }
 
 body{
@@ -73,7 +73,7 @@ li:hover{
 
 }
 #sidebar{
-  border: 2px solid orangered;
+  border: 1px solid orangered;
   height: 75vh;
   margin: 0;
 
