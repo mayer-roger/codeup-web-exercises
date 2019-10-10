@@ -119,7 +119,7 @@ console.log(analyzeColor(randomColor));
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-var userColor = prompt("Please enter a color")
+var userColor = prompt("Please enter a color");
 alert(analyzeColor(userColor));
 
 
@@ -157,7 +157,7 @@ function calculateTotal(lucky, cart) {
     } else if (lucky == 4) {
         return ("50% discount- $" + (cart * .50));
     } else if (lucky == 5) {
-    return ("It's free! you owe $" + (cart * 0));
+    return ("It's free! you owe $" + (cart - cart));
     }
 }
 /**
