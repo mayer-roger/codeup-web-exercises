@@ -52,22 +52,23 @@ body{
 footer{
 
 }
-#navbar{
+
+#nav-item{
 
 
 }
 li{
   list-style: none;
-  margin-top: 25px;
-  font-size: 1.5rem;
-
+  margin: auto;
 }
 li a{
  /*font-size: 2rem;*/
+  margin-bottom: 30px;
+  /*padding: 10px;*/
 
 }
 
-li:hover{
+li a:hover{
   background-color: lightseagreen;
   color: orangered;
   opacity: .5;

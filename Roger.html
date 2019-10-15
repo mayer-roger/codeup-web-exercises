@@ -30,22 +30,35 @@
 <!--    SIDE BAR    -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-4 py-0 pl-0">
-                <ul class="justify-content-center justify-item" id="sidebar">
-                    <li href="#">About</li>
-                    <li href="#">Experience</li>
-                    <li href="#">Education</li>
-                    <li href="#">References</li>
-                    <li href="#">Interests</li>
-                    <li href="#">Contact</li>
-                </ul>
+            <div class="col-4 col-md-3 col-lg-2 py-0 pl-0">
+                <ul class="nav nav-tabs justify-content-center justify-items" id="sidebar" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="about-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                            aria-selected="true">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education"
+                            aria-selected="false">Education</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="reference-tab" data-toggle="tab" href="#references" role="tab" aria-controls="references"
+                            aria-selected="false">References</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="interests-tab" data-toggle="tab" href="#interests" role="tab" aria-controls="interests"
+                            aria-selected="false">Interests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                            aria-selected="false">Contact</a>
+                        </li>
+                 </ul>
             </div>
-
 <!--MAIN BODY-->
 
-            <div class="col-8" id="main" >
+            <div class="col-8 col-md-9 col-lg-10" id="main" >
                 <div class="container-fluid" >
-                    <div class="row justify-content-between">
+                    <div class="row justify-content-between ">
                         <div class="col-4">1</div>
                         <div class="col-4">2</div>
                         <div class="col-4">3</div>
