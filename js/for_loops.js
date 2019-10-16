@@ -5,21 +5,24 @@
 * WHILE LOOPS
 */
 
-// 1. Create a while loop that counts to 100 in increments of ten:
-// (10...20...30...)
+//1. Create a while loop that counts to 100 in increments of ten:
+//(10...20...30...)
 
-// i = intialization
-// var i = 0;
-// //condition
-// while (i <= 90) {
-//     console.log(i +=10);
-// }
-// // 2. Create a while loop that counts backwards from 20 - 1
-// var x = 20;
-// while (x >= 1){
-//     console.log(x);
-//     x--;
-// }
+//i = initialization
+var i = 0;
+//condition
+while (i <= 90) {
+    console.log(i +=10);
+}
+
+
+
+// 2. Create a while loop that counts backwards from 20 - 1
+var x = 20;
+while (x >= 1){
+    console.log(x);
+    x--;
+}
 //
 // var myQuestion = true;
 
@@ -144,9 +147,9 @@ function stringNum() {
         }
         console.log(str);
     }
-}
-stringNum();
 //
+    stringNum();
+}
 // //subtracting five
 // function subtractFive(num) {
 //     for (var i = num; i >= 5; i-=5){
