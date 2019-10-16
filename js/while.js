@@ -57,8 +57,8 @@ var myQuestion = true;
 /*
 * DO-WHILE LOOPS
 */
-4. Refactor question 3 using a do-while loop.
-What is the behavior this time?
+//4. Refactor question 3 using a do-while loop.
+//What is the behavior this time?
    do {
        myQuestion = confirm("Would you like to exit?");
    } while(!myQuestion);

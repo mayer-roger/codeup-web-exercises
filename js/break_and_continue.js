@@ -27,7 +27,7 @@ while(true){
 }
     console.log("skipping number: " + num);
     for (var q= 1; q <=50; q+=2){
-        if (q == num){
+        if (q === num){
             console.log("Skipping number" + q);
             continue
         }
