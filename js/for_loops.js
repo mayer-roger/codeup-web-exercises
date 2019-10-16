@@ -76,12 +76,12 @@
 // If divisible by 3 and 5, log "FizzBuzz"
 // All other cases, just log the number.
 
-for (var j = 0; j < 101; j++){
-    if (j % 15 === 0) console.log(j + " FizzBuzz");
-     else if (j % 3 === 0) console.log(j + " Fizz");
-     else if (j % 5 === 0) console.log(j + " Buzz");
-     else console.log(j);
-}
+// for (var j = 0; j < 101; j++){
+//     if (j % 15 === 0) console.log(j + " FizzBuzz");
+//      else if (j % 3 === 0) console.log(j + " Fizz");
+//      else if (j % 5 === 0) console.log(j + " Buzz");
+//      else console.log(j);
+// }
 //
 // for(var z=0; z<100;)console.log((++z%3 ? '':'fizz')+(z%5?'':'buzz')||z);
 
@@ -133,19 +133,19 @@ for (var j = 0; j < 101; j++){
 //
 //
 //
-// //concatenating strings
-//
-//
-// function stringNum() {
-//     for (var i = 0; i < 10; i++){
-//         var str = " ";
-//         for(var j = 1; j <= i; j++){
-//             str += i;
-//         }
-//         console.log(str);
-//     }
-// }
-// stringNum();
+//concatenating strings
+
+
+function stringNum() {
+    for (var i = 0; i < 10; i++){
+        var str = " ";
+        for(var j = 1; j <= i; j++){
+            str += i;
+        }
+        console.log(str);
+    }
+}
+stringNum();
 //
 // //subtracting five
 // function subtractFive(num) {
