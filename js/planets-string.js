@@ -7,21 +7,29 @@
 
     // TODO: Convert planetsString to an array, save it to planetsArray.
 
-    planetsArray = planetsString.split ("|");
-    console.log(planetsArray);
+    // planetsArray = planetsString.split ("|");
+    // console.log(planetsArray);
 
-    // TODO: Create a string with <br> tags between each planet. console.log() your results.
-    //       Why might this be useful?
-    planetsString = planetsArray.join("<br>");
-    console.log(planetsString);
+    // // TODO: Create a string with <br> tags between each planet. console.log() your results.
+    // //       Why might this be useful?
+    // planetsString = planetsArray.join("<br>");
+    // document.write(planetsString);
 
     // Bonus: Create a second string that would display your planets in an undordered list.
     //        You will need an opening AND closing <ul> tags around the entire string, and <li> tags around each planet.
     //        console.log() your results.
 
+    planetsArray = planetsString.split('|');
+    console.log(planetsArray);
+
+    planetsString = planetsArray.join("</li><li>");
+    console.log(planetsString);
+    //
+    document.write("<ul style='list-style-type: none'> <li>" + planetsString + "</li> </ul>");
 
 
-        // // So far we have talked about arrays as if they are static, and unchanging. This isn't the case. Today we'll be talking about how we can change our arrays without just reassigning the values.
+
+    // // So far we have talked about arrays as if they are static, and unchanging. This isn't the case. Today we'll be talking about how we can change our arrays without just reassigning the values.
 
         // /**
         //  * Audience: "But David, why would I need to know about that?"
