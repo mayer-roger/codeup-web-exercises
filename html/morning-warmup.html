@@ -8,6 +8,23 @@
     <h1>Deimos</h1>
     <p>These are my morning warmups:</p>
     <script>
+    //take in floating point number and returns number rounded down
+    function floatNum(x){
+        if (typeof(x) === "number" && !isNaN(x)) {
+            return Math.floor(x);
+        } else {
+            return false;
+        }
+
+    }
+    console.log(floatNum(3.4));
+    console.log(floatNum("num"));
+
+    //function that returns true if string is 8 characters in length
+    //  function eightChar(str) {
+    // return (str.length >= 8 && typeof str === 'string');
+
+    // }
     // // JS sum of two numbers 09.18.19
     // function sum(num1, num2) {
     //     return  num1 + num2;
@@ -133,11 +150,7 @@
     // arrayFive(arrInput[1,2,3,4,5]);
 
 //
-        //function that returns true if string is 8 characters in length
-        function eightChar(str) {
-            return (str.length >= 8 && typeof str === 'string');
 
-        }
 
     </script>
 
