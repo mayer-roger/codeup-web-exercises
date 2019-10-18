@@ -7,9 +7,9 @@
      * with your first and last name. Store this object in a variable named
      * `person`.
      *
-     * Example:
-     *  > console.log(person.firstName) // "Rick"
-     *  > console.log(person.lastName) // "Sanchez"
+
+
+
      */
     var person = {
         firstName: "Roger",
@@ -17,6 +17,8 @@
 
     };
 
+    // console.log(person.firstName); // "Roger"
+    // console.log(person.lastName); // "Mayer"
 
     /**
      * TODO:
@@ -27,9 +29,10 @@
      * Example
      // * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+    // person.sayHello = function(){
     // var sayHello = ("Hello from " + person["firstName"] + " " + person["lastName"]);
     // console.log(sayHello);
-
+    // };
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
@@ -144,54 +147,34 @@
      *      ---
      *      ...
      */
-    books.forEach(function(x) {
-        console.log("Books #" + books.indexOf(x))
-        console.log("Title: "+ x.title)
-        console.log("Author: " + x.author.firstName + " "+ x.author.lastName)
-    });
 
 
 
-    /**
-     * Bonus:
-     * - Create a function named `createBook` that accepts a title and author
-     *   name and returns a book object with the properties described
-     *   previously. Refactor your code that creates the books array to instead
-     *   use your function.
-     * - Create a function named `showBookInfo` that accepts a book object and
-     *   outputs the information described above. Refactor your loop to use your
-     *   `showBookInfo` function.
 
-     */
 
-function createBook() {
-        var userBookTitle = prompt("what is the book?");
-        var userAuthor = prompt("what is the Author?");
-        userAuthor = userAuthor.split(" ");
-        var userAuthorFirst = userAuthor.shift();
-        var userAuthorLast = userAuthor.pop();
-        var userBook = {
 
-            title: userBookTitle,
 
-            author: {
-                firstName: userAuthorFirst,
-                lastName: userAuthorLast
-            }
+function createBook(title,first,last){
+        var book = {};
+        book.title = title;
+        book.author = {
+            firstName: first,
+            lastName: last
         };
+        return book;
+    }
 
-        books.push(userBook);
-}
-console.log(createBook());
+    books.push(createBook("Cat's Cradle","Kurt","V"));
 
- function showBookInfo(){
-    books.forEach(function(x) {
-        console.log("Books #" + books.indexOf(x));
-        console.log("Title: "+ x.title);
-        console.log("Author: " + x.author.firstName + " "+ x.author.lastName);
-    });
-}
 
-console.log(showBookInfo());
+    function showBookInfo (book,i){
+        var output = "";
+        output += "Book # " + (i + 1) + "\n";
+        output += "Title: " + book.title + "\n";
+        output += "Author: " + book.author.firstName + " " + book.author.lastName + "\n";
+        output += "---";
+        console.log(output);
 
+    }
+    books.forEach(showBookInfo);
 })();
