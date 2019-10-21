@@ -7,10 +7,8 @@
      * with your first and last name. Store this object in a variable named
      * `person`.
      *
-
-
-
      */
+
     var person = {
         firstName: "Roger",
         lastName: "Mayer",
@@ -86,14 +84,14 @@
             title: "Fourth of July Creek",
             author: {
                 firstName: "Smith",
-                lastName: "Henderson",
+                lastName: "Henderson"
             }
         },
         {
             title: "IQ84",
             author: {
                 firstName: "Haruki",
-                lastName: "Murakami",
+                lastName: "Murakami"
             }
         },
 
@@ -101,7 +99,7 @@
             title: "Narrow Road",
             author: {
                 firstName: "Richard",
-                lastName: "Flanagan",
+                lastName: "Flanagan"
             }
         },
 
@@ -154,7 +152,7 @@
 
 
 
-function createBook(title,first,last){
+    function createBook(title, first, last) {
         var book = {};
         book.title = title;
         book.author = {
@@ -164,10 +162,10 @@ function createBook(title,first,last){
         return book;
     }
 
-    books.push(createBook("Cat's Cradle","Kurt","V"));
+    books.push(createBook("Cat's Cradle", "Kurt", "V"));
 
 
-    function showBookInfo (book,i){
+    function showBookInfo(book, i) {
         var output = "";
         output += "Book # " + (i + 1) + "\n";
         output += "Title: " + book.title + "\n";
@@ -176,5 +174,29 @@ function createBook(title,first,last){
         console.log(output);
 
     }
-    books.forEach(showBookInfo);
+
+    //bonus ex#1
+    var cars={};
+    // cars.forEach(showCarInfo);
+
+    function makeCar(make, model) {
+        var cars = {};
+        cars.make = make;
+        cars.model = model;
+        return cars;
+    }
+
+    cars.push(makeCar("VW","Beetle"));
+
+
+    function showCarInfo (car, model){
+        var output = "";
+        output += "Car make: " + car.make + "\n";
+        output += "Car model: " + car.model + "\n";
+        output += "---";
+        console.log(output);
+
+    }
+    cars.forEach(showCarInfo);
+
 })();

@@ -8,18 +8,28 @@
     <h1>Deimos</h1>
     <p>These are my morning warmups:</p>
     <script>
-    //take in floating point number and returns number rounded down
-    function floatNum(x){
-        if (typeof(x) === "number" && !isNaN(x)) {
-            return Math.floor(x);
-        } else {
-            return false;
+
+    //function that counts from one to  user input
+
+    function count(x){
+        for (var i = 1; i <= x; i++){
+            console.log(i);
         }
-
+        return "done counting";
     }
-    console.log(floatNum(3.4));
-    console.log(floatNum("num"));
 
+    // //take in floating point number and returns number rounded down
+    // function floatNum(x){
+    //     if (typeof(x) === "number" && !isNaN(x)) {
+    //         return Math.floor(x);
+    //     } else {
+    //         return false;
+    //     }
+    //
+    // }
+    // console.log(floatNum(3.4));
+    // console.log(floatNum("num"));
+    //
     //function that returns true if string is 8 characters in length
     //  function eightChar(str) {
     // return (str.length >= 8 && typeof str === 'string');
