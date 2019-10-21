@@ -176,27 +176,26 @@
     }
 
     //bonus ex#1
-    var cars={};
+    var car = {};
+    car.make = "Toyota";
+    car.model = "Camry";
+
+// create a logMakeModel method on the car object
+    car.logMakeModel = function () {
+        console.log("Car make/model is: " + this.make + " " + this.model);
+    };
+
+// log the make/model
+    car.logMakeModel();
+
+    // function showCarInfo (make, model){
+    //     var output = "";
+    //     output += "Car make: " + car.make + "\n";
+    //     output += "Car model: " + car.model + "\n";
+    //     output += "---";
+    //     console.log(output);
+
+    // }
     // cars.forEach(showCarInfo);
-
-    function makeCar(make, model) {
-        var cars = {};
-        cars.make = make;
-        cars.model = model;
-        return cars;
-    }
-
-    cars.push(makeCar("VW","Beetle"));
-
-
-    function showCarInfo (car, model){
-        var output = "";
-        output += "Car make: " + car.make + "\n";
-        output += "Car model: " + car.model + "\n";
-        output += "---";
-        console.log(output);
-
-    }
-    cars.forEach(showCarInfo);
 
 })();

@@ -24,7 +24,7 @@
     };
 
     // log info about the circle
-    console.log("Raw circle information");
+    console.log("Raw circle information" + circle.getArea(3));
     circle.logInfo(false);
     console.log("Circle information rounded to the nearest whole number");
     circle.logInfo(true);
