@@ -1,6 +1,30 @@
 (function () {
 "use strict";
 
+    //bonus ex#1
+    var car = {};
+    car.make = "Toyota";
+    car.model = "Camry";
+
+// create a logMakeModel method on the car object
+    car.logMakeModel = function () {
+        console.log("Car make/model is: " + this.make + " " + this.model);
+    };
+
+// log the make/model
+    car.logMakeModel();
+
+    // function showCarInfo (make, model){
+    //     var output = "";
+    //     output += "Car make: " + car.make + "\n";
+    //     output += "Car model: " + car.model + "\n";
+    //     output += "---";
+    //     console.log(output);
+
+    // }
+    // cars.forEach(showCarInfo);
+
+
     var userInput = [
         {name: "fred"},
         {name: true},
@@ -82,12 +106,12 @@ var cars = [
         isDirty: true
     }
 ];
-
+console.log(cars);
 function isDirty(){
-    cars.forEach(function (isDirty, index) {
-        if (cars[index].isDirty === true){
+    cars.forEach(function (car, index) {
             cars[index].isDirty = false;
-        }
     });
+    console.log(cars);
 }
-console.log(isDirty());
+
+console.log(isDirty(cars));
