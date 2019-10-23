@@ -38,7 +38,7 @@
     var arr = [
      {name: "Tatsu", address: "2123 Sawtelle, Los Angeles, CA"},
      {name: "Intelligentsia", address: "1331 Abbot Kinney, Los Angeles, CA"},
-     {name: "Market", address: "1331 Abbot Kinney, Los Angeles, CA"}
+     {name: "Market", address: "317 S Broadway, Los Angeles, CA"}
  ];
 
 
@@ -54,45 +54,20 @@
         className: "popUpBox"
     };
 
-
-
-    geocode("2123 Sawtelle, Los Angeles, CA", mapboxToken).then(function(result) {
+arr.forEach(function (element) {
+    var results = "results";
+    console.log(element);
+    geocode(element.address, mapboxToken).then(function(result) {
         console.log(result);
-        var popupRamen = new mapboxgl.Popup(popupOptions)
-            .setHTML("<p>Ramen!</p>");
+        var popup = new mapboxgl.Popup(popupOptions)
+            .setText(element.name);
 
         new mapboxgl.Marker()
             .setLngLat(result)
-            .setPopup(popupRamen)
+            .setPopup(popup)
             .addTo(map);
+        })
     });
-
-    geocode("1331 Abbot Kinney, Los Angeles, CA", mapboxToken).then(function(result) {
-        console.log(result);
-        var popupCoffee = new mapboxgl.Popup(popupOptions)
-            .setHTML("<p>coffee</p>");
-
-        new mapboxgl.Marker()
-            .setLngLat(result)
-            .setPopup(popupCoffee)
-            .addTo(map);
-
-
-    });
-
-        geocode("317 S Broadway, Los Angeles, CA", mapboxToken).then(function(result) {
-            console.log(result);
-            var popupMarket = new mapboxgl.Popup(popupOptions)
-                .setHTML("<p>market</p>");
-
-            new mapboxgl.Marker()
-                .setLngLat(result)
-                .setPopup(popupMarket)
-                .addTo(map);
-
-
-        });
-
 
 </script>
 </body>
