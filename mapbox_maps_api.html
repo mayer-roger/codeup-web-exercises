@@ -35,6 +35,12 @@
 
 <!-- Custom JS -->
 <script>
+    var arr = [
+     {name: "Tatsu", address: "2123 Sawtelle, Los Angeles, CA"},
+     {name: "Intelligentsia", address: "1331 Abbot Kinney, Los Angeles, CA"},
+     {name: "Market", address: "1331 Abbot Kinney, Los Angeles, CA"}
+ ];
+
 
     mapboxgl.accessToken = mapboxToken;
     var map = new mapboxgl.Map({
@@ -44,73 +50,47 @@
         center: [-118.2439, 34.0544]
     });
 
-    // var markerOptions = {
-    //     color: "teal",
-    //     draggable: true
+    var popupOptions = {
+        className: "popUpBox"
+    };
 
-    // }
 
-    // var marker = new mapboxgl.Marker(markerOptions)
-    //     .setLngLat([-98.4861, 29.4260])
-
-        // .addTo(map);
 
     geocode("2123 Sawtelle, Los Angeles, CA", mapboxToken).then(function(result) {
         console.log(result);
-        // map.flyTo(
-        //     {center: result, zoom: 9, speed: 0.4, curve: 1}
-        // );
+        var popupRamen = new mapboxgl.Popup(popupOptions)
+            .setHTML("<p>Ramen!</p>");
 
         new mapboxgl.Marker()
             .setLngLat(result)
-            .addTo(map);
-
-        var popupOptions = {
-            className: "popUpBox"
-        }
-
-        var popup = new mapboxgl.Popup(popupOptions)
-            .setLngLat(result)
-            .setHTML("<p>Ramen!</p>")
+            .setPopup(popupRamen)
             .addTo(map);
     });
+
     geocode("1331 Abbot Kinney, Los Angeles, CA", mapboxToken).then(function(result) {
         console.log(result);
-        // map.flyTo(
-        //     {center: result, zoom: 9, speed: 0.4, curve: 1}
-        // );
+        var popupCoffee = new mapboxgl.Popup(popupOptions)
+            .setHTML("<p>coffee</p>");
 
         new mapboxgl.Marker()
             .setLngLat(result)
+            .setPopup(popupCoffee)
             .addTo(map);
 
-        var popupOptions = {
-            className: "popUpBox"
-        }
-        var popupCoffee = new mapboxgl.Popup(popupOptions)
-            .setLngLat(result)
-            .setHTML("<p>coffee</p>")
-            .addTo(map);
+
     });
+
         geocode("317 S Broadway, Los Angeles, CA", mapboxToken).then(function(result) {
             console.log(result);
-            // map.flyTo(
-            //     {center: result, zoom: 9, speed: 0.4, curve: 1}
-            // );
+            var popupMarket = new mapboxgl.Popup(popupOptions)
+                .setHTML("<p>market</p>");
 
             new mapboxgl.Marker()
                 .setLngLat(result)
+                .setPopup(popupMarket)
                 .addTo(map);
 
-            var popupOptions = {
-                className: "popUpBox"
-            }
-            var popup = new mapboxgl.Popup(popupOptions)
-                .setLngLat(result)
-                .setHTML("<p>market</p>")
-                .addTo(map)
 
-            marker.setPopup(popup)
         });
 
 
