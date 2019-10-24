@@ -8,13 +8,18 @@
     <h1>Deimos</h1>
     <p>These are my morning warmups:</p>
     <script>
-    //fizz buzz
-    for (var i = 0; i < 101; i++){
-        if (i % 15 === 0) console.log(j + " FizzBuzz");
-        else if (i % 3 === 0) console.log(j + " Fizz");
-        else if (i % 5 === 0) console.log(j + " Buzz");
+    //fizz buzz function
+    function fizzBuzz(num) {
+
+    for (var i = 0; i <= num; i++){
+        if (i % 15 === 0) console.log(i + " FizzBuzz");
+        else if (i % 3 === 0) console.log(i + " Fizz");
+        else if (i % 5 === 0) console.log(i + " Buzz");
         else console.log(i);
+        }
     }
+    fizzBuzz(100);
+
     //fizz buzz shorter way
     // for(var z=0; z<100;)console.log((++z%3 ? '':'fizz')+(z%5?'':'buzz')||z);
 
