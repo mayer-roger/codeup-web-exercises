@@ -14,7 +14,6 @@
         }
         .popUpBox{
             color: red;
-            max-width: 100px;
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
         }
@@ -36,9 +35,9 @@
 <!-- Custom JS -->
 <script>
     var arr = [
-     {name: "Tatsu", address: "2123 Sawtelle, Los Angeles, CA"},
-     {name: "Intelligentsia", address: "1331 Abbot Kinney, Los Angeles, CA"},
-     {name: "Market", address: "317 S Broadway, Los Angeles, CA"}
+     {name: "<p>Tatsu</p>", address: "2123 Sawtelle, Los Angeles, CA"},
+     {name: "<p>Intelligentsia</p>", address: "1331 Abbot Kinney, Los Angeles, CA"},
+     {name: "<p>Market</p>", address: "317 S Broadway, Los Angeles, CA"}
  ];
 
 
@@ -56,11 +55,9 @@
 
 arr.forEach(function (element) {
     var results = "results";
-    console.log(element);
     geocode(element.address, mapboxToken).then(function(result) {
-        console.log(result);
         var popup = new mapboxgl.Popup(popupOptions)
-            .setText(element.name);
+            .setHTML(element.name);
 
         new mapboxgl.Marker()
             .setLngLat(result)
