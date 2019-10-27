@@ -11,7 +11,7 @@
 
     var person = {
         firstName: "Roger",
-        lastName: "Mayer",
+        lastName: "Mayer"
 
     };
 
