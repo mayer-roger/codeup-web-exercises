@@ -54,7 +54,7 @@
     function notRegistered(studentArray){
         var notReg = [];
         studentArray.forEach(function(student){
-            if (student.isRegistered !== true){
+            if (!student.isRegistered){
                 notReg.push(student.name);
             }
         });
