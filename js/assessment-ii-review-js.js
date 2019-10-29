@@ -95,17 +95,14 @@ myMac.users = [
 ];
 
 
-// var user= [];
-// function findUsers(){
-//     myMac.forEach(function (x) {
-//             user = myMac.users[0];
-//     });
-//     return user;
-// }
+function findUsers(x){
+var arr= [];
+    x.forEach(function (user) {
+           arr.push(user.username);
+    });
+    return arr;
+}
 
-// function findUsers(x){
-//     return x.users.username;
-// }
 
 //
 // console.log(findUsers(myMac.users));    // returns ['sophie','vivian','david']
@@ -117,19 +114,14 @@ myMac.users = [
 // - Write a function 'addRole' that accepts the array of objects, then adds the
 // property 'role' to each object with a value of 'instructor.' The
 // results should look like this:
-// function addRole(x) {
-//     myMac.forEach(function(element)  {
-//         // username["role"] = x;
-//         myMac.push({role: "instructer" });
-//     });
-//
-// }
-//
-// // function addRole(){
-//Object.assign (users {role: instructor}) ??????? USE THIS????????
-//
-//
-// // addRole("instructor");
+function addRole(x) {
+    myMac.users.forEach(function(user)  {
+       user.role = x;
+    });
+    return myMac.users;
+}
+
+console.log(addRole("instructor"));
 // console.log(myMac);
 
 
@@ -156,18 +148,8 @@ myMac.users = [
 
 // - Write a function 'countLetters' that takes in a string and a character, and
 // counts the number of instances of that character in the string.
-function countLetters(str, char)
-{
-    var letter_Count = 0;
-    for (var position = 0; position < str.length; position++)
-    {
-        str = str.toLowerCase();
-        if (str.charAt(position) == char)
-        {
-            letter_Count += 1;
-        }
-    }
-    return letter_Count;
+function countLetters(str, char){
+    return str.toUpperCase().split(char.toUpperCase()).length-1;
 }
 
 console.log(countLetters("banana", "a")); // returns 3
@@ -179,14 +161,14 @@ console.log(countLetters("javascript", "x")); // returns 0
 // - Write a function 'evensIndex' that takes in an array of numbers and returns
 // an array containing the index values of all even numbers.
 
-var evenCount = [];
-function evensIndex(arr){
-    for (var i = 0; i < arr.length; i++){
-        if (arr % 2 === 0){
-            evenCount += arr.indexOf();
+function evensIndex(x){
+var arr = [];
+    for (var i = 0; i < x.length; i++){
+        if (x[i] % 2 === 0){
+            arr.push(i);
         }
     }
-        return evenCount;
+            return arr;
 }
 console.log(evensIndex([1, 2, 3, 4, 5, 6])); // returns [1,3,5]
 console.log(evensIndex([3, 7, 11, 12])); // returns [3]
@@ -199,14 +181,20 @@ console.log(evensIndex([5, 5, 7, 13])); // returns []
 // array with the count of a character for each string. You may be able to use
 // your countLetters function here.
 
-// var countArr =[];
-// function countAll(arr) {
-//     for (var i = 0; i <arr.length; i++){
-//         countArr += countLetters(arr);
-//     }
-//     return countArr;
+// function countLetters(str, char){
+//     return str.toUpperCase().split(char.toUpperCase()).length-1;
 // }
-//
-// console.log(countAll(["banana", "html", "java"], "a")); // returns [3,0,2]
-// console.log(countAll(["push", "your", "commits"], "u")); // returns [1,1,0]
+
+
+function countAll(x,y) {
+    var arr =[];
+    for (var i = 0; i < x.length; i++){
+        var count = countLetters(x[i],y);
+        arr.push(count);
+    }
+    return arr;
+}
+
+console.log(countAll(["banana", "html", "java"], "a")); // returns [3,0,2]
+console.log(countAll(["push", "your", "commits"], "u")); // returns [1,1,0]
 // ```

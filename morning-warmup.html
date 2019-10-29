@@ -20,8 +20,86 @@
     }
     fizzBuzz(100);
 
+
+
     //fizz buzz shorter way
-    // for(var z=0; z<100;)console.log((++z%3 ? '':'fizz')+(z%5?'':'buzz')||z);
+    // for(var i=0; i<100;)console.log((++i%3 ? '':'fizz')+(i%5?'':'buzz')||i);
+    var students = [
+        {
+            name: "Mary",
+            grade: 10,
+            gpa: 3.7,
+            isRegistered: true
+        },
+        {
+            name: "Tim",
+            grade: 12,
+            gpa: 3.2,
+            isRegistered: false
+        },
+        {
+            name: "Ellie",
+            grade: 9,
+            gpa: 4.0,
+            isRegistered: false
+        },
+        {
+            name: "Alex",
+            grade: 10,
+            gpa: 3.9,
+            isRegistered: true
+        }
+    ]
+
+    function notRegistered(studentArray){
+        var notReg = [];
+        studentArray.forEach(function(student){
+            if (student.isRegistered !== true){
+                notReg.push(student.name);
+            }
+        });
+        return notReg;
+    }
+
+    console.log(notRegistered(students));
+
+    //return cart with most oranges
+    var shoppingCarts = [
+        {
+            apples: 8,
+            bananas: 2,
+            oranges: 4,
+            grapes: 24
+        }, {
+            apples: 3,
+            bananas: 6,
+            oranges: 8,
+            grapes: 12
+        } , {
+            apples: 0,
+            bananas: 12,
+            oranges: 0,
+            grapes: 0
+        } , {
+            apples: 4,
+            bananas: 0,
+            oranges: 12,
+            grapes: 10
+        }
+    ];
+
+
+    function mostOranges(carts){
+        var most = carts[0];
+        carts.forEach(function(cart){
+          if (cart.oranges > most.oranges){
+              most = cart;
+          }
+        });
+        return most;
+    }
+
+    console.log(mostOranges(shoppingCarts));
 
 
     //function that takes in a name and age and returns person and age as object
