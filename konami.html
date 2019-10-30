@@ -1,19 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
         <title>Konami Code</title>
-    </head>
-<body>
-<h1>Konami Code</h1>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
-<script src="/js/jquery.js"></script>
+    <style>
+        * {
+            font-family: 'Press Start 2P', Helvetica;
+            background: #45a5ae;
+
+        }
+        body, html {
+            /*height: ;*/
+            background-image: url("img/controller.png");
+            text-align: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .container{
+
+
+        }
+
+        /*#upButton{*/
+        /*    height: 25px;*/
+        /*    width: 25px;*/
+        /*    border-radius: 50%;*/
+        /*    background-color:yellow;*/
+        /*    position: absolute;*/
+        /*    margin-left: 25%;*/
+        /*    margin-top: 25%;*/
+        /*}*/
+        /*#downButton{*/
+        /*    height: 25px;*/
+        /*    width: 25px;*/
+        /*    border-radius: 50%;*/
+        /*    background-color:yellow;*/
+        /*    position: absolute;*/
+        /*    margin-left: 300px;*/
+
+
+        /*}*/
+        /*#leftButton{*/
+        /*    height: 25px;*/
+        /*    width: 25px;*/
+        /*    border-radius: 50%;*/
+        /*    background-color:yellow;*/
+        /*    position: absolute;*/
+        /*}*/
+        /*#rightButton{*/
+        /*    height: 25px;*/
+        /*    width: 25px;*/
+        /*    border-radius: 50%;*/
+        /*    background-color:yellow;*/
+        /*    position: absolute;*/
+        /*}*/
+        /*#aButton{*/
+        /*    height: 25px;*/
+        /*    width: 25px;*/
+        /*    border-radius: 50%;*/
+        /*    background-color:yellow;*/
+        /*    position: absolute;*/
+        /*}*/
+        /*#bButton{*/
+        /*    height: 25px;*/
+        /*    width: 25px;*/
+        /*    border-radius: 50%;*/
+        /*    background-color:yellow;*/
+        /*    position: absolute;*/
+        /*}*/
+
+    </style>
+</head>
+
+<!--<body class="bg">-->
+<body class="bg">
+    <h1 id="image-canvas">Konami Code</h1>
+<div class="container">
+    <div id="upButton"></div>
+    <div id="downButton"></div>
+    <div id="leftButton"></div>
+    <div id="rightButton"></div>
+    <div id="aButton"></div>
+    <div id="bButton"></div>
+</div>
+</body>
+
+<script src="js/jquery-2.2.4.js"></script>
 <script>
     "use strict";
-
+    var audio = new Audio('audio/mb_coin.wav');
+    //key down events
     $(document).keyup(function(event){
-        console.log(event.keyCode);
+        // console.log(event.key)
+        var canvas = document.getElementById('image-canvas');
+        canvas.innerHTML = '<h5>Konami Code</h5>';
     });
+        // the 'official' Konami Code sequence
+        var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
+        var allowedKeys = {
+            'ArrowLeft' : 'left',
+            'ArrowUp' : 'up',
+            'ArrowRight': 'right',
+            'ArrowDown': 'down',
+            'a': 'a',
+            'b': 'b'
+        };
+
+        // a variable to remember the 'position' the user has reached so far.
+        var konamiCodePosition = 0;
+
+      //  add keydown event listener
+        document.addEventListener('keydown', function (e) {
+            // get the value of the key code from the key map
+            var key = allowedKeys[e.key];
+            console.log(key);
+            // get the value of the required key from the konami code
+            var requiredKey = konamiCode[konamiCodePosition];
+
+            // compare the key with the required key
+            if (key == requiredKey) {
+
+                // move to the next key in the konami code sequence
+                keyDown(key);
+                // keyUp(key);
+                konamiCodePosition++;
+                // if the last key is reached, activate cheats
+                if (konamiCodePosition == konamiCode.length) {
+                    activateCheats();
+                    konamiCodePosition = 0;
+                }
+            } else {
+                konamiCodePosition = 0;
+                var canvas = document.getElementById('image-canvas');
+                canvas.innerHTML = '<h5>Konami Code</h5>';
+            }
+        });
+
+    function keyDown(key) {
+        console.log("key down function");
+        if (key === "right") {
+            var canvas = document.getElementById('image-canvas');
+            canvas.innerHTML = '<h5>Right</h5>';
+            document.getElementById('upButton');
+        } else if (key === "left") {
+            var canvas = document.getElementById('image-canvas');
+            canvas.innerHTML = '<h5>Left</h5>';
+        } else if (key ==="up") {
+            var canvas = document.getElementById('image-canvas');
+            canvas.innerHTML = '<h5>Up</h5>';
+        } else if (key ==="down") {
+            var canvas = document.getElementById('image-canvas');
+            canvas.innerHTML = '<h5>Down</h5>';
+        } else if (key ==="a") {
+            var canvas = document.getElementById('image-canvas');
+            canvas.innerHTML = '<h5>A</h5>';
+        } else if (key ==="b") {
+            var canvas = document.getElementById('image-canvas');
+            canvas.innerHTML = '<h5>B</h5>';
+        }
+    }
+    function activateCheats() {
+            document.body.style.backgroundImage = "url('img/Contra.png')";
+            var audio = new Audio('audio/mb_coin.wav');
+            audio.play();
+            alert("cheats activated");
+        var canvas = document.getElementById('image-canvas');
+                canvas.innerHTML = '<h5>Konami Code</h5>';
+        }
+
 </script>
 </body>
 </html>

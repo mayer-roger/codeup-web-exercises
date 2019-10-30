@@ -37,7 +37,7 @@ $(document).ready(function() {
 // When we click on the smaller circle, the background image changes! Note that we can use the this keyword as well!
 
     $('p').dblclick(function(){
-        $(this).css('font-size','18px')
+        $(this).html('font-size','18px')
     });
 
     $('li').hover(function() {

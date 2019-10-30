@@ -9,21 +9,66 @@
     <p>These are my morning warmups:</p>
     <script>
     //fizz buzz function
-    function fizzBuzz(num) {
+    // function fizzBuzz(num) {
 
-    for (var i = 0; i <= num; i++){
-        if (i % 15 === 0) console.log(i + " FizzBuzz");
-        else if (i % 3 === 0) console.log(i + " Fizz");
-        else if (i % 5 === 0) console.log(i + " Buzz");
-        else console.log(i);
-        }
-    }
-    fizzBuzz(100);
+    // for (var i = 0; i <= num; i++){
+    //     if (i % 15 === 0) console.log(i + " FizzBuzz");
+    //     else if (i % 3 === 0) console.log(i + " Fizz");
+    //     else if (i % 5 === 0) console.log(i + " Buzz");
+    //     else console.log(i);
+    //     }
+    // }
+    // fizzBuzz(100);
 
 
 
     //fizz buzz shorter way
     // for(var i=0; i<100;)console.log((++i%3 ? '':'fizz')+(i%5?'':'buzz')||i);
+
+    //list hamster by height in ascending order
+    var hamsters = [
+        {
+            name: "Hamtaro",
+            heightInMM: 86,
+            fur: ['orange', 'white'],
+            gender: "male",
+            dateOfBirth: "August 6"
+        } , {
+            name: "Bijou",
+            heightInMM: 75,
+            fur: ['white'],
+            gender: "female",
+            dateOfBirth: "July 10"
+        } , {
+            name: "Oxnard",
+            heightInMM: 100,
+            fur: ['grey', 'white'],
+            gender: "male",
+            dateOfBirth: "May 3"
+        } , {
+            name: "Boss",
+            heightInMM: 120,
+            fur: ['brown', 'white'],
+            gender: "male",
+            dateOfBirth: "Spetember 21"
+        } , {
+            name: "Snoozer",
+            heightInMM: 85,
+            fur: ['brown', 'white', "pink"],
+            gender: "male",
+            dateOfBirth: "January 14"
+        }
+    ];
+    function hamsterHeight(hamstersArray){
+        var height = [];
+        hamstersArray.sort(function(a,b){
+            return a.heightInMM - b.heightInMM;
+        });
+
+    }
+
+    console.log(hamsterHeight(hamsters));
+
     var students = [
         {
             name: "Mary",
@@ -51,17 +96,17 @@
         }
     ]
 
-    function notRegistered(studentArray){
-        var notReg = [];
-        studentArray.forEach(function(student){
-            if (!student.isRegistered){
-                notReg.push(student.name);
-            }
-        });
-        return notReg;
-    }
-
-    console.log(notRegistered(students));
+    // function notRegistered(studentArray){
+    //     var notReg = [];
+    //     studentArray.forEach(function(student){
+    //         if (!student.isRegistered){
+    //             notReg.push(student.name);
+    //         }
+    //     });
+    //     return notReg;
+    // }
+    //
+    // console.log(notRegistered(students));
 
     //return cart with most oranges
     var shoppingCarts = [
