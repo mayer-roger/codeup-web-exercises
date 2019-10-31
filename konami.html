@@ -8,10 +8,16 @@
         * {
             font-family: 'Press Start 2P', Helvetica;
             background: #45a5ae;
+            box-sizing: border-box;
+
+            margin: 0;
+            padding: 0;
 
         }
+
         body, html {
             /*height: ;*/
+
             background-image: url("img/controller.png");
             text-align: center;
             background-repeat: no-repeat;
@@ -19,72 +25,86 @@
 
         }
 
-        .container{
+        h1{
+        margin-top: 30px;
+
+        }
+        /*#buttonBox{*/
+        /*    width: 100%;*/
+        /*    display: flex;*/
+        /*    justify-content: space-between;*/
+        /*    !*margin-top: 25px;*!*/
+        /*    margin-left: 10px;*/
+        /*    margin-right: 10px;*/
+        /*}*/
+
+        #upButton{
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background-color:yellow;
+            justify-items: center;
+            visibility: hidden;
+
+        }
+        #downButton{
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+            background-color:yellow;
+            /*position: absolute;*/
+
+            visibility: hidden;
 
 
         }
+        #leftButton{
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+            background-color:yellow;
+            /*position: absolute;*/
+            visibility: hidden;
+        }
+        #rightButton{
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+            background-color:yellow;
+            /*position: absolute;*/
 
-        /*#upButton{*/
-        /*    height: 25px;*/
-        /*    width: 25px;*/
-        /*    border-radius: 50%;*/
-        /*    background-color:yellow;*/
-        /*    position: absolute;*/
-        /*    margin-left: 25%;*/
-        /*    margin-top: 25%;*/
-        /*}*/
-        /*#downButton{*/
-        /*    height: 25px;*/
-        /*    width: 25px;*/
-        /*    border-radius: 50%;*/
-        /*    background-color:yellow;*/
-        /*    position: absolute;*/
-        /*    margin-left: 300px;*/
+            visibility: hidden;
+        }
 
-
-        /*}*/
-        /*#leftButton{*/
-        /*    height: 25px;*/
-        /*    width: 25px;*/
-        /*    border-radius: 50%;*/
-        /*    background-color:yellow;*/
-        /*    position: absolute;*/
-        /*}*/
-        /*#rightButton{*/
-        /*    height: 25px;*/
-        /*    width: 25px;*/
-        /*    border-radius: 50%;*/
-        /*    background-color:yellow;*/
-        /*    position: absolute;*/
-        /*}*/
-        /*#aButton{*/
-        /*    height: 25px;*/
-        /*    width: 25px;*/
-        /*    border-radius: 50%;*/
-        /*    background-color:yellow;*/
-        /*    position: absolute;*/
-        /*}*/
-        /*#bButton{*/
-        /*    height: 25px;*/
-        /*    width: 25px;*/
-        /*    border-radius: 50%;*/
-        /*    background-color:yellow;*/
-        /*    position: absolute;*/
-        /*}*/
-
+        #bButton{
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+            background-color:yellow;
+            /*position: absolute;*/
+            visibility: hidden;
+        }
+        #aButton{
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+            background-color:yellow;
+            /*position: absolute;*/
+            visibility: hidden;
+        }
     </style>
 </head>
 
 <!--<body class="bg">-->
 <body class="bg">
     <h1 id="image-canvas">Konami Code</h1>
-<div class="container">
-    <div id="upButton"></div>
-    <div id="downButton"></div>
-    <div id="leftButton"></div>
-    <div id="rightButton"></div>
-    <div id="aButton"></div>
-    <div id="bButton"></div>
+<div id="buttonBox">
+<!--    <div id="upButton">UP</div>-->
+<!--    <div id="downButton">DOWN</div>-->
+<!--    <div id="leftButton">LEFT</div>-->
+<!--    <div id="rightButton">RIGHT</div>-->
+<!--    <div id="bButton">B</div>-->
+<!--    <div id="aButton">A</div>-->
 </div>
 </body>
 
@@ -144,31 +164,40 @@
         if (key === "right") {
             var canvas = document.getElementById('image-canvas');
             canvas.innerHTML = '<h5>Right</h5>';
-            document.getElementById('upButton');
+            $("#rightButton").css('visibility','visible');
+            // document.getElementById('rightButton');
         } else if (key === "left") {
             var canvas = document.getElementById('image-canvas');
             canvas.innerHTML = '<h5>Left</h5>';
+            $("#leftButton").css('visibility','visible');
         } else if (key ==="up") {
             var canvas = document.getElementById('image-canvas');
             canvas.innerHTML = '<h5>Up</h5>';
+            $("#upButton").css('visibility','visible');
         } else if (key ==="down") {
             var canvas = document.getElementById('image-canvas');
             canvas.innerHTML = '<h5>Down</h5>';
-        } else if (key ==="a") {
-            var canvas = document.getElementById('image-canvas');
-            canvas.innerHTML = '<h5>A</h5>';
+            $("#downButton").css('visibility','visible');
         } else if (key ==="b") {
             var canvas = document.getElementById('image-canvas');
-            canvas.innerHTML = '<h5>B</h5>';
+            canvas.innerHTML = '<h5>b</h5>';
+            $("#bButton").css('visibility','visible');
+        } else if (key ==="a") {
+            var canvas = document.getElementById('image-canvas');
+            canvas.innerHTML = '<h5>a</h5>';
+            $("#aButton").css('visibility','visible');
         }
     }
     function activateCheats() {
-            document.body.style.backgroundImage = "url('img/Contra.png')";
+            // document.body.style.backgroundImage = "url('img/Contra.png')";
             var audio = new Audio('audio/mb_coin.wav');
             audio.play();
             alert("cheats activated");
-        var canvas = document.getElementById('image-canvas');
-                canvas.innerHTML = '<h5>Konami Code</h5>';
+        // var canvas = document.getElementById('image-canvas');
+        //         canvas.innerHTML = '<h5>Cheater!</h5>';
+        $('h1').html('<h5>Cheater!</h5>');
+        $('html').css({'background-color':'red'});
+        $('h1').css({'background-color':'black','color':'white'});
         }
 
 </script>
