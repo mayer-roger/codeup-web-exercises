@@ -9,7 +9,6 @@
             font-family: 'Press Start 2P', Helvetica;
             background: #45a5ae;
             box-sizing: border-box;
-
             margin: 0;
             padding: 0;
 
@@ -29,18 +28,18 @@
         margin-top: 30px;
 
         }
-        /*#buttonBox{*/
-        /*    width: 100%;*/
-        /*    display: flex;*/
-        /*    justify-content: space-between;*/
-        /*    !*margin-top: 25px;*!*/
-        /*    margin-left: 10px;*/
-        /*    margin-right: 10px;*/
-        /*}*/
+        #buttonBox{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            /*margin-top: 25px;*/
+            margin-left: 10px;
+            margin-right: 10px;
+        }
 
         #upButton{
-            height: 25px;
-            width: 25px;
+            height: 75px;
+            width: 75px;
             border-radius: 50%;
             background-color:yellow;
             justify-items: center;
@@ -98,14 +97,14 @@
 <!--<body class="bg">-->
 <body class="bg">
     <h1 id="image-canvas">Konami Code</h1>
-<div id="buttonBox">
+<!--<div id="buttonBox">-->
 <!--    <div id="upButton">UP</div>-->
 <!--    <div id="downButton">DOWN</div>-->
 <!--    <div id="leftButton">LEFT</div>-->
 <!--    <div id="rightButton">RIGHT</div>-->
 <!--    <div id="bButton">B</div>-->
 <!--    <div id="aButton">A</div>-->
-</div>
+<!--</div>-->
 </body>
 
 <script src="js/jquery-2.2.4.js"></script>
@@ -173,7 +172,6 @@
         } else if (key ==="up") {
             var canvas = document.getElementById('image-canvas');
             canvas.innerHTML = '<h5>Up</h5>';
-            $("#upButton").css('visibility','visible');
         } else if (key ==="down") {
             var canvas = document.getElementById('image-canvas');
             canvas.innerHTML = '<h5>Down</h5>';
@@ -187,6 +185,7 @@
             canvas.innerHTML = '<h5>a</h5>';
             $("#aButton").css('visibility','visible');
         }
+        $("#upButton").css('visibility','visible');
     }
     function activateCheats() {
             // document.body.style.backgroundImage = "url('img/Contra.png')";

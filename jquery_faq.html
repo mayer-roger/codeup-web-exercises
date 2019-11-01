@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jquery National Park FAQ</title>
+    <style>
+        .centered {
+            text-align: center;
+        }
+        .highlighted {
+            background-color: #FF0;
+        }
+        .invisible{
+          visibility: hidden;
+        }
+        .boxDiv{
+            display: flex;
+            justify-content: space-around;
+            justify-items: center;
+
+        }
+        .btnDiv{
+            display: flex;
+            justify-content: space-around;
+            justify-items: center;
+            padding-top: 15px;
+
+        }
+        .box1{
+         border: 2px solid black;
+         height: 150px;
+         width: 150px;
+         background-color: #551B12;
+        }
+        .box2{
+            border: 2px solid black;
+            height: 150px;
+            width: 150px;
+            background-color: #9BCE1B;
+        }
+        .box3{
+            border: 2px solid black;
+            height: 150px;
+            width: 150px;
+            background-color: #0fb784;
+        }
+
+
+    </style>
+</head>
+<body>
+<!--<div id="natParkList">-->
+<!--<span>National Parks</span>-->
+<!--<dl>-->
+<!--    <dt>#1</dt>-->
+<!--    <dd>The National Park Service protects over 84 million acres of wild landscapes and historic sites.</dd>-->
+<!--    <dt>#2</dt>-->
+<!--    <dd >California and Alaska each have eight national parks. </dd>-->
+
+<!--    <dt>#3</dt>-->
+<!--    <dd>Carlsbad Caverns National Park in New Mexico is home to the nation's deepest cave, which is 1,593 feet deep..</dd>-->
+<!--    <dt>#4</dt>-->
+<!--    <dd>Mount Rainier is the most glaciated peak in the contiguous U.S. with 26 major glaciers.</dd>-->
+<!--    <dt>#5</dt>-->
+<!--    <dd>Mount Rainier is the most glaciated peak in the contiguous U.S. with 26 major glaciers.</dd>-->
+<!--    <dt>#6</dt>-->
+<!--    <dd>There are 879 visitor centers in the National Park System. </dd>-->
+<!--    <dt>#7</dt>-->
+<!--    <dd>There are 25 active glaciers and more than 700 lakes of various sizes inside Glacier National Park..</dd>-->
+<!--    <dt>#8</dt>-->
+<!--    <dd>National parks and national monuments are sometimes confused. National parks are chosen for their natural beauty, unique geological features, and unusual ecosystems.</dd>-->
+<!--    <dt>#9</dt>-->
+<!--    <dd>The national parks are home and habitat to more than 400 endangered or threatened plant and animal species.</dd>-->
+<!--    <dt>#10</dt>-->
+<!--    <dd>There are over 18,000 miles of trails in the national parks just waiting for you to explore them!</dd>-->
+<!--</dl>-->
+<!--</div>-->
+<!--<button id="natbtn">Click Here</button>-->
+<!--<div>-->
+<!--    <h1>FACTS ABOUT CALIFORNIA NATIONAL PARKS</h1>-->
+<!--    <h3>Yosemite</h3>-->
+<!--    <ul id="listYosemite">-->
+<!--        <li>Est: 1890</li>-->
+<!--        <li>Terrain: Mountains</li>-->
+<!--        <li>Area: 1,169 sq. miles</li>-->
+
+<!--    </ul>-->
+<!--    <h3>Redwood</h3>-->
+<!--    <ul id="listRedwood">-->
+<!--        <li>Est: 1968</li>-->
+<!--        <li>Terrain: Forrest</li>-->
+<!--        <li>Area: 217 sq. miles</li>-->
+<!--    </ul>-->
+<!--    <h3>Death Valley</h3>-->
+<!--    <ul id="listDeathValley">-->
+<!--        <li>Est: 1933</li>-->
+<!--        <li>Terrain: Desert</li>-->
+<!--        <li>Area: 8482 sq. miles</li>-->
+<!--    </ul>-->
+<!--</div>-->
+
+<div class="boxDiv">
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</div>
+
+<div class="btnDiv">
+    <button class="rightBtn">Right >></button>
+    <button class="randomBtn"><< Random >></button>
+    <button class="leftBtn"><< Left</button>
+</div>
+
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+    $('#boxDiv').click(function() {
+            $(this).children().first().removeClass("box1");
+            // $("box2").removeClass("box2").addClass("box1");
+
+    });
+    // $('#rightbtn').click(function() {
+    //         $("#box1").after($("#box2"));
+    //         // $("#box1").toggleClass("#box2");
+    // });
+
+    $(document).ready(function(){
+        $('dt').click(function() {
+            // $(this).toggleClass( "highlighted" );
+            $(this).next().toggleClass("highlighted")
+            });
+
+        $('span').click(function() {
+            $('dd').toggleClass( "invisible" );
+            });
+    });
+
+    $('#natbtn').click(function() {
+        $('ul').each(function(){
+            $(this).children().last('li').toggleClass("highlighted");
+        });
+    });
+
+    $('h3').click(function() {
+        $(this).next().children().css('font-weight', 'bold');
+    });
+
+
+    $('li').click(function() {
+        // $('ul').each(function(){
+        $(this).parent().children().first().css('color', 'blue');
+        // });
+    });
+
+
+    // $('#national-parks-heading').next().css('background-color', 'salmon');
+    // $('#national-parks-heading').next().css('background-color', 'salmon')
+</script>
+</body>
+</html>
