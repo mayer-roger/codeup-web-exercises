@@ -44,72 +44,87 @@
             width: 150px;
             background-color: #0fb784;
         }
+        h2{
+            display: none;
+        }
+        ul{
+            display: none;
+        }
 
 
     </style>
 </head>
 <body>
-<!--<div id="natParkList">-->
-<!--<span>National Parks</span>-->
-<!--<dl>-->
-<!--    <dt>#1</dt>-->
-<!--    <dd>The National Park Service protects over 84 million acres of wild landscapes and historic sites.</dd>-->
-<!--    <dt>#2</dt>-->
-<!--    <dd >California and Alaska each have eight national parks. </dd>-->
 
-<!--    <dt>#3</dt>-->
-<!--    <dd>Carlsbad Caverns National Park in New Mexico is home to the nation's deepest cave, which is 1,593 feet deep..</dd>-->
-<!--    <dt>#4</dt>-->
-<!--    <dd>Mount Rainier is the most glaciated peak in the contiguous U.S. with 26 major glaciers.</dd>-->
-<!--    <dt>#5</dt>-->
-<!--    <dd>Mount Rainier is the most glaciated peak in the contiguous U.S. with 26 major glaciers.</dd>-->
-<!--    <dt>#6</dt>-->
-<!--    <dd>There are 879 visitor centers in the National Park System. </dd>-->
-<!--    <dt>#7</dt>-->
-<!--    <dd>There are 25 active glaciers and more than 700 lakes of various sizes inside Glacier National Park..</dd>-->
-<!--    <dt>#8</dt>-->
-<!--    <dd>National parks and national monuments are sometimes confused. National parks are chosen for their natural beauty, unique geological features, and unusual ecosystems.</dd>-->
-<!--    <dt>#9</dt>-->
-<!--    <dd>The national parks are home and habitat to more than 400 endangered or threatened plant and animal species.</dd>-->
-<!--    <dt>#10</dt>-->
-<!--    <dd>There are over 18,000 miles of trails in the national parks just waiting for you to explore them!</dd>-->
-<!--</dl>-->
-<!--</div>-->
-<!--<button id="natbtn">Click Here</button>-->
-<!--<div>-->
-<!--    <h1>FACTS ABOUT CALIFORNIA NATIONAL PARKS</h1>-->
-<!--    <h3>Yosemite</h3>-->
-<!--    <ul id="listYosemite">-->
-<!--        <li>Est: 1890</li>-->
-<!--        <li>Terrain: Mountains</li>-->
-<!--        <li>Area: 1,169 sq. miles</li>-->
-
-<!--    </ul>-->
-<!--    <h3>Redwood</h3>-->
-<!--    <ul id="listRedwood">-->
-<!--        <li>Est: 1968</li>-->
-<!--        <li>Terrain: Forrest</li>-->
-<!--        <li>Area: 217 sq. miles</li>-->
-<!--    </ul>-->
-<!--    <h3>Death Valley</h3>-->
-<!--    <ul id="listDeathValley">-->
-<!--        <li>Est: 1933</li>-->
-<!--        <li>Terrain: Desert</li>-->
-<!--        <li>Area: 8482 sq. miles</li>-->
-<!--    </ul>-->
-<!--</div>-->
-
-<div class="boxDiv">
-    <div class="box1">1</div>
-    <div class="box2">2</div>
-    <div class="box3">3</div>
+<div class="news">
+    <h1>Would you like to signup for newsletter?</h1>
+    <span>X</span>
 </div>
 
-<div class="btnDiv">
-    <button class="rightBtn">Right >></button>
-    <button class="randomBtn"><< Random >></button>
-    <button class="leftBtn"><< Left</button>
+<div>
+    <h2>Register for the site</h2>
 </div>
+<div id="natParkList">
+<span>National Parks</span>
+<dl>
+    <dt>#1</dt>
+    <dd>The National Park Service protects over 84 million acres of wild landscapes and historic sites.</dd>
+    <dt>#2</dt>
+    <dd >California and Alaska each have eight national parks. </dd>
+
+    <dt>#3</dt>
+    <dd>Carlsbad Caverns National Park in New Mexico is home to the nation's deepest cave, which is 1,593 feet deep..</dd>
+    <dt>#4</dt>
+    <dd>Mount Rainier is the most glaciated peak in the contiguous U.S. with 26 major glaciers.</dd>
+    <dt>#5</dt>
+    <dd>Mount Rainier is the most glaciated peak in the contiguous U.S. with 26 major glaciers.</dd>
+    <dt>#6</dt>
+    <dd>There are 879 visitor centers in the National Park System. </dd>
+    <dt>#7</dt>
+    <dd>There are 25 active glaciers and more than 700 lakes of various sizes inside Glacier National Park..</dd>
+    <dt>#8</dt>
+    <dd>National parks and national monuments are sometimes confused. National parks are chosen for their natural beauty, unique geological features, and unusual ecosystems.</dd>
+    <dt>#9</dt>
+    <dd>The national parks are home and habitat to more than 400 endangered or threatened plant and animal species.</dd>
+    <dt>#10</dt>
+    <dd>There are over 18,000 miles of trails in the national parks just waiting for you to explore them!</dd>
+</dl>
+</div>
+<button id="natbtn">Click Here</button>
+<div>
+    <h1>FACTS ABOUT CALIFORNIA NATIONAL PARKS</h1>
+    <h3>Yosemite</h3>
+    <ul id="listYosemite">
+        <li>Est: 1890</li>
+        <li>Terrain: Mountains</li>
+        <li>Area: 1,169 sq. miles</li>
+
+    </ul>
+    <h3>Redwood</h3>
+    <ul id="listRedwood">
+        <li>Est: 1968</li>
+        <li>Terrain: Forrest</li>
+        <li>Area: 217 sq. miles</li>
+    </ul>
+    <h3>Death Valley</h3>
+    <ul id="listDeathValley">
+        <li>Est: 1933</li>
+        <li>Terrain: Desert</li>
+        <li>Area: 8482 sq. miles</li>
+    </ul>
+<!--</div>-->
+
+<!--<div class="boxDiv">-->
+<!--    <div class="box1">1</div>-->
+<!--    <div class="box2">2</div>-->
+<!--    <div class="box3">3</div>-->
+<!--</div>-->
+
+<!--<div class="btnDiv">-->
+<!--    <button class="rightBtn">Right >></button>-->
+<!--    <button class="randomBtn"><< Random >></button>-->
+<!--    <button class="leftBtn"><< Left</button>-->
+<!--</div>-->
 
 
 <script src="js/jquery-2.2.4.js"></script>
@@ -143,7 +158,9 @@
     });
 
     $('h3').click(function() {
-        $(this).next().children().css('font-weight', 'bold');
+        // $(this).next().children().css('font-weight', 'bold');
+
+        $(this).next().slideToggle();
     });
 
 
@@ -152,6 +169,15 @@
         $(this).parent().children().first().css('color', 'blue');
         // });
     });
+
+    $('.news').click(function(){
+        $(this).children().first().toggle();
+    });
+
+    $('document').ready(function(){
+        $('h2').delay(4000).fadeToggle();
+    })
+
 
 
     // $('#national-parks-heading').next().css('background-color', 'salmon');
