@@ -58,7 +58,7 @@
 
 <div class="news">
     <h1>Would you like to signup for newsletter?</h1>
-    <span>X</span>
+    <span class="hide">X</span>
 </div>
 
 <div>
@@ -112,7 +112,7 @@
         <li>Terrain: Desert</li>
         <li>Area: 8482 sq. miles</li>
     </ul>
-<!--</div>-->
+</div>
 
 <!--<div class="boxDiv">-->
 <!--    <div class="box1">1</div>-->
@@ -160,7 +160,7 @@
     $('h3').click(function() {
         // $(this).next().children().css('font-weight', 'bold');
 
-        $(this).next().slideToggle();
+        $(this).next().slideToggle(1000);
     });
 
 
