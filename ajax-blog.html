@@ -2,68 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Blog</title>
+    <title>blog</title>
+    <script src="js/jquery-2.2.4.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <style>
+        .jumbotron {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
+            background-color: black;
+            color: white;
+            height: 250px;
+        }
+        .posts > div:nth-child(odd) {
+            background-color: #ededed;
+        }
+    </style>
 </head>
 <body>
-<div id="posts"></div>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Blog</h1>
+        <p class="lead">words words words.</p>
+    </div>
+</div>
 
-<script src="js/jquery-2.2.4.js"></script>
+<form>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Example select</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect2">Example multiple select</label>
+        <select multiple class="form-control" id="exampleFormControlSelect2">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Example textarea</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+</form>
+
+<div id="posts" class="posts"></div>
+<button id="refresh">refresh</button>
+
+
+<script src="./js/jquery-2.2.4.js"></script>
 <script>
-    (function() {
-        "use strict";
-
-
-        var getBlog = $.ajax("data/blog.json");
-
-
-        // TODO: Take the data from inventory.json and append it to the products table
-        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-        //             its contents and fields
-        //       HINT: You will want to target #insertProducts for your new HTML elements
-        getBlog.done(function (data) {
-            console.log(data);
-        });
-        console.log(getBlog);
-
-        function generateBlog(){
-            var getBlog = $.ajax("data/blog.json");
-
-            getBlog.done(function (data) {
-                //once request is done .. do this
-                $.each(data, function(index, blog){
-                    //log each book title
-                    console.log(blog.title);
-                    //add to html
-                    var content = "<h2>";
-                    content += blog.title;
-                    content += "</h2>";
-                    content += "<h4>";
-                    content += blog.content;
-                    content += "</h4>";
-                    content += "<h4>";
-                    content += blog.categories;
-                    content += "</h4>";
-                    content += "<h4>";
-                    content += blog.date;
-                    content += "</h4>";
-
-                    $('#posts').append(content);
+    $(document).ready(function() {
+        function input () {
+            var request = $.ajax("data/blog.json");
+            request.done(function (data) {
+                console.log(data);
+                var blogPost = '';
+                $.each(data, function (key, value) {
+                    blogPost += '<div class="newPost">';
+                    blogPost += '<h1>' + value.title + '</h1>';
+                    blogPost += '<p>' + value.content + '</p>';
+                    blogPost += '<p>' + value.categories + '</p>';
+                    blogPost += '<span>' + value.date + '</span>';
+                    blogPost += '<hr>';
                 });
-
-            });
-            getBlog.fail(function (data) {
-                console.log("error");
+                $('#posts').append(blogPost);
             });
         }
-        generateBlog();
-
-
-
-
-
-    })();
+        input();
+        $('#refresh').click(function(){
+            $('#posts').html("");
+            input();
+        });
+    });
 
 </script>
+
 
 </body>
 </html>

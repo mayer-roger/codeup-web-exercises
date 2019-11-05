@@ -2,22 +2,37 @@
 <html>
 <head>
     <title>Online Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
 
+<div class="container">
 <h1>My Tool Store</h1>
 
-<table id="products">
+<table id="products ">
     <thead>
         <tr>
-            <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Categories</th>
+            <th id="title">Title</th>
+            <th id="quantity">Quantity</th>
+            <th id="price">Price</th>
+            <th id="categories">Categories</th>
         </tr>
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
+    <h3>Add inventory</h3>
+    <h4>Tool</h4><input type="text" id="addTool">
+    <h4>Quantity</h4><input type="text" id="addQuantity">
+    <h4>Price</h4><input type="text" id="addPrice">
+    <h4>Category</h4><input type="text" id="addCategory">
+
+</div>
+<div>
+    <button id="refresh">Refresh</button>
+    <button id="addInv">Add</button>
+</div>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
@@ -29,19 +44,84 @@
 
     var getInventory = $.ajax("data/inventory.json");
 
+    getInventory.done(function(data, status, jqXhr) {
+        // alert("AJAX call completed successfully!");
+        console.log("Request status: " + status);
+        console.log("Data returned from server:");
+        console.log(data);
+    }).fail(function(jqXhr, status, error) {
+        // alert("There was an error! Check the console for details");
+        console.log("Response status: " + status);
+        console.log("Error object: " + error);
+    }).always(function() {
+        // alert("This function always runs!");
+    });
+
+    function generateInventory(){
+
+        getInventory.done(function (data) {
+            //once request is done .. do this
+            $.each(data, function(index, tool){
+
+                console.log(tool);
+                //add to html
+                var tools = "<tr><td>";
+
+                tools += tool.title;
+                tools += "</td><td>";
+                tools += tool.quantity;
+                tools += "</td><td>";
+                tools += tool.price;
+                tools += "</td><td>";
+                tools += tool.categories;
+                tools += "</td></tr>";
+
+                $('#insertProducts').append(tools);
+            });
+
+        });
+
+        getInventory.fail(function (data) {
+            console.log("error");
+        });
+    }
+    generateInventory();
+
+$('#refresh').click(function(){
+    $('#insertProducts').html("");
+    generateInventory();
+
+    });
+    $('#addInv').click(function(){
+       addTool();
+    });
+
 
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
-    getInventory.done(function (data) {
-        console.log(data);
-    });
-    console.log(getInventory);
 
+    function addTool() {
+        var newTool = $('#addTitle').val();
+        var newQuantity = $('#addQuantity').val();
+        var newPrice = $('#addPrice').val();
+        var newCategory = $('#addCategory').val();
+        var tools = "<tr> <td>";
+        tools += newTool;
+        tools += "</td> <td>";
+        tools += newQuantity;
+        tools += "</td> <td>";
+        tools += newPrice;
+        tools += "</td> <td>";
+        tools += newCategory;
+        tools += "</td> </tr>";
+        $('#insertProducts').append(tools);
+    }
 })();
 
 </script>
 
 </body>
 </html>
+
