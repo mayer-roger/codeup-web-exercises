@@ -24,6 +24,19 @@
 
     //fizz buzz shorter way
     // for(var i=0; i<100;)console.log((++i%3 ? '':'fizz')+(i%5?'':'buzz')||i);
+    //function that will return "you're welcome" only when passed a property of gratitude that has the value of "thank you"
+    var myObj = {
+        gratitude: "thank you"
+    };
+
+    function welcome(obj) {
+        if (obj.gratitude === "thank you"){
+            return ("you're welcome");
+        }
+
+    }
+
+    console.log(welcome(myObj));
 
     //function that returns number as word (i.e. 1 returns 'one)
     function numAsWord(x) {

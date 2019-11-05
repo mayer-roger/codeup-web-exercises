@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Review</title>
+</head>
+<body>
+<div class="container">
+    <div id="main">
+        <input type="text" id="input">
+        <button id="add-to-list">Add to List</button>
+
+        <h4>Favorite Food:</h4>
+        <ul id="favorite-food">
+            <li>Ramen</li>
+            <li>Sushi</li>
+            <li>Curry</li>
+        </ul>
+
+        <h4 id="change-me">Change Me</h4>
+
+        <h4>My Cohort: <span id="my-cohort"></span></h4>
+        <input type="text" id="cohort-name">
+        <button id="change-cohort">Update</button>
+
+        <br>
+        <button id="change-to-red">Change to Red</button>
+    </div>
+</div>
+<script>
+    (function () {
+
+        var mainHeader = document.getElementById("main");
+        var input = document.getElementById("input"); //favorite food input
+        var addList = document.getElementById("add-to-list"); //list button
+        var favoriteFood = document.getElementById("favorite-food");
+        var changeMeBtn = document.getElementById("change-me");
+        var myCohort = document.getElementById("my-cohort");
+        var cohortName = document.getElementById("corhort-name");
+        var changeCohort = document.getElementById("change-cohort");
+        var changeRed = document.getElementById("change-to-red");
+
+
+        // TODO: allow user to type favorite food into input and add to list once button is pushed
+
+        var listener = function() {
+            var node = document.createElement("LI");                 // Create a <li> node
+            // var textnode = document.createTextNode("addList");         // Create a text node
+
+            node.appendChild(input);                              // Append the text to <li>
+            document.getElementById("favorite-food").appendChild(node);     // Append <li> to <ul> with id="myList"
+        };
+
+        // add event listener to btn1
+
+        addList.addEventListener('click', listener, false);
+
+
+
+
+
+
+
+        document.getElementById("btn1").addEventListener("click", listener);
+
+        // TODO: Uncomment the next line and get the sub header element by id
+
+
+        // TODO: Set the text color of subHeader to blue
+        var listener2 = function() {
+            subHeader.style.color = "blue";
+        };
+        // add event listener to btn2
+        // var btn2 = document.getElementById('btn2');
+        // btn2.addEventListener('click', listener2, false);
+        //better way bellow
+        document.getElementById("btn2").addEventListener("click", listener2);
+
+        // TODO: Uncomment the next line and get all list items
+        var listItems = document.getElementsByTagName("li");
+
+        // TODO: Set text color on every other list item to grey
+        var listener3 = function() {
+            for (var i=0; i < listItems.length; i++) {
+                if (i % 2 !== 0) {
+                    listItems[i].style.color = "grey";
+                }
+            }
+        }
+        // add event listener to btn3
+        // var btn3 = document.getElementById('btn3');
+        // btn3.addEventListener('click', listener3, false);
+        document.getElementById("btn3").addEventListener("click", listener3);
+
+
+        // TODO: Set text color of li with dbid = 1 to blue
+        // var dbListItem = document.getElementsByTagName("li")[0];
+        // dbListItem.style.color = "blue";
+
+        for (var i = 0; i < listItems.length; i++) {
+            if (listItems[i].getAttribute("data-dbid") === "1"){
+                listItems[i].style.color = "blue";
+            }
+        }
+
+
+        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+        var subParagraphs = document.getElementsByClassName("sub-paragraph");
+
+        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        var listener4 = function() {
+            subParagraphs[0].innerHTML = "mission accomplished";
+        };
+        // add event listener to btn4
+        document.getElementById("btn4").addEventListener("click", listener4);
+
+    })();
+</script>
+</body>
+</html>
