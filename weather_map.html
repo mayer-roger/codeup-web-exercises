@@ -12,7 +12,7 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- Custom CSS -->
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             text-align: center;
@@ -20,16 +20,24 @@
         }
 
         #map {
-            /* the width and height may be set to any size */
+
             display: flex;
             width: 100%;
             height: 400px;
+
         }
-        #output{
+
+        #output {
             display: flex;
-            list-style-type: none;
             justify-content: space-around;
-            /*width: 30%;*/
+            height: 100%;
+
+
+        }
+
+        #todayWeather, #tmrwWeather, #dayAfterWeather {
+            width: 275px;
+
         }
 
         .popUpBox {
@@ -38,12 +46,16 @@
 
         }
 
+        .card {
+            height: 100%;
+
+        }
+
         .card-title {
             display: flex;
             justify-items: center;
             justify-content: center;
             height: 50px;
-
             background-color: #3B94D9;
             color: white;
             font-size: large;
@@ -57,20 +69,17 @@
 <h1 class="d-flex justify-content-center">Weather or Not</h1>
 
 <!-- The HTML element that serves as the DarkSky container -->
-<ul id="output">
-    <li>
-        <div id="todayWeather"></div>
-    </li>
-    <li>
-        <div id="tmrwWeather"></div>
-    </li>
-    <li>
-        <div id="dayAfterWeather"></div>
-    </li>
-</ul>
+<div>
 
-<!-- The HTML element that serves as the Mapbox container -->
-<div id='map'></div>
+    <div id="output">
+        <div id="todayWeather"></div>
+        <div id="tmrwWeather"></div>
+        <div id="dayAfterWeather"></div>
+    </div>
+    <br>
+    <!-- The HTML element that serves as the Mapbox container -->
+    <div id='map'></div>
+</div>
 
 
 <!-- Mapbox JS -->
@@ -83,18 +92,27 @@
 
 <!-- Custom JS -->
 <script>
-    var arr = [
-        {name: "<p>Codeup</p>", address: "600 Navarro St, San Antonio, TX 78205"}
 
-    ];
+    //date info
+    var monthNames = ["Jan", "Feb", "Mar", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    var d = new Date();
+    var month = monthNames[d.getMonth()];
+    var day = d.getDate();
+    var tomorrowSet = d.getDate() + 1;
+    var dayAfterSet = d.getDate() + 2;
+    var today = (month < 10 ? '0' : '') + month + ' ' + (day < 10 ? '0' : '') + day + ', ' + d.getFullYear();
+    var tomorrow = (month < 10 ? '0' : '') + month + ' ' + (tomorrowSet < 10 ? '0' : '') + tomorrowSet + ', ' + d.getFullYear();
+    var dayAfterTomorrow = (month < 10 ? '0' : '') + month + ' ' + (dayAfterSet < 10 ? '0' : '') + dayAfterSet + ', ' + d.getFullYear();
+
+    //weather icons
     var icons = [
         {
             summary: "clear-day",
-            image: 'icons/clearDay.png'
+            image: 'icons/SVG/Sun.svg'
         },
         {
             summary: "clear-night",
-            image: 'icons/clearNight.png'
+            image: 'icons/SVG/Moon.svg'
         },
         {
             summary: "rain",
@@ -102,35 +120,35 @@
         },
         {
             summary: "snow",
-            image: 'icons/snow.png'
+            image: 'icons/SVG/Snowflake.svg'
         },
         {
             summary: "sleet",
-            image: 'icons/sleet.png'
+            image: 'icons/SVG/Cloud-Hail.svg'
         },
         {
             summary: "wind",
-            image: 'icons/wind.png'
+            image: 'icons/SVG/Wind.svg'
         },
         {
             summary: "fog",
-            image: 'icons/fog.png'
+            image: 'icons/SVG/Cloud-Fog.svg'
         },
         {
             summary: "cloudy",
-            image: 'icons/cloudy.png'
+            image: 'icons/SVG/Cloud.svg'
         },
         {
             summary: "partly-cloudy-day",
-            image: 'icons/partlyCloudyDay.png'
+            image: 'icons/SVG/Cloud-Sun.svg'
         },
         {
             summary: "partly-cloudy-night",
-            image: 'icons/partlyCloudyNight.png'
+            image: 'icons/SVG/Cloud-Moon.svg'
         }
     ];
 
-
+    //mapbox
     mapboxgl.accessToken = mapboxToken;
     var map = new mapboxgl.Map({
         container: 'map',
@@ -139,22 +157,6 @@
         center: [-98.4861, 29.426]
     });
 
-    var popupOptions = {
-        className: "popUpBox"
-    };
-
-    arr.forEach(function (element) {
-        var results = "results";
-        geocode(element.address, mapboxToken).then(function (result) {
-            var popup = new mapboxgl.Popup(popupOptions)
-                .setHTML(element.name);
-
-            new mapboxgl.Marker()
-                .setLngLat(result)
-                .setPopup(popup)
-                .addTo(map);
-        })
-    });
 
     // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl());
@@ -169,18 +171,45 @@
     //     map.setStyle('mapbox://styles/mapbox/' + layerId);
     //
     // }
-    var date = function (input) {
-        return new Date(input + 1000);
+
+    //marker
+    var markerOptions = {
+        color: "red",
+        draggable: true
     };
 
+    var marker = new mapboxgl.Marker(markerOptions)
+        .setLngLat([-98.4936, 29.4241])
+        .addTo(map);
 
-    var darkSky = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936");
+    var coordinates = $('#coodinates');
 
+    marker.on('dragend', function () {
+        var lngLat = marker.getLngLat();
+        $('#coordinates').html(lngLat[0]);
+        console.log(lngLat);
+    });
 
-    darkSky.done(function (data) {
-        console.log(data.daily.data[0]); //SA info for today
-        console.log(data.daily.data[1]); //SA info for today
-        console.log(data.daily.data[2]); //SA info for today
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        $('#todayWeather').html("");
+        $('#tmrwWeather').html("");
+        $('#dayAfterWeather').html("");
+        getWeather();
+    }
+
+    marker.on("dragend", onDragEnd);
+
+    function getWeather() {
+        marker.on("dragend", onDragEnd);
+        var lngLat = marker.getLngLat();
+        var long = lngLat.lng;
+        var lat = lngLat.lat;
+        var darkSky = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + long).done(function (data) {
+
+            console.log(data.daily.data[0]); //SA info for today
+            console.log(data.daily.data[1]); //SA info for today
+            console.log(data.daily.data[2]); //SA info for today
 
             var todaySummary = data.daily.data[0].summary;
             var todayTempHi = parseInt(data.daily.data[0].temperatureHigh);
@@ -189,21 +218,21 @@
             var todayWind = data.daily.data[0].windSpeed;
             var todayPressure = data.daily.data[0].pressure;
             var tmrwSummary = data.daily.data[1].summary;
-            var tmrwTempHi = data.daily.data[1].temperatureHigh;
-            var tmrwTempLo = data.daily.data[1].temperatureLow;
+            var tmrwTempHi = parseInt(data.daily.data[1].temperatureHigh);
+            var tmrwTempLo = parseInt(data.daily.data[1].temperatureLow);
             var tmrwHumidity = data.daily.data[1].humidity;
             var tmrwWind = data.daily.data[1].windSpeed;
             var tmrwPressure = data.daily.data[1].pressure;
             var dayAfterSummary = data.daily.data[2].summary;
-            var dayAfterTempHi = data.daily.data[2].temperatureHigh;
-            var dayAfterTempLo = data.daily.data[2].temperatureLow;
+            var dayAfterTempHi = parseInt(data.daily.data[2].temperatureHigh);
+            var dayAfterTempLo = parseInt(data.daily.data[2].temperatureLow);
             var dayAfterHumidity = data.daily.data[2].humidity;
             var dayAfterWind = data.daily.data[2].windSpeed;
             var dayAfterPressure = data.daily.data[2].pressure;
 
             var weatherCard = " ";
-            weatherCard += '<div class="card d-flex">';
-            weatherCard += '<div class="card-title">' + "Date" + "</div>";
+            weatherCard += '<div class="card">';
+            weatherCard += '<div class="card-title">' + today + "</div>";
             weatherCard += '<div class="card-body">';
             weatherCard += '<img class="icon1">';
             weatherCard += '<hr> <h5>';
@@ -216,8 +245,8 @@
             $("#todayWeather").append(weatherCard);
 
             var weatherCardTwo = " ";
-            weatherCardTwo += '<div class="card d-flex">';
-            weatherCardTwo += '<div class="card-title">' + "Date" + "</div>";
+            weatherCardTwo += '<div class="card">';
+            weatherCardTwo += '<div class="card-title">' + tomorrow + "</div>";
             weatherCardTwo += '<div class="card-body">';
             weatherCardTwo += '<img class="icon2">';
             weatherCardTwo += '<hr> <h5>';
@@ -230,8 +259,8 @@
             $("#tmrwWeather").append(weatherCardTwo);
 
             var weatherCardThree = " ";
-            weatherCardThree += '<div class="card d-flex">';
-            weatherCardThree += '<div class="card-title">' + "Date" + "</div>";
+            weatherCardThree += '<div class="card">';
+            weatherCardThree += '<div class="card-title">' + dayAfterTomorrow + "</div>";
             weatherCardThree += '<div class="card-body">';
             weatherCardThree += '<img class="icon3">';
             weatherCardThree += '<hr> <h5>';
@@ -241,7 +270,7 @@
             weatherCardThree += '<p> Humidity: ' + dayAfterHumidity + '%</p>';
             weatherCardThree += '<p> Wind Speed ' + dayAfterWind + '</p>';
             weatherCardThree += '<p> Pressure: ' + dayAfterPressure + '</p>';
-            $("#tmrwWeather").append(weatherCardThree);
+            $("#dayAfterWeather").append(weatherCardThree);
 
             icons.forEach(function (type) {
                 if (data.currently.icon === type.summary) {
@@ -258,16 +287,12 @@
                     $('.icon3').attr('src', type.image);
                 }
             });
-        });
-
+        })
+    }
+    getWeather();
 
 
 </script>
 </body>
 </html>
 
-<!--//alamo lat: 29.426 lon: -98.4861-->
-<!--//dark sky api - simpler. use for predictions-->
-<!--//use climacon for weather icons-->
-<!--//var darkSkyKey-->
-<!--$.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936");-->
