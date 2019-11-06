@@ -7,20 +7,49 @@
 
     <!-- Mapbox CSS -->
 
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- Custom CSS -->
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            line-height: .75em;
+        }
+
         #map {
             /* the width and height may be set to any size */
+            display: flex;
             width: 100%;
-            height: 700px;
+            height: 400px;
         }
-        .popUpBox{
+        #output{
+            display: flex;
+            list-style-type: none;
+            justify-content: space-around;
+            /*width: 30%;*/
+        }
+
+        .popUpBox {
             color: red;
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
         }
+
+        .card-title {
+            display: flex;
+            justify-items: center;
+            justify-content: center;
+            height: 50px;
+
+            background-color: #3B94D9;
+            color: white;
+            font-size: large;
+            border: 5px solid #3B94D9;
+        }
+
     </style>
 </head>
 <body>
@@ -28,12 +57,21 @@
 <h1 class="d-flex justify-content-center">Weather or Not</h1>
 
 <!-- The HTML element that serves as the DarkSky container -->
-<div id="darkmap" class="d-flex justify-content-around">
-
-</div>
+<ul id="output">
+    <li>
+        <div id="todayWeather"></div>
+    </li>
+    <li>
+        <div id="tmrwWeather"></div>
+    </li>
+    <li>
+        <div id="dayAfterWeather"></div>
+    </li>
+</ul>
 
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
+
 
 <!-- Mapbox JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -42,13 +80,54 @@
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src="js/keys.js"></script>
 
-<!--<script src="js/mapbox-api-lec.js"></script>-->
 
 <!-- Custom JS -->
 <script>
     var arr = [
         {name: "<p>Codeup</p>", address: "600 Navarro St, San Antonio, TX 78205"}
 
+    ];
+    var icons = [
+        {
+            summary: "clear-day",
+            image: 'icons/clearDay.png'
+        },
+        {
+            summary: "clear-night",
+            image: 'icons/clearNight.png'
+        },
+        {
+            summary: "rain",
+            image: 'icons/SVG/Cloud-Rain.svg'
+        },
+        {
+            summary: "snow",
+            image: 'icons/snow.png'
+        },
+        {
+            summary: "sleet",
+            image: 'icons/sleet.png'
+        },
+        {
+            summary: "wind",
+            image: 'icons/wind.png'
+        },
+        {
+            summary: "fog",
+            image: 'icons/fog.png'
+        },
+        {
+            summary: "cloudy",
+            image: 'icons/cloudy.png'
+        },
+        {
+            summary: "partly-cloudy-day",
+            image: 'icons/partlyCloudyDay.png'
+        },
+        {
+            summary: "partly-cloudy-night",
+            image: 'icons/partlyCloudyNight.png'
+        }
     ];
 
 
@@ -66,7 +145,7 @@
 
     arr.forEach(function (element) {
         var results = "results";
-        geocode(element.address, mapboxToken).then(function(result) {
+        geocode(element.address, mapboxToken).then(function (result) {
             var popup = new mapboxgl.Popup(popupOptions)
                 .setHTML(element.name);
 
@@ -76,6 +155,7 @@
                 .addTo(map);
         })
     });
+
     // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl());
 
@@ -89,113 +169,105 @@
     //     map.setStyle('mapbox://styles/mapbox/' + layerId);
     //
     // }
+    var date = function (input) {
+        return new Date(input + 1000);
+    };
 
 
     var darkSky = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936");
 
-var date = function(input){
-    return new Date(input + 1000);
-    };
 
-   darkSky.done(function(data){
-       // console.log(data.daily.data[0]); //SA info for today
-       // var todaySummary = data.daily.data[0];
-       // var todayHi = data.daily.data[0].temperatureHigh;
-       // var todayLow = data.daily.data[0].temperatureLow;
-       // var todayHumidity = data.daily.data[0].humidity;
-       // var todayWind = data.daily.data[0].WindSpeed;
-       // var todayPressure = data.daily.data[0].Pressure;
-
-       var todayWeather = '';
-       todayWeather += '<div class="card">';
-       todayWeather += '<div class="card-title">' + "Todays Weather" + "</div>";
-       todayWeather += '<div class="card-body"> <hr> <h1>' + "High" + " " + data.daily.data[0].temperatureHigh + "/" + "Low" + " " + data.daily.data[0].temperatureLow + '</h1> <p>' + data.daily.data[0].icon + '</p> <p>' + 'Summary: ' + data.daily.data[0].summary + '</p> <p>' + data.daily.data[0].humidity + '</p>';
-       // tomorrowWeather += '<span>' + date(data.daily.data[1].time) + '</span>';
-       $('#darkmap').append(todayWeather);
-
-
-       var tomorrowWeather = '';
-       tomorrowWeather += '<div class="card">';
-       tomorrowWeather += '<div class="card-title">' + "Tomorrow Weather" + "</div>";
-       tomorrowWeather += '<div class="card-body"> <hr> <h1>' + "High" + " " + data.daily.data[1].temperatureHigh + "/" + "Low" + " " + data.daily.data[1].temperatureLow + '</h1> <p>' + data.daily.data[1].icon + '</p> <p>' + 'Summary: ' + data.daily.data[1].summary + '</p> <p>' + data.daily.data[1].humidity + '</p>';
-       // tomorrowWeather += '<span>' + date(data.daily.data[1].time) + '</span>';
-       $('#darkmap').append(tomorrowWeather);
-
-       var dayAfterWeather = '';
-       dayAfterWeather += '<div class="card">';
-       dayAfterWeather += '<div class="card-title">' + "Day After Weather" + "</div>";
-       dayAfterWeather += '<div class="card-body"> <hr> <h1>' + "High" + " " + data.daily.data[2].temperatureHigh + "/" + "Low" + " " + data.daily.data[2].temperatureLow + '</h1> <p>' + data.daily.data[2].icon + '</p> <p>' + 'Summary: ' + data.daily.data[2].summary + '</p> <p>' + data.daily.data[2].humidity + '</p>';
-       // tomorrowWeather += '<span>' + date(data.daily.data[1].time) + '</span>';
-       $('#darkmap').append(dayAfterWeather);
-
-
-       // var weatherCard = " ";
-       // // weatherCard += ("<h5>" + "date: " + date + "</h5>");
-       // weatherCard += ("<h5>" + "lo: " + todayLow + "/" + "hi: " + todayHi + "</h5>");
-       // weatherCard += ("<h5>" + "Humidity: " + todayHumidity + "</h5>");
-       // weatherCard += ("<h5>" + "Wind: " +todayWind + "</h5>");
-       // weatherCard += ("<h5>" + "Pressure: " +todayPressure + "</h5>");
-       // $('#darkmap').append(weatherCard);
-       //
-       //
-       // var tomorrowSummary = data.daily.data[1];
-       // var tomorrowHi = data.daily.data[1].temperatureHigh;
-       // var tomorrowLow = data.daily.data[1].temperatureLow;
-       // var tomorrowHumidity = data.daily.data[1].humidity;
-       // var tomorrowWind = data.daily.data[1].WindSpeed;
-       // var tomorrowPressure = data.daily.data[1].Pressure;
-
-       // var weatherCardTwo = " ";
-       // // weatherCard += ("<h5>" + "date: " + date + "</h5>");
-       // weatherCard += ("<h5>" + "lo: " + tomorrowLow + "/" + "hi: " + tomorrowHi + "</h5>");
-       // weatherCard += ("<h5>" + "Humidity: " + tomorrowHumidity + "</h5>");
-       // weatherCard += ("<h5>" + "Wind: " +tomorrowWind + "</h5>");
-       // weatherCard += ("<h5>" + "Pressure: " +tomorrowPressure + "</h5>");
-       // $('#darkmap').append(weatherCardTwo);
-       //
-       //
-       //
-       // var dayAfterSummary = data.daily.data[2];
-       // var dayAfterHi = data.daily.data[2].temperatureHigh;
-       // var dayAfterLow = data.daily.data[2].temperatureLow;
-
-
-
-    });
-
-
-function generateCard() {
     darkSky.done(function (data) {
-        //once request is done .. do this
-        $.each(data, function (index, data) {
+        console.log(data.daily.data[0]); //SA info for today
+        console.log(data.daily.data[1]); //SA info for today
+        console.log(data.daily.data[2]); //SA info for today
 
-            //add to html
+            var todaySummary = data.daily.data[0].summary;
+            var todayTempHi = parseInt(data.daily.data[0].temperatureHigh);
+            var todayTempLo = parseInt(data.daily.data[0].temperatureLow);
+            var todayHumidity = data.daily.data[0].humidity;
+            var todayWind = data.daily.data[0].windSpeed;
+            var todayPressure = data.daily.data[0].pressure;
+            var tmrwSummary = data.daily.data[1].summary;
+            var tmrwTempHi = data.daily.data[1].temperatureHigh;
+            var tmrwTempLo = data.daily.data[1].temperatureLow;
+            var tmrwHumidity = data.daily.data[1].humidity;
+            var tmrwWind = data.daily.data[1].windSpeed;
+            var tmrwPressure = data.daily.data[1].pressure;
+            var dayAfterSummary = data.daily.data[2].summary;
+            var dayAfterTempHi = data.daily.data[2].temperatureHigh;
+            var dayAfterTempLo = data.daily.data[2].temperatureLow;
+            var dayAfterHumidity = data.daily.data[2].humidity;
+            var dayAfterWind = data.daily.data[2].windSpeed;
+            var dayAfterPressure = data.daily.data[2].pressure;
+
             var weatherCard = " ";
-            weatherCard += "date: ";
-            weatherCard += "<br>";
-            weatherCard += todayLow + "/" + todayHi;
-            weatherCard += "<br>";
-            weatherCard += todayLow + "/" + todayHi;
+            weatherCard += '<div class="card d-flex">';
+            weatherCard += '<div class="card-title">' + "Date" + "</div>";
+            weatherCard += '<div class="card-body">';
+            weatherCard += '<img class="icon1">';
+            weatherCard += '<hr> <h5>';
+            weatherCard += 'High: ' + todayTempHi + '°F/';
+            weatherCard += 'Low: ' + todayTempLo + '°F/';
+            weatherCard += '<p>' + todaySummary + '</p>';
+            weatherCard += '<p> Humidity: ' + todayHumidity + '%</p>';
+            weatherCard += '<p> Wind Speed ' + todayWind + '</p>';
+            weatherCard += '<p> Pressure: ' + todayPressure + '</p>';
+            $("#todayWeather").append(weatherCard);
 
-            // weatherCard += weatherCard.;
-            // weatherCard += "</td><td>";
-            // weatherCard += weatherCard.price;
-            // weatherCard += "</td><td>";
-            // weatherCard += weatherCard.categories;
+            var weatherCardTwo = " ";
+            weatherCardTwo += '<div class="card d-flex">';
+            weatherCardTwo += '<div class="card-title">' + "Date" + "</div>";
+            weatherCardTwo += '<div class="card-body">';
+            weatherCardTwo += '<img class="icon2">';
+            weatherCardTwo += '<hr> <h5>';
+            weatherCardTwo += 'High: ' + tmrwTempHi + '°F/';
+            weatherCardTwo += 'Low: ' + tmrwTempLo + '°F/';
+            weatherCardTwo += '<p>' + tmrwSummary + '</p>';
+            weatherCardTwo += '<p> Humidity: ' + tmrwHumidity + '%</p>';
+            weatherCardTwo += '<p> Wind Speed ' + tmrwWind + '</p>';
+            weatherCardTwo += '<p> Pressure: ' + tmrwPressure + '</p>';
+            $("#tmrwWeather").append(weatherCardTwo);
 
+            var weatherCardThree = " ";
+            weatherCardThree += '<div class="card d-flex">';
+            weatherCardThree += '<div class="card-title">' + "Date" + "</div>";
+            weatherCardThree += '<div class="card-body">';
+            weatherCardThree += '<img class="icon3">';
+            weatherCardThree += '<hr> <h5>';
+            weatherCardThree += 'High: ' + dayAfterTempHi + '°F/';
+            weatherCardThree += 'Low: ' + dayAfterTempLo + '°F/';
+            weatherCardThree += '<p>' + dayAfterSummary + '</p>';
+            weatherCardThree += '<p> Humidity: ' + dayAfterHumidity + '%</p>';
+            weatherCardThree += '<p> Wind Speed ' + dayAfterWind + '</p>';
+            weatherCardThree += '<p> Pressure: ' + dayAfterPressure + '</p>';
+            $("#tmrwWeather").append(weatherCardThree);
 
-            $('#card1').html(weatherCard);
+            icons.forEach(function (type) {
+                if (data.currently.icon === type.summary) {
+                    $('.icon1').attr('src', type.image);
+                }
+            });
+            icons.forEach(function (type) {
+                if (data.daily.data[1].icon === type.summary) {
+                    $('.icon2').attr('src', type.image);
+                }
+            });
+            icons.forEach(function (type) {
+                if (data.daily.data[2].icon === type.summary) {
+                    $('.icon3').attr('src', type.image);
+                }
+            });
         });
 
-    });
-}
+
 
 </script>
 </body>
 </html>
 
-//alamo lat: 29.426 lon: -98.4861
-//dark sky api - simpler. use for predictions
-//use climacon for weather icons
-//var darkSkyKey
-$.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936");
+<!--//alamo lat: 29.426 lon: -98.4861-->
+<!--//dark sky api - simpler. use for predictions-->
+<!--//use climacon for weather icons-->
+<!--//var darkSkyKey-->
+<!--$.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936");-->

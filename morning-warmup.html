@@ -24,6 +24,15 @@
 
     //fizz buzz shorter way
     // for(var i=0; i<100;)console.log((++i%3 ? '':'fizz')+(i%5?'':'buzz')||i);
+    //function to return random boolean
+
+    function randoBoo() {
+        return Boolean(Math.floor(Math.random() * 2));
+    }
+
+    console.log(randoBoo());
+
+
     //function that will return "you're welcome" only when passed a property of gratitude that has the value of "thank you"
     var myObj = {
         gratitude: "thank you"
