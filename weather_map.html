@@ -22,8 +22,9 @@
         #map {
 
             display: flex;
-            width: 100%;
+            width: 95%;
             height: 400px;
+            margin: auto;
 
         }
 
@@ -40,12 +41,14 @@
 
         }
 
-        .popUpBox {
-            color: red;
-            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-
+        button{
+            border: 1px solid blue;
+            border-radius: 5%;
+            background-color: #7DC5D3;
+            padding: 5px;
+            margin-left: 5px;
         }
-
+        /*card styling*/
         .card {
             height: 100%;
 
@@ -66,7 +69,13 @@
 </head>
 <body>
 <!--header-->
-<h1 class="d-flex justify-content-center">Weather or Not</h1>
+<div class="header d-flex justify-content-around align-items-center">
+    <h1>Weather or Not</h1>
+    <div>
+        <input id="search" type="text" placeholder="Search City">
+        <button id="submit">Search</button>
+    </div>
+</div>
 
 <!-- The HTML element that serves as the DarkSky container -->
 <div>
@@ -182,8 +191,9 @@
         .setLngLat([-98.4936, 29.4241])
         .addTo(map);
 
-    var coordinates = $('#coodinates');
+    var coordinates = $('#coordinates');
 
+    //drag forecast
     marker.on('dragend', function () {
         var lngLat = marker.getLngLat();
         $('#coordinates').html(lngLat[0]);
@@ -197,8 +207,26 @@
         $('#dayAfterWeather').html("");
         getWeather();
     }
-
     marker.on("dragend", onDragEnd);
+
+    //search forecast
+    var input = $("#submit").click(function () {
+        var input = $("#search").val();
+        geocode(input, mapboxToken).then(function(result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(10);
+            marker.setLngLat(result);
+            $('#todayWeather').html("");
+            $('#tmrwWeather').html("");
+            $('#dayAfterWeather').html("");
+            getWeather();
+
+        });
+    });
+
+    // var search = $('#searchQuery').val();
+    // geocode(search, mapboxToken);
 
     function getWeather() {
         marker.on("dragend", onDragEnd);
@@ -232,7 +260,7 @@
 
             var weatherCard = " ";
             weatherCard += '<div class="card">';
-            weatherCard += '<div class="card-title">' + today + "</div>";
+            weatherCard += '<div class="card-title align-items-center">' + today + "</div>";
             weatherCard += '<div class="card-body">';
             weatherCard += '<img class="icon1">';
             weatherCard += '<hr> <h5>';
@@ -246,7 +274,7 @@
 
             var weatherCardTwo = " ";
             weatherCardTwo += '<div class="card">';
-            weatherCardTwo += '<div class="card-title">' + tomorrow + "</div>";
+            weatherCardTwo += '<div class="card-title align-items-center">' + tomorrow + "</div>";
             weatherCardTwo += '<div class="card-body">';
             weatherCardTwo += '<img class="icon2">';
             weatherCardTwo += '<hr> <h5>';
@@ -260,7 +288,7 @@
 
             var weatherCardThree = " ";
             weatherCardThree += '<div class="card">';
-            weatherCardThree += '<div class="card-title">' + dayAfterTomorrow + "</div>";
+            weatherCardThree += '<div class="card-title align-items-center">' + dayAfterTomorrow + "</div>";
             weatherCardThree += '<div class="card-body">';
             weatherCardThree += '<img class="icon3">';
             weatherCardThree += '<hr> <h5>';
