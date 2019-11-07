@@ -6,7 +6,7 @@
 
 
     <!-- Mapbox CSS -->
-
+    <!--    <link rel="stylesheet" href="mapbox://styles/rmayer1984/ck2osyjqi10k31cpbxe0zfoxl">-->
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -19,35 +19,48 @@
             line-height: .75em;
         }
 
-        #map {
+        body {
+            background-color: black;
+        }
 
+        .header {
+            height: 125px;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        #map {
             display: flex;
             width: 95%;
             height: 400px;
-            margin: auto;
-
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
         }
 
         #output {
             display: flex;
             justify-content: space-around;
             height: 100%;
-
-
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         #todayWeather, #tmrwWeather, #dayAfterWeather {
             width: 275px;
-
         }
 
-        button{
-            border: 1px solid blue;
+        button {
+            border: 1px solid darkorange;
             border-radius: 5%;
             background-color: #7DC5D3;
             padding: 5px;
             margin-left: 5px;
         }
+
         /*card styling*/
         .card {
             height: 100%;
@@ -72,7 +85,7 @@
 <div class="header d-flex justify-content-around align-items-center">
     <h1>Weather or Not</h1>
     <div>
-        <input id="search" type="text" placeholder="Search City">
+        <input id="search" type="text" placeholder="Enter City">
         <button id="submit">Search</button>
     </div>
 </div>
@@ -161,7 +174,7 @@
     mapboxgl.accessToken = mapboxToken;
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/dark-v9',
+        style: 'mapbox://styles/rmayer1984/ck2osyjqi10k31cpbxe0zfoxl',
         zoom: 8,
         center: [-98.4861, 29.426]
     });
@@ -183,7 +196,7 @@
 
     //marker
     var markerOptions = {
-        color: "red",
+        color: "#7DC5D3",
         draggable: true
     };
 
@@ -207,22 +220,34 @@
         $('#dayAfterWeather').html("");
         getWeather();
     }
+
     marker.on("dragend", onDragEnd);
 
     //search forecast
-    var input = $("#submit").click(function () {
-        var input = $("#search").val();
-        geocode(input, mapboxToken).then(function(result) {
-            console.log(result);
-            map.setCenter(result);
-            map.setZoom(10);
-            marker.setLngLat(result);
-            $('#todayWeather').html("");
-            $('#tmrwWeather').html("");
-            $('#dayAfterWeather').html("");
-            getWeather();
 
+
+    function searchForecast() {
+        var input = $("#submit").click(function () {
+            input = $("#search").val();
+            geocode(input, mapboxToken).then(function (result) {
+                console.log(result);
+                map.setCenter(result);
+                map.setZoom(10);
+                marker.setLngLat(result);
+                $('#todayWeather').html("");
+                $('#tmrwWeather').html("");
+                $('#dayAfterWeather').html("");
+                getWeather();
+
+            });
         });
+    }
+
+    //key event for search
+    $("#search").keypress(function (event) {
+        if (event.key === "Enter") {
+            searchForecast();
+        }
     });
 
     // var search = $('#searchQuery').val();
@@ -317,6 +342,7 @@
             });
         })
     }
+
     getWeather();
 
 
