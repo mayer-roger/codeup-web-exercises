@@ -23,46 +23,9 @@
             background-color: black;
         }
 
-        .header {
-            height: 125px;
-        }
 
         h1 {
             color: white;
-        }
-
-        #map {
-            display: flex;
-            width: 95%;
-            height: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 20px;
-        }
-
-        #output {
-            display: flex;
-            justify-content: space-around;
-            height: 100%;
-            width: 95%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        input[type=text] {
-
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid #7DC5D3;
-            width: 300px;
-            color: white;
-        }
-        hr{
-            color: #7DC5D3;
-        }
-
-        #todayWeather, #tmrwWeather, #dayAfterWeather {
-            width: 275px;
         }
 
         button {
@@ -73,7 +36,54 @@
             margin-left: 5px;
         }
 
-        /*card styling*/
+        input[type=text] {
+            text-align: left;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #7DC5D3;
+            width: 33vw;
+            color: white;
+            font-size: x-large;
+        }
+
+        /*id selectors   */
+        #map {
+            display: flex;
+            width: 95%;
+            height: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+
+        #output {
+            display: flex;
+            justify-content: space-around;
+            height: 100%;
+            width: 95%;
+            padding-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #todayWeather, #tmrwWeather, #dayAfterWeather, #dayFourWeather, #dayFiveWeather {
+            width: 275px;
+        }
+
+        #local {
+            color: white;
+            font-size: x-large;
+            text-align: left;
+            padding-left: 25px;
+            padding-top: 5px;
+            /*padding-bottom: 5px;*/
+        }
+
+        /*class selectors*/
+        .header {
+            height: 125px;
+        }
+
         .card {
             height: 100%;
 
@@ -99,7 +109,6 @@
     <div>
         <input id="search" type="text" placeholder="Where you going?">
         <button id="submit">Search</button>
-
     </div>
 </div>
 
@@ -110,12 +119,12 @@
         <div id="todayWeather"></div>
         <div id="tmrwWeather"></div>
         <div id="dayAfterWeather"></div>
-        <div class=".d-none .d-lg-block" id="dayFourWeather"></div>
-        <div class=".d-none .d-lg-block" id="dayFiveWeather"></div>
-
+        <div class="d-none d-xl-block" id="dayFourWeather"></div>
+        <div class="d-none d-xl-block" id="dayFiveWeather"></div>
     </div>
-    <br>
+<!--    <br>-->
     <!-- The HTML element that serves as the Mapbox container -->
+    <div id="local"></div>
     <div id='map'></div>
 </div>
 
@@ -127,7 +136,6 @@
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src="js/keys.js"></script>
 
-
 <!-- Custom JS -->
 <script>
 
@@ -138,9 +146,14 @@
     var day = d.getDate();
     var tomorrowSet = d.getDate() + 1;
     var dayAfterSet = d.getDate() + 2;
+    var dayFourSet = d.getDate() + 3;
+    var dayFiveSet = d.getDate() + 4;
+
     var today = (month < 10 ? '0' : '') + month + ' ' + (day < 10 ? '0' : '') + day + ', ' + d.getFullYear();
     var tomorrow = (month < 10 ? '0' : '') + month + ' ' + (tomorrowSet < 10 ? '0' : '') + tomorrowSet + ', ' + d.getFullYear();
     var dayAfterTomorrow = (month < 10 ? '0' : '') + month + ' ' + (dayAfterSet < 10 ? '0' : '') + dayAfterSet + ', ' + d.getFullYear();
+    var dayFour = (month < 10 ? '0' : '') + month + ' ' + (dayFourSet < 10 ? '0' : '') + dayFourSet + ', ' + d.getFullYear();
+    var dayFive = (month < 10 ? '0' : '') + month + ' ' + (dayFiveSet < 10 ? '0' : '') + dayFiveSet + ', ' + d.getFullYear();
 
     //weather icons
     var icons = [
@@ -229,26 +242,27 @@
     marker.on("dragend", onDragEnd);
     var inputVal;
     //search forecast
-        $("#submit").click(function () {
+    $("#submit").click(function () {
         inputVal = $("#search").val();
         searchForecast();
-            });
+    });
 
-            function searchForecast() {
-            geocode(inputVal, mapboxToken).then(function (result) {
-                console.log(result);
-                map.setCenter(result);
-                map.setZoom(5);
-                marker.setLngLat(result);
-                $('#todayWeather').html("");
-                $('#tmrwWeather').html("");
-                $('#dayAfterWeather').html("");
-                getWeather();
+    // search forecast
+    function searchForecast() {
+        geocode(inputVal, mapboxToken).then(function (result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(5);
+            marker.setLngLat(result);
+            $('#todayWeather').html("");
+            $('#tmrwWeather').html("");
+            $('#dayAfterWeather').html("");
+            getWeather();
 
         });
     }
 
-    //key event for search
+    //key event for search !!!!!!!!!!!!!!!!!!!!!!!!!!!!
     $("#search").keypress(function (event) {
         if (event.key === "Enter") {
             inputVal = $('#search').val();
@@ -256,9 +270,7 @@
         }
     });
 
-    // var search = $('#searchQuery').val();
-    // geocode(search, mapboxToken);
-
+   // get weather function !!!!!!!!!!!!!!!!!!!!!!!!!!!!
     function getWeather() {
         marker.on("dragend", onDragEnd);
         var lngLat = marker.getLngLat();
@@ -266,13 +278,25 @@
         var lat = lngLat.lat;
         var darkSky = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + long).done(function (data) {
 
+            var lngLat = marker.getLngLat();
+            var long = lngLat.lng;
+            var lat = lngLat.lat;
+            reverseGeocode({lat: lat, lng: long}, mapboxToken).then(function (result) {
+                $("#local").html(result);
+            });
+
+            //clearcard
+            $('#todayWeather').html("");
+            $('#tmrwWeather').html("");
+            $('#dayAfterWeather').html("");
+            $('#dayFourWeather').html("");
+            $('#dayFiveWeather').html("");
+
             console.log(data.daily.data[0]); //SA info for today
             console.log(data.daily.data[1]); //SA info for today
             console.log(data.daily.data[2]); //SA info for today
 
             var todaySummary = data.currently.summary;
-            var todayTempHi = parseInt(data.currently.temperatureHigh);
-            var todayTempLo = parseInt(data.currently.temperatureLow);
             var todayHumidity = data.currently.humidity;
             var todayWind = data.currently.windSpeed;
             var todayPressure = data.currently.pressure;
@@ -284,12 +308,27 @@
             var tmrwHumidity = data.daily.data[1].humidity;
             var tmrwWind = data.daily.data[1].windSpeed;
             var tmrwPressure = data.daily.data[1].pressure;
+
             var dayAfterSummary = data.daily.data[2].summary;
             var dayAfterTempHi = parseInt(data.daily.data[2].temperatureHigh);
             var dayAfterTempLo = parseInt(data.daily.data[2].temperatureLow);
             var dayAfterHumidity = data.daily.data[2].humidity;
             var dayAfterWind = data.daily.data[2].windSpeed;
             var dayAfterPressure = data.daily.data[2].pressure;
+
+            var dayFourSummary = data.daily.data[3].summary;
+            var dayFourTempHi = parseInt(data.daily.data[3].temperatureHigh);
+            var dayFourTempLo = parseInt(data.daily.data[3].temperatureLow);
+            var dayFourHumidity = data.daily.data[3].humidity;
+            var dayFourWind = data.daily.data[3].windSpeed;
+            var dayFourPressure = data.daily.data[3].pressure;
+
+            var dayFiveSummary = data.daily.data[4].summary;
+            var dayFiveTempHi = parseInt(data.daily.data[4].temperatureHigh);
+            var dayFiveTempLo = parseInt(data.daily.data[4].temperatureLow);
+            var dayFiveHumidity = data.daily.data[4].humidity;
+            var dayFiveWind = data.daily.data[4].windSpeed;
+            var dayFivePressure = data.daily.data[4].pressure;
 
             var weatherCard = " ";
             weatherCard += '<div class="card">';
@@ -337,32 +376,32 @@
 
             var weatherCardFour = " ";
             weatherCardFour += '<div class="card">';
-            weatherCardFour += '<div class="card-title align-items-center">' + dayAfterTomorrow + "</div>";
+            weatherCardFour += '<div class="card-title align-items-center">' + dayFour + "</div>";
             weatherCardFour += '<div class="card-body">';
-            weatherCardFour += '<img class="icon3">';
+            weatherCardFour += '<img class="icon4">';
             weatherCardFour += '<hr> <h5>';
-            weatherCardFour += 'High: ' + dayAfterTempHi + '°F/';
-            weatherCardFour += 'Low: ' + dayAfterTempLo + '°F/';
+            weatherCardFour += 'High: ' + dayFourTempHi + '°F/';
+            weatherCardFour += 'Low: ' + dayFourTempLo + '°F/';
             weatherCardFour += '<br> <br>';
-            weatherCardFour += '<p>' + dayAfterSummary + '</p>';
-            weatherCardFour += '<p> Humidity: ' + dayAfterHumidity + '%</p>';
-            weatherCardFour += '<p> Wind Speed ' + dayAfterWind + '</p>';
-            weatherCardFour += '<p> Pressure: ' + dayAfterPressure + '</p>';
+            weatherCardFour += '<p>' + dayFourSummary + '</p>';
+            weatherCardFour += '<p> Humidity: ' + dayFourHumidity + '%</p>';
+            weatherCardFour += '<p> Wind Speed ' + dayFourWind + '</p>';
+            weatherCardFour += '<p> Pressure: ' + dayFourPressure + '</p>';
             $("#dayFourWeather").append(weatherCardFour);
 
-            var weatherCardThree = " ";
-            weatherCardThree += '<div class="card">';
-            weatherCardThree += '<div class="card-title align-items-center">' + dayAfterTomorrow + "</div>";
-            weatherCardThree += '<div class="card-body">';
-            weatherCardThree += '<img class="icon3">';
-            weatherCardThree += '<hr> <h5>';
-            weatherCardThree += 'High: ' + dayAfterTempHi + '°F/';
-            weatherCardThree += 'Low: ' + dayAfterTempLo + '°F/';
-            weatherCardThree += '<br> <br>';
-            weatherCardThree += '<p>' + dayAfterSummary + '</p>';
-            weatherCardThree += '<p> Humidity: ' + dayAfterHumidity + '%</p>';
-            weatherCardThree += '<p> Wind Speed ' + dayAfterWind + '</p>';
-            weatherCardThree += '<p> Pressure: ' + dayAfterPressure + '</p>';
+            var weatherCardFive = " ";
+            weatherCardFive += '<div class="card">';
+            weatherCardFive += '<div class="card-title align-items-center">' + dayFive + "</div>";
+            weatherCardFive += '<div class="card-body">';
+            weatherCardFive += '<img class="icon5">';
+            weatherCardFive += '<hr> <h5>';
+            weatherCardFive += 'High: ' + dayFiveTempHi + '°F/';
+            weatherCardFive += 'Low: ' + dayFiveTempLo + '°F/';
+            weatherCardFive += '<br> <br>';
+            weatherCardFive += '<p>' + dayFiveSummary + '</p>';
+            weatherCardFive += '<p> Humidity: ' + dayFiveHumidity + '%</p>';
+            weatherCardFive += '<p> Wind Speed ' + dayFiveWind + '</p>';
+            weatherCardFive += '<p> Pressure: ' + dayFivePressure + '</p>';
             $("#dayFiveWeather").append(weatherCardFive);
 
             icons.forEach(function (type) {
@@ -378,6 +417,16 @@
             icons.forEach(function (type) {
                 if (data.daily.data[2].icon === type.summary) {
                     $('.icon3').attr('src', type.image);
+                }
+            });
+            icons.forEach(function (type) {
+                if (data.daily.data[3].icon === type.summary) {
+                    $('.icon4').attr('src', type.image);
+                }
+            });
+            icons.forEach(function (type) {
+                if (data.daily.data[4].icon === type.summary) {
+                    $('.icon5').attr('src', type.image);
                 }
             });
         })

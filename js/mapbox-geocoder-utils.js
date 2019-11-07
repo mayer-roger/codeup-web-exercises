@@ -40,6 +40,19 @@ function geocode(search, token) {
  *  })
  *
  */
+// function reverseGeocode(coordinates, token) {
+//     var baseUrl = 'https://api.mapbox.com';
+//     var endPoint = '/geocoding/v5/mapbox.places/';
+//     return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+//         .then(function(res) {
+//             return res.json();
+//         })
+//         // to get all the data from the request, comment out the following three lines...
+//         .then(function(data) {
+//             return data.features[0].place_name;
+//         });
+// }
+
 function reverseGeocode(coordinates, token) {
     var baseUrl = 'https://api.mapbox.com';
     var endPoint = '/geocoding/v5/mapbox.places/';
@@ -49,6 +62,11 @@ function reverseGeocode(coordinates, token) {
         })
         // to get all the data from the request, comment out the following three lines...
         .then(function(data) {
-            return data.features[0].place_name;
+            // return data.features[0].place_name;
+            console.log(data.features[2].place_name);
+            if (data.features[2] !== undefined){
+                return data.features[2].place_name;
+            }
+            else return ("this place don't exist!");
         });
 }
