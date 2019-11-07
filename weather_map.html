@@ -49,14 +49,26 @@
             margin-right: auto;
         }
 
+        input[type=text] {
+
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #7DC5D3;
+            width: 300px;
+            color: white;
+        }
+        hr{
+            color: #7DC5D3;
+        }
+
         #todayWeather, #tmrwWeather, #dayAfterWeather {
             width: 275px;
         }
 
         button {
-            border: 1px solid darkorange;
+            border: 2px solid #7DC5D3;
             border-radius: 5%;
-            background-color: #7DC5D3;
+            background-color: white;
             padding: 5px;
             margin-left: 5px;
         }
@@ -85,8 +97,9 @@
 <div class="header d-flex justify-content-around align-items-center">
     <h1>Weather or Not</h1>
     <div>
-        <input id="search" type="text" placeholder="Enter City">
+        <input id="search" type="text" placeholder="Where you going?">
         <button id="submit">Search</button>
+
     </div>
 </div>
 
@@ -97,6 +110,9 @@
         <div id="todayWeather"></div>
         <div id="tmrwWeather"></div>
         <div id="dayAfterWeather"></div>
+        <div class=".d-none .d-lg-block" id="dayFourWeather"></div>
+        <div class=".d-none .d-lg-block" id="dayFiveWeather"></div>
+
     </div>
     <br>
     <!-- The HTML element that serves as the Mapbox container -->
@@ -183,17 +199,6 @@
     // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl());
 
-    // var layerList = document.getElementById('menu');
-    // var inputs = layerList.getElementsByTagName('input');
-    // for (var i = 0; i < inputs.length; i++) {
-    //     inputs[i].onclick = switchLayer;
-    // }
-    // function switchLayer(layer) {
-    //     var layerId = layer.target.id;
-    //     map.setStyle('mapbox://styles/mapbox/' + layerId);
-    //
-    // }
-
     //marker
     var markerOptions = {
         color: "#7DC5D3",
@@ -222,30 +227,31 @@
     }
 
     marker.on("dragend", onDragEnd);
-
+    var inputVal;
     //search forecast
+        $("#submit").click(function () {
+        inputVal = $("#search").val();
+        searchForecast();
+            });
 
-
-    function searchForecast() {
-        var input = $("#submit").click(function () {
-            input = $("#search").val();
-            geocode(input, mapboxToken).then(function (result) {
+            function searchForecast() {
+            geocode(inputVal, mapboxToken).then(function (result) {
                 console.log(result);
                 map.setCenter(result);
-                map.setZoom(10);
+                map.setZoom(5);
                 marker.setLngLat(result);
                 $('#todayWeather').html("");
                 $('#tmrwWeather').html("");
                 $('#dayAfterWeather').html("");
                 getWeather();
 
-            });
         });
     }
 
     //key event for search
     $("#search").keypress(function (event) {
         if (event.key === "Enter") {
+            inputVal = $('#search').val();
             searchForecast();
         }
     });
@@ -264,12 +270,14 @@
             console.log(data.daily.data[1]); //SA info for today
             console.log(data.daily.data[2]); //SA info for today
 
-            var todaySummary = data.daily.data[0].summary;
-            var todayTempHi = parseInt(data.daily.data[0].temperatureHigh);
-            var todayTempLo = parseInt(data.daily.data[0].temperatureLow);
-            var todayHumidity = data.daily.data[0].humidity;
-            var todayWind = data.daily.data[0].windSpeed;
-            var todayPressure = data.daily.data[0].pressure;
+            var todaySummary = data.currently.summary;
+            var todayTempHi = parseInt(data.currently.temperatureHigh);
+            var todayTempLo = parseInt(data.currently.temperatureLow);
+            var todayHumidity = data.currently.humidity;
+            var todayWind = data.currently.windSpeed;
+            var todayPressure = data.currently.pressure;
+            var todayTemp = parseInt(data.currently.temperature);
+
             var tmrwSummary = data.daily.data[1].summary;
             var tmrwTempHi = parseInt(data.daily.data[1].temperatureHigh);
             var tmrwTempLo = parseInt(data.daily.data[1].temperatureLow);
@@ -289,8 +297,8 @@
             weatherCard += '<div class="card-body">';
             weatherCard += '<img class="icon1">';
             weatherCard += '<hr> <h5>';
-            weatherCard += 'High: ' + todayTempHi + '°F/';
-            weatherCard += 'Low: ' + todayTempLo + '°F/';
+            weatherCard += 'Current Temp: ' + todayTemp + '°F';
+            weatherCard += '<br> <br>';
             weatherCard += '<p>' + todaySummary + '</p>';
             weatherCard += '<p> Humidity: ' + todayHumidity + '%</p>';
             weatherCard += '<p> Wind Speed ' + todayWind + '</p>';
@@ -305,6 +313,7 @@
             weatherCardTwo += '<hr> <h5>';
             weatherCardTwo += 'High: ' + tmrwTempHi + '°F/';
             weatherCardTwo += 'Low: ' + tmrwTempLo + '°F/';
+            weatherCardTwo += '<br> <br>';
             weatherCardTwo += '<p>' + tmrwSummary + '</p>';
             weatherCardTwo += '<p> Humidity: ' + tmrwHumidity + '%</p>';
             weatherCardTwo += '<p> Wind Speed ' + tmrwWind + '</p>';
@@ -319,11 +328,42 @@
             weatherCardThree += '<hr> <h5>';
             weatherCardThree += 'High: ' + dayAfterTempHi + '°F/';
             weatherCardThree += 'Low: ' + dayAfterTempLo + '°F/';
+            weatherCardThree += '<br> <br>';
             weatherCardThree += '<p>' + dayAfterSummary + '</p>';
             weatherCardThree += '<p> Humidity: ' + dayAfterHumidity + '%</p>';
             weatherCardThree += '<p> Wind Speed ' + dayAfterWind + '</p>';
             weatherCardThree += '<p> Pressure: ' + dayAfterPressure + '</p>';
             $("#dayAfterWeather").append(weatherCardThree);
+
+            var weatherCardFour = " ";
+            weatherCardFour += '<div class="card">';
+            weatherCardFour += '<div class="card-title align-items-center">' + dayAfterTomorrow + "</div>";
+            weatherCardFour += '<div class="card-body">';
+            weatherCardFour += '<img class="icon3">';
+            weatherCardFour += '<hr> <h5>';
+            weatherCardFour += 'High: ' + dayAfterTempHi + '°F/';
+            weatherCardFour += 'Low: ' + dayAfterTempLo + '°F/';
+            weatherCardFour += '<br> <br>';
+            weatherCardFour += '<p>' + dayAfterSummary + '</p>';
+            weatherCardFour += '<p> Humidity: ' + dayAfterHumidity + '%</p>';
+            weatherCardFour += '<p> Wind Speed ' + dayAfterWind + '</p>';
+            weatherCardFour += '<p> Pressure: ' + dayAfterPressure + '</p>';
+            $("#dayFourWeather").append(weatherCardFour);
+
+            var weatherCardThree = " ";
+            weatherCardThree += '<div class="card">';
+            weatherCardThree += '<div class="card-title align-items-center">' + dayAfterTomorrow + "</div>";
+            weatherCardThree += '<div class="card-body">';
+            weatherCardThree += '<img class="icon3">';
+            weatherCardThree += '<hr> <h5>';
+            weatherCardThree += 'High: ' + dayAfterTempHi + '°F/';
+            weatherCardThree += 'Low: ' + dayAfterTempLo + '°F/';
+            weatherCardThree += '<br> <br>';
+            weatherCardThree += '<p>' + dayAfterSummary + '</p>';
+            weatherCardThree += '<p> Humidity: ' + dayAfterHumidity + '%</p>';
+            weatherCardThree += '<p> Wind Speed ' + dayAfterWind + '</p>';
+            weatherCardThree += '<p> Pressure: ' + dayAfterPressure + '</p>';
+            $("#dayFiveWeather").append(weatherCardFive);
 
             icons.forEach(function (type) {
                 if (data.currently.icon === type.summary) {
