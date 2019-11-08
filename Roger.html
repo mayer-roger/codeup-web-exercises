@@ -1,126 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap Grid</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Roger Mayer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="css/roger_css.css">
     <script src="https://kit.fontawesome.com/09bb65bc79.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 </head>
-<body>
-<!-- Main page content -->
+<body data-spy="scroll" data-target="#navbarResponsive">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Pizza World</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Online Ordering<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Menu</a>
-            </li>
-            <li>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
-                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Stores Near You</button>
-                </form>
-            </li>
-        </ul>
-        <ul class="navbar nav">
-            <li><i class="fas fa-user"></i>Sign Up</li>
-        </ul>
+<!-- Start HOME section -->
+<div id="home">
+
+    <!--Navigation-->
+    <div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#"><img src="icons/SVG/Cloud-Drizzle-Sun.svg" alt="img"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#course">Course</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#resources">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#clients">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
     </div>
-</nav>
+    <!--End navigation-->
 
-<!--JUMBOTRON-->
-
-
-    <div class="container-fluid">
-        <div class="jumbotron">
-            <header class="py-1 px-1 ">
-                <div class="row flex-nowrap justify-content-between align-items-center" id="navbar">
-                    <div class="col-4" >
-                        <a class="text-muted glow" href="https://github.com/rmayer1984">github</a>
-                    </div>
-                    <div class="col-4 text-center">
-                        <h1>Roger Mayer</h1>
-                    </div>
-                    <div class="col-4 d-flex justify-content-end align-items-center">
-                        <a class="text-muted glow" href="linkedin.com">linked-in</a>
-                    </div>
-                </div>
-            </header>
+    <!--    Start landing Page-->
+    <div class="landing">
+        <div class="home-wrap">
+            <div class="home-inner"></div>
         </div>
     </div>
 
+    <div class="caption text-center">
+        <h1>Welcome</h1>
+        <h3>Roger Mayer</h3>
+        <a class="btn btn-outline-light btn-lg" href="#course">Course Link</a>
+    </div>
+    <!--End landing page-->
 
 
+</div> <!-- End HOME section -->
 
+<!--Start COURSE section-->
+<div id="course" class="offset">
+    <div class="col-12 narrow text-center">
+        <h1>Course</h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua.</p>
+        <a class="btn btn-secondary btn-md" href="https://w3newbie.com/courses/" target="_blank">COURSES</a>
+    </div>
+</div> <!--End COURSE section-->
 
-<!--    SIDE BAR    -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-4 col-md-3 col-lg-2 py-0 pl-0">
-                <ul class="nav nav-tabs justify-content-center justify-items" id="sidebar" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="about-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                            aria-selected="true">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education"
-                            aria-selected="false">Education</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="reference-tab" data-toggle="tab" href="#references" role="tab" aria-controls="references"
-                            aria-selected="false">References</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="interests-tab" data-toggle="tab" href="#interests" role="tab" aria-controls="interests"
-                            aria-selected="false">Interests</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-                            aria-selected="false">Contact</a>
-                        </li>
-                 </ul>
+<!-- Start FEATURES section -->
+<div id="features" class="offset">
+
+    <!--Start jumbotron    -->
+    <div class="jumbotron">
+        <div class="narrow">
+
+            <div class="col-12">
+                <h3 class="heading">Features</h3>
+                <div class="heading-underline"></div>
             </div>
-<!--MAIN BODY-->
 
-            <div class="col-8 col-md-9 col-lg-10" id="main" >
-                <div class="container-fluid" >
-                    <div class="row justify-content-between ">
-                        <div class="col-4">1</div>
-                        <div class="col-4">2</div>
-                        <div class="col-4">3</div>
+            <div class="row text-center">
+
+                <div class="col-md-4">
+                    <div class="feature">
+                        <i class="fas fa-play-circle fa-4x" data-fa-transform="shrink-3 up-5"></i>
+                        <!--font awesome icon *-->
+                        <h3>Lorem</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
-            </div>
-        </div>
+
+                <div class="col-md-4">
+                    <div class="feature">
+                        <i class="fas fa-sliders-h fa-4x" data-fa-transform="shrink-3 up-5"></i>
+                        <!--font awesome icon *-->
+                        <h3>Lorem</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt
+                            ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature">
+                        <i class="fab fa-wpforms fa-4x" data-fa-transform="shrink-3 up-5"></i>
+                        <!--font awesome icon *-->
+                        <h3>Contact</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt
+                            ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div> <!--End of row-->
+        </div> <!--End Narrow    -->
+    </div> <!--End Jumbotron    -->
+</div> <!-- End FEATURES section -->
 
 
-    </div>
-    <!--<footer class="foot">-->
-    <!--    <p>"Roger's "</p>-->
-    <!--    <a href="https://gmail.com"> Gmail</a>-->
-    <!--    <p>"."</p>-->
-    <!--    <p>-->
-    <!--        <a href="#">Back to top</a>-->
-    <!--    </p>-->
+<!-- Start RESOURCES section -->
+<div id="resources" class="offset">
+
+</div> <!-- End RESOURCES section -->
+
+<!-- Start CLIENTS section -->
+<div id="clients" class="offset">
+
+</div> <!-- End CLIENTS section -->
+
+<!-- Start CONTACT section -->
+<div id="contact" class="offset">
+
+</div> <!-- End CONTACT section -->
 
 
-    <!--</footer>-->
-    <div class="background">
-    </div>
-<!--Bootstrap Scripts-->
-<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
-<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+<!--Bootstrap/JQ Scripts-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -132,189 +153,9 @@
         crossorigin="anonymous"></script>
 
 
+<!--<script src="js/jquery-2.2.4.js"></script>-->
+<!--<script src="js/keys.js"></script>-->
 </body>
-<!--PIZZA REFERENCE-->
-<!--<!doctype html5>-->
-<!--<html>-->
-<!--<head>-->
-<!--    <meta charset="utf-8"/>-->
-<!--    <meta http-equiv="x-ua-compatible" content="ie=edge"/>-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1"/>-->
-<!--    <title>Order Pizza</title>-->
-<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"-->
-<!--          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">-->
-<!--    <link rel="stylesheet" href="css/order-pizza.css">-->
-<!--    <script src="https://kit.fontawesome.com/09bb65bc79.js" crossorigin="anonymous"></script>-->
-<!--</head>-->
-
-
-
-<!--&lt;!&ndash;NAV TABS&ndash;&gt;-->
-
-<!--<ul class="nav nav-tabs" id="myTab" role="tablist">-->
-<!--    <li class="nav-item">-->
-<!--        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"-->
-<!--           aria-selected="true"><span class="badge badge-pill badge-dark">1</span>Size and crust</a>-->
-<!--    </li>-->
-<!--    <li class="nav-item">-->
-<!--        <a class="nav-link" id="cheese-tab" data-toggle="tab" href="#cheese" role="tab" aria-controls="cheese"-->
-<!--           aria-selected="false"><span class="badge badge-pill badge-dark">2</span>Cheese and sauce</a>-->
-<!--    </li>-->
-<!--    <li class="nav-item">-->
-<!--        <a class="nav-link" id="topping-tab" data-toggle="tab" href="#topping" role="tab" aria-controls="topping"-->
-<!--           aria-selected="false"><span class="badge badge-pill badge-dark">3</span>Toppings</a>-->
-<!--    </li>-->
-<!--</ul>-->
-
-<!--&lt;!&ndash;TAB CONTENT&ndash;&gt;-->
-<!--<div class="tab-content">-->
-<!--    &lt;!&ndash;CHOOSE SIZE AND CRUST&ndash;&gt;-->
-<!--    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">-->
-<!--        <div class="card" style="width: 100vw;">-->
-<!--            <div class="card-header bg-primary text-white">-->
-<!--                <h5>Choose size and crust</h5>-->
-<!--            </div>-->
-<!--            <ul class="list-group list-group-flush">-->
-<!--                <li class="list-group-item">-->
-<!--                    <div class="card" style="width: 100%;">-->
-<!--                        <div class="card-header"> Hand Tossed</div>-->
-<!--                        <ul class="list-group list-group-flush">-->
-<!--                            <li class="list-group-item">Garlic Seasoned with a rich, buttery crust</li>-->
-<!--                            <li class="list-group-item"><input type="radio" id="small" name="size" value="small">-->
-<!--                                <label for="small">Small</label></li>-->
-<!--                            <li class="list-group-item"><input type="radio" id="medium" name="size" value="medium">-->
-<!--                                <label for="medium">Medium</label></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul class="list-group list-group-flush">-->
-<!--                <li class="list-group-item">-->
-<!--                    <div class="card" style="width: 100%;">-->
-<!--                        <div class="card-header">-->
-<!--                            Crispy Thin-->
-<!--                        </div>-->
-<!--                        <ul class="list-group list-group-flush">-->
-<!--                            <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio</li>-->
-<!--                            <li class="list-group-item"><input type="radio" id="small2" name="sizec" value="small">-->
-<!--                                <label for="small2">Medium</label></li>-->
-<!--                            <li class="list-group-item"><input type="radio" id="medium2" name="sizec" value="medium">-->
-<!--                                <label for="medium2">Large</label></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                    <div class="card-footer text-muted text-right">-->
-<!--                        <button type="submit" class="btn btn-primary">Next</button>-->
-<!--                    </div>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    &lt;!&ndash;  CHEESE AND SAUCE TAB &ndash;&gt;-->
-<!--    <div class="tab-pane fade" id="cheese" role="tabpanel" aria-labelledby="cheese-tab">-->
-<!--        <div class="card" style="width: 100vw;">-->
-<!--            <div class="card-header bg-primary text-white"><h5>Choose Cheese and Sauce</h5></div>-->
-
-<!--            <div class="card-body">-->
-
-<!--                <div class="card" style="width: 100%;">-->
-<!--                    <div class="card-header"> Cheese</div>-->
-<!--                    <div class="card-body">-->
-<!--                        <ul class="list-group list-group-flush">-->
-<!--                            <li class="list-group-item">How Much?-->
-<!--                                &lt;!&ndash;            dropdown&ndash;&gt;-->
-<!--                                <select class="form-control">-->
-<!--                                    <option value="1">Normal</option>-->
-<!--                                    <option value=“2">Light</option>-->
-<!--                                    <option value=“3”>Extra</option>-->
-<!--                                    <option value=“4">Double</option>-->
-<!--                                </select>-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </div> &lt;!&ndash; closing card 1 card body &ndash;&gt;-->
-<!--                </div> &lt;!&ndash; closing card 1 card  &ndash;&gt;-->
-
-<!--                <div class="card" style="width: 100%;">-->
-<!--                    <div class="card-header"> Sauce</div>-->
-
-<!--                    <div class="card-body">-->
-<!--                        <ul class="list-group list-group-flush">-->
-<!--                            <li class="list-group-item">What type?-->
-<!--                                &lt;!&ndash;            dropdown&ndash;&gt;-->
-<!--                                <select class="form-control">-->
-<!--                                    <option value="1">Tomato Sauce</option>-->
-<!--                                    <option value=“2">Marinara</option>-->
-<!--                                    <option value=“3”>BBQ</option>-->
-<!--                                    <option value=“4">Alfredo</option>-->
-<!--                                </select>-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </div> &lt;!&ndash; closing card 2 card body &ndash;&gt;-->
-<!--                </div> &lt;!&ndash; closing card 2 card  &ndash;&gt;-->
-<!--            </div> &lt;!&ndash; main card body closing &ndash;&gt;-->
-<!--            <div class="card-footer text-muted text-right">-->
-<!--                <div class="btn-group" role="group" aria-label="Basic example">-->
-<!--                    <button type="button" class="btn btn-primary" href="#home">Previous</button>-->
-<!--                    <button type="button" class="btn btn-primary border-left" href="#toppings">Next</button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div> &lt;!&ndash; closing main card &ndash;&gt;-->
-<!--    </div> &lt;!&ndash; closing tab pane &ndash;&gt;-->
-<!--    &lt;!&ndash;   TOPPINGS TAB &ndash;&gt;-->
-<!--    <div class="tab-pane fade" id="topping" role="tabpanel" aria-labelledby="topping-tab">-->
-<!--        <div class="card" style="width: 100vw;">-->
-<!--            <div class="card-header bg-primary text-white">-->
-<!--                <h5>Choose toppings</h5>-->
-<!--            </div>-->
-<!--            <ul class="list-group list-group-flush">-->
-<!--                <li class="list-group-item">-->
-<!--                    <div class="card" style="width: 100%;">-->
-<!--                        <div class="card-header"> Choose Meats-->
-<!--                        </div>-->
-<!--                        <ul class="list-group list-group-flush">-->
-<!--                            <li class="list-group-item"><input type="checkbox" id="meat1" name="meat" value="meat">-->
-<!--                                <label for="meat1">Beef</label></li>-->
-<!--                            <li class="list-group-item"><input type="checkbox" id="meat2" name="meat" value="meat">-->
-<!--                                <label for="meat2">Ham</label></li>-->
-<!--                            <li class="list-group-item"><input type="checkbox" id="meat3" name="meat" value="meat">-->
-<!--                                <label for="meat3">Philly</label></li>-->
-<!--                            <li class="list-group-item"><input type="checkbox" id="meat4" name="meat" value="meat">-->
-<!--                                <label for="meat4">Bacon</label></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul class="list-group list-group-flush">-->
-<!--                <li class="list-group-item">-->
-<!--                    <div class="card" style="width: 100%;">-->
-<!--                        <div class="card-header"> Choose Non-Meats-->
-<!--                        </div>-->
-<!--                        <ul class="list-group list-group-flush">-->
-<!--                            <li class="list-group-item"><input type="checkbox" id="nmeat1" name="nmeat" value="beef">-->
-<!--                                <label for="nmeat1">Green Peppers</label></li>-->
-<!--                            <li class="list-group-item"><input type="checkbox" id="nmeat2" name="nmeat" value="ham">-->
-<!--                                <label for="nmeat2">Mushrooms</label></li>-->
-<!--                            <li class="list-group-item"><input type="checkbox" id="nmeat3" name="nmeat" value="philly">-->
-<!--                                <label for="nmeat3">Onions</label></li>-->
-<!--                            <li class="list-group-item"><input type="checkbox" id="nmeat4" name="nmeat" value="bacon">-->
-<!--                                <label for="nmeat4">Jalapeno Pepper</label></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                    <div class="card-footer text-muted text-right">-->
-<!--                        <button type="submit" class="btn btn-primary">Submit</button>-->
-<!--                    </div>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div> &lt;!&ndash; closing ALL TAB CONTENT &ndash;&gt;-->
-
-
-
-
-
-
-
-
-
-
 
 
 <!--</body>-->
