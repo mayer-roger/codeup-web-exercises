@@ -155,7 +155,7 @@ const colors = ['red','orange','red','blue','blue','green','red'];
 // TO DO: Count the number of times a color appears in this Array. Hint:
 // your initial value should be an empty object.
 const colorCount = colors.reduce(function(colorCount, color){
-  if (typeof (colorCount[color] === "undefined"){
+  if (typeof (colorCount[color] === "undefined")) {
       colorCount[color] = 1;
   } else {
       colorCount[color] += 1;
@@ -177,7 +177,7 @@ const oneLine = lyrics.reduce(function(currentString, word){
 // Bonus: Create an Array of all the unique fur colors!
 //look up js set
 
-var hamsters = [
+const hamsters = [
     {
         name: "Hamtaro",
         heightInMM: 86,
