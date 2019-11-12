@@ -19,13 +19,25 @@
     //     }
     // }
     // fizzBuzz(100);
-
-
-
     //fizz buzz shorter way
     // for(var i=0; i<100;)console.log((++i%3 ? '':'fizz')+(i%5?'':'buzz')||i);
-    //function to return random boolean
 
+    //loop that returns all even numbers of an array
+    var num = [1,2,3,4,5,6,7,8,9];
+    var evens = [];
+    function evenArr(arr) {
+        arr.forEach(function (num) {
+            if (num % 2 === 0) {
+                evens.push(num);
+            }
+        });
+        return evens;
+    }
+
+    console.log(evenArr(num));
+
+
+    //function to return random boolean
     function randoBoo() {
         return Boolean(Math.floor(Math.random() * 2));
     }
