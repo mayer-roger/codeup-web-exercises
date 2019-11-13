@@ -21,5 +21,8 @@ function getLastCommit (user){
             console.log(`${user} last commit was on ` + filter[0].created_at);
         });
 }
+
 getLastCommit('rmayer1984');
+// test
+
 
