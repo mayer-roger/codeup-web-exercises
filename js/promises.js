@@ -25,4 +25,5 @@ function getLastCommit (user){
 getLastCommit('rmayer1984');
 
 
+//test
 
