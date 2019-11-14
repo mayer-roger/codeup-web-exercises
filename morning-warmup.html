@@ -22,6 +22,21 @@
     //fizz buzz shorter way
     // for(var i=0; i<100;)console.log((++i%3 ? '':'fizz')+(i%5?'':'buzz')||i);
 
+    //promise that resolves if function takes in an even number
+let randomNum = Math.floor(Math.random() *10)+ 1; //generates random number between 1 and 10
+const evenPromise = (num) => {
+    return new Promise((resolve, reject) =>{
+        if (num % 2 ===0) {
+            resolve(`${num} is an even number`);
+        } else {
+            reject(`${num} is not an even muber`);
+        }
+    });
+};
+ evenPromise(randomNum)
+     .then(message => console.log(message))  //resolve
+     .catch(message => console.log(message));   //reject
+
     //loop that returns all even numbers of an array
     var num = [1,2,3,4,5,6,7,8,9];
     var evens = [];
@@ -117,7 +132,7 @@
         }
     }
 
-    var randomNum = Math.floor(Math.random() *10)+ 1; //generates random number between 1 and 10
+    // var randomNum = Math.floor(Math.random() *10)+ 1; //generates random number between 1 and 10
     console.log(numAsWordSolution(randomNum));
 
 
