@@ -22,6 +22,12 @@
     //fizz buzz shorter way
     // for(var i=0; i<100;)console.log((++i%3 ? '':'fizz')+(i%5?'':'buzz')||i);
 //promise that returns hello
+
+    //function that returns Pi to 6 decimal places as a number
+    const pi = () => parseFloat(Math.PI.toFixed(6));
+    console.log(pi());
+
+    //hello promise
     const hello = (text) => {
         return new Promise((resolve, reject) =>{
                 resolve('hello');
