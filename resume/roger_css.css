@@ -5,8 +5,8 @@
 
 /*--- Bootstrap Mobile Gutter Fix --*/
 .row, .container-fluid {
-  margin-left: 0px!important;
-  margin-right: 0px!important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 /*--- Fix for Fixed Navbar jumping on scroll --*/
@@ -86,6 +86,12 @@ body{
   height: 4rem;
   margin-top: -4rem;
 }
+p.lead {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
 
 /*Navigation*/
 
@@ -116,7 +122,7 @@ body{
 
 /*----- Landing Page -----*/
 .home-inner{
-  background-image: url("../img/IMG_0760.jpg");
+  background-image: url("../img/backgroundpaint.JPG");
   opacity: 75%;
 }
 .caption{
@@ -129,7 +135,7 @@ body{
   text-transform: uppercase;
 }
 .caption h1 {
-  font-size: 3.8rem;
+  font-size: 4.4rem;
   font-weight: 700;
   letter-spacing: .3rem;
   text-shadow: .1rem .1rem .8rem black;
@@ -146,6 +152,12 @@ body{
   padding: .6rem 1.3rem;
   font-size: 1.1rem;
 }
+/*============= RESUME SECTION =============*/
+/*.resume-window-display{*/
+/*  display: none;*/
+
+
+/*}*/
 
 /*============= COURSE SECTION =============*/
 
@@ -182,39 +194,177 @@ body{
   border-radius: 0;
 }
 
-h3.heading{
-  font-size: 1.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 1.9rem;
-}
-.heading-underline{
-  width: 3rem;
-  height: .2rem;
-  background-color: #1EBBA3;
-  margin: 0 auto 2rem;
-}
+/*h3.heading{*/
+/*  font-size: 1.9rem;*/
+/*  font-weight: 700;*/
+/*  text-transform: uppercase;*/
+/*  margin-bottom: 1.9rem;*/
+/*}*/
+/*.heading-underline{*/
+/*  width: 3rem;*/
+/*  height: .2rem;*/
+/*  background-color: #1EBBA3;*/
+/*  margin: 0 auto 2rem;*/
+/*}*/
 
-.feature .fas {
-  color: #1EBBA3;
-}
-.feature .fab {
-  color: #1EBBA3;
-}
+/*.feature .fas {*/
+/*  color: #1EBBA3;*/
+/*}*/
+/*.feature .fab {*/
+/*  color: #1EBBA3;*/
 
-.feature h3 {
-  font-size: 1.3rem;
-  text-transform: uppercase;
-  padding-bottom: .4rem;
-}
-.feature p{
-  font-size: 1.1rem;
+/*}*/
 
-}
+/*.feature h3 {*/
+/*  font-size: 1.3rem;*/
+/*  text-transform: uppercase;*/
+/*  padding-bottom: .4rem;*/
+/*}*/
+/*.feature p{*/
+/*  font-size: 1.1rem;*/
+
+/*}*/
 /*============= RESOURCES SECTION =============*/
+/*.fixed{
+ background-image: ;  NEED IMAGE
+  z-index: -1;
+}*/
+.dark{
+  background-color: rgba(0,0,0,0.75);
+  color: white;
+  padding: 7rem 2rem;
+}
+
+.fixed-background h3 {
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+}
+
+/*============= CLIENTS SECTION =============*/
+.clients img {
+  width: 100%;
+  border-radius: 50%;
+}
+#blockquote .svg-inline--fa{
+  color: #1EBBA3;
+  margin: 1rem;
+}
+.clients-hr{
+  border-top: .05rem solid #1ebba3;
+}
+/*============= CONTACT SECTION =============*/
+footer{
+  background-color: #40474e;
+  color: white;
+  padding: 2rem 0 2rem;
+
+}
+footer img{
+  height: 3rem;
+  margin: 1.5rem 0;
+}
+footer a {
+  color: white;
+}
+footer svg.svg-inline--fa{
+  font-size: 1.6rem;
+  margin:1.2rem .5rem 0 0;
+}
+footer svg.svg-inline--fa:hover{
+  color: #1ebba3 !important;
+}
+
+.social-icons .inner-social-icons {
+  display: inline-block;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: #495057;
+  color: #fff !important;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 3.5rem;
+  margin-right: 1rem;
+}
+/*============= MEDIA QUERIES SECTION =============*/
+@media (max-width: 767px) {
+  .caption h1{
+    font-size: 2.3rem;
+    letter-spacing: .15rem;
+    padding-bottom: .5rem;
+  }
+  .caption h3{
+    font-size: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+  .btn-lg{
+    padding: .5rem 1rem;
+    font-size: 1rem;
+  }
+  .narrow h1{
+    font-size: 1.5rem;
+  }
+  .clients img {
+    max-width: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/*POP UP WINDOW*/
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
 
 
 
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
 /*============ BOOTSTRAP BREAK POINTS:
 
 Extra small (xs) devices (portrait phones, less than 576px)
