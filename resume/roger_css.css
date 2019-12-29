@@ -159,8 +159,11 @@ p.lead {
 
 /*}*/
 
-/*============= COURSE SECTION =============*/
-
+/*============= PROJECTS SECTION =============*/
+#projects{
+  margin-top: 1.5rem;
+  /*height: 80%;*/
+}
 .narrow {
   width: 75%;
   margin: 1.5rem auto;
@@ -187,7 +190,7 @@ p.lead {
   color: white;
 }
 
-/*============= FEATURES SECTION =============*/
+/*============= CLIENTS SECTION =============*/
 .jumbotron {
   margin: 0;
   padding: 2rem 0 3.5rem;
@@ -224,20 +227,23 @@ p.lead {
 /*  font-size: 1.1rem;*/
 
 /*}*/
-/*============= RESOURCES SECTION =============*/
+/*============= skills SECTION =============*/
 /*.fixed{
  background-image: ;  NEED IMAGE
   z-index: -1;
 }*/
 .dark{
+  margin-top: 2.5rem;
   background-color: rgba(0,0,0,0.75);
   color: white;
-  padding: 7rem 2rem;
+  padding: 2rem 2rem;
+
 }
 
 .fixed-background h3 {
   margin-bottom: 2rem;
   margin-top: 1.5rem;
+
 }
 
 /*============= CLIENTS SECTION =============*/

@@ -35,11 +35,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#projects">Projects</a>
                 </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#features">Features</a>-->
+<!--                </li>-->
                 <li class="nav-item">
-                    <a class="nav-link" href="#features">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#resources">Resources</a>
+                    <a class="nav-link" href="#skills">Skills</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#clients">Clients</a>
@@ -62,13 +62,14 @@
     <div class="caption text-center">
         <h1>Welcome</h1>
         <h3>Roger Mayer</h3>
-        <a class="btn btn-outline-light btn-lg" onclick="myFunction()" id="resume-button">Resume</a>
+<!--        <a class="btn btn-outline-light btn-lg" onclick="myFunction()" id="resume-button">Resume</a>-->
 <!--    <div id="resume-window">-->
 <!--        <span id="resume-close">&times;</span>-->
 <!--&lt;!&ndash;            <embed id="resume-pdf" src="resume_temp_pdf.pdf" height="200px" width="200px" type="">&ndash;&gt;-->
 <!--        <h1>TEST</h1>-->
 <!--        </div>-->
-        <div class="popup" onclick="myFunction()">Click me!
+        <div class="popup">
+            <a class="btn btn-outline-light btn-lg" onclick="myFunction()" id="resume-button">Resume</a>
             <div class="popuptext" id="myPopup">Popup text...
                 <embed id="resume-pdf" src="resume_temp_pdf.pdf" height="200px" width="200px" type="">
 
@@ -86,7 +87,7 @@
     <div class="col-12 narrow text-center">
         <h1>Projects</h1>
         <p class="lead">Click here to see a few projects from my Codeup experience.</p>
-        <a class="btn btn-secondary btn-md" href="#" target="_blank">Projects</a>
+        <a class="btn btn-secondary btn-md" href="#" onclick="openModal();currentSlide(1)">Projects</a>
     </div>
 </div> <!--End PROJECTS section-->
 
@@ -114,22 +115,22 @@
     <span class="close cursor" onclick="closeModal()">&times;</span>
 
         <div class="mySlides">
-            <div class="numbertext slideimg">1 / 4</div>
+            <div class="numbertext slideimg">1 / 4</div> <!--change text later-->
+            <img src="../img/IMG_0719.jpg" style="width:100%" >
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext slideimg">2 / 4</div> <!--change text later-->
             <img src="../img/IMG_0719.jpg" style="width:100%">
         </div>
 
         <div class="mySlides">
-            <div class="numbertext slideimg">2 / 4</div>
+            <div class="numbertext slideimg">3 / 4</div> <!--change text later-->
             <img src="../img/IMG_0719.jpg" style="width:100%">
         </div>
 
         <div class="mySlides">
-            <div class="numbertext slideimg">3 / 4</div>
-            <img src="../img/IMG_0719.jpg" style="width:100%">
-        </div>
-
-        <div class="mySlides">
-            <div class="numbertext slideimg">4 / 4</div>
+            <div class="numbertext slideimg">4 / 4</div> <!--change text later-->
             <img src="../img/IMG_0719.jpg" style="width:100%">
         </div>
 
@@ -139,14 +140,14 @@
 
         <!-- Caption text -->
         <div class="caption-container">
-            <p id="caption"></p>
+            <p id="caption">TEST</p>
         </div>
 
         <!-- Thumbnail image controls -->
 
             <div class="row lightrow">
         <div class="column">
-            <img class="demo thumbnailimg" src="../img/IMG_0719.jpg" onclick="currentSlide(1)" alt="Nature">
+            <img class="demo thumbnailimg" src="../img/IMG_0719.jpg" onclick="currentSlide(1)" alt="Weather Map API">
         </div>
 
         <div class="column">
@@ -167,17 +168,40 @@
 </div>
 
 
-<!-- Start RESOURCES section -->
-<div id="resources" class="offset">
+<!-- Start skills section -->
+<div id="skills" class="offset">
     <div class="fixed-background">
         <div class="row dark text-center">
 
             <div class="col-12">
-                <h3 class="heading">Resources</h3>
+                <h3 class="heading">Skills</h3>
                 <div class="heading-underline"></div>
 
             </div>
 
+            <div class="col-md-4">
+                <h3>HTML 5</h3>
+                <div class="feature">
+                    <i class="fas fa-code fa-3x"></i>
+                </div>
+                <p class="lead">Built with HTML 5</p>
+            </div>
+
+            <div class="col-md-4">
+                <h3>BOOTSTRAP 4</h3>
+                <div class="feature">
+                    <i class="fas fa-bold fa-3x"></i>
+                </div>
+                <p class="lead">Built with Bootstrap</p>
+            </div>
+
+            <div class="col-md-4">
+                <h3>CSS 3</h3>
+                <div class="feature">
+                    <i class="fab fa-css3 fa-3x"></i>
+                </div>
+                <p class="lead">Built with CSS</p>
+            </div>
             <div class="col-md-4">
                 <h3>HTML 5</h3>
                 <div class="feature">
@@ -210,7 +234,7 @@
         </div>
     </div> <!-- End fixed background -->
 
-</div> <!-- End RESOURCES section -->
+</div> <!-- End skills section -->
 
 <!-- Start CLIENTS section -->
 <div id="clients" class="offset">
@@ -270,9 +294,9 @@
                 <br>
                 <a href="mailto:rmayer1984@gmail.com">rmayer1984@gmail.com</a></p>
 
+                <a class="inner-social-icons" href="https://github.com/roger-mayer" target="_blank"><i class="fab fa-github"></i></a>
                 <a class="inner-social-icons" href="https://www.linkedin.com/in/roger-mayer" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 <a class="inner-social-icons" href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a>
-                <a class="inner-social-icons" href="https://github.com/roger-mayer" target="_blank"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </footer>
@@ -322,3 +346,7 @@
 </body>
 </html>
 
+notes:
+fix margins
+pop up resume
+click out navbar drop down
