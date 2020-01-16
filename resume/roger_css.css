@@ -324,6 +324,7 @@ footer svg.svg-inline--fa:hover{
   display: inline-block;
   cursor: pointer;
 
+
 }
 
 /* The actual popup (appears on top) */
@@ -337,6 +338,7 @@ footer svg.svg-inline--fa:hover{
   padding: 8px 0;
   position: absolute;
   z-index: 1;
+  margin: auto;
 
 
 
