@@ -115,3 +115,11 @@ function isDirty(){
 }
 
 console.log(isDirty(cars));
+
+const people = ["Roger", "Katie", "Riley", "Asher"];
+
+function family(person) {
+    console.log(person);
+}
+people.forEach(family);
+
