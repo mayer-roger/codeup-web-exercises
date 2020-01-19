@@ -104,4 +104,5 @@ function subtractFive(num) {
        console.log(i);
     }
 }
-subtractFive(100);
+
+console.log(subtractFive(100));
