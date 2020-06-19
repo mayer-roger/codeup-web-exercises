@@ -112,21 +112,23 @@
         <button id="submit">Search</button>
     </div>
 </div>
+<div class="container">
 
-<!-- The HTML element that serves as the DarkSky container -->
-<div>
+    <!-- The HTML element that serves as the DarkSky container -->
+    <div>
 
-    <div id="output">
-        <div id="todayWeather"></div>
-        <div id="tmrwWeather"></div>
-        <div id="dayAfterWeather"></div>
-        <div class="d-none d-xl-block" id="dayFourWeather"></div>
-        <div class="d-none d-xl-block" id="dayFiveWeather"></div>
+        <div id="output">
+            <div id="todayWeather"></div>
+            <div id="tmrwWeather"></div>
+            <div id="dayAfterWeather"></div>
+            <div class="d-none d-xl-block" id="dayFourWeather"></div>
+            <div class="d-none d-xl-block" id="dayFiveWeather"></div>
+        </div>
+        <!--    <br>-->
+        <!-- The HTML element that serves as the Mapbox container -->
+        <div id="local"></div>
+        <div id='map'></div>
     </div>
-<!--    <br>-->
-    <!-- The HTML element that serves as the Mapbox container -->
-    <div id="local"></div>
-    <div id='map'></div>
 </div>
 
 
@@ -271,7 +273,7 @@
         }
     });
 
-   // get weather function !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // get weather function !!!!!!!!!!!!!!!!!!!!!!!!!!!!
     function getWeather() {
         marker.on("dragend", onDragEnd);
         var lngLat = marker.getLngLat();

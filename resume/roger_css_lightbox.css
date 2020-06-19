@@ -8,12 +8,14 @@
   clear: both;
 }
 .lightrow{
-  justify-content: space-between !important;
+  /*justify-content: space-between !important;*/
+  margin: auto !important;
 }
+
 /* Create four equal columns that floats next to eachother */
 .column {
-
-  /*float: left;*/
+  /*margin: auto !important;*/
+  /*float: right;*/
   width: 25%;
 }
 
@@ -32,6 +34,7 @@
 }
 
 /* Modal Content */
+/*FIX HEIGHT!! */
 .modal-content {
   position: relative;
   background-color: #fefefe;
