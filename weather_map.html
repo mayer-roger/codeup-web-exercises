@@ -28,6 +28,7 @@
             color: white;
         }
 
+
         button {
             border: 2px solid #7DC5D3;
             border-radius: 5%;
@@ -51,10 +52,8 @@
         #map {
             display: flex;
             width: 95%;
-            height: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 20px;
+            height: 580px;
+            margin: 10px auto;
         }
 
         #output {
@@ -62,7 +61,7 @@
             justify-content: space-around;
             height: 100%;
             width: 95%;
-            padding-bottom: 10px;
+            padding-bottom: 3em;
             margin-left: auto;
             margin-right: auto;
         }
@@ -80,6 +79,8 @@
             /*padding-bottom: 5px;*/
         }
 
+
+
         /*class selectors*/
         .header {
             height: 125px;
@@ -87,6 +88,8 @@
 
         .card {
             height: 100%;
+            margin: 1em;
+            /*padding-bottom: 1em;*/
 
         }
 
@@ -94,7 +97,7 @@
             display: flex;
             justify-items: center;
             justify-content: center;
-            height: 50px;
+            height: 30px;
             background-color: #3B94D9;
             color: white;
             font-size: large;
@@ -105,6 +108,7 @@
 </head>
 <body>
 <!--header-->
+<div class="container">
 <div class="header d-flex justify-content-around align-items-center">
     <h1>Weather or Not</h1>
     <div>
@@ -112,11 +116,9 @@
         <button id="submit">Search</button>
     </div>
 </div>
-<div class="container">
 
     <!-- The HTML element that serves as the DarkSky container -->
     <div>
-
         <div id="output">
             <div id="todayWeather"></div>
             <div id="tmrwWeather"></div>
