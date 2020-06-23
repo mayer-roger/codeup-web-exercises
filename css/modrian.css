@@ -3,14 +3,14 @@
 }
 body{
   text-align: center;
+  margin-top: 2em;
 }
 main {
-  background: lightgreen;
   display: inline-grid;   /* add grid . inline grid to make area of element */
   grid-template-rows: 2fr 1fr 2fr 2fr 1fr; /* define rows */
   grid-template-columns: 1fr 1fr 2fr; /* define columns */
-  width: 600px;
-  height: 625px;
+  width: 700px;
+  height: 730px;
   grid-gap: .5em;
   background-color: black;
   border: .5em solid black;
